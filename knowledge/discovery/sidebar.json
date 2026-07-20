@@ -1,0 +1,122 @@
+[
+  {
+    "text": "Create Roles",
+    "href": "https://qa.university.gyansetu.ai/school/create-roles",
+    "tag": "a",
+    "visible": true
+  },
+  {
+    "text": "Administration",
+    "href": "",
+    "tag": "button",
+    "visible": true
+  },
+  {
+    "text": "TimeTable Management",
+    "href": "",
+    "tag": "button",
+    "visible": true
+  },
+  {
+    "text": "Attendance",
+    "href": "",
+    "tag": "button",
+    "visible": true
+  },
+  {
+    "text": "Student Management",
+    "href": "",
+    "tag": "button",
+    "visible": true
+  },
+  {
+    "text": "Faculty Management",
+    "href": "",
+    "tag": "button",
+    "visible": true
+  },
+  {
+    "text": "Certificate Management",
+    "href": "",
+    "tag": "button",
+    "visible": true
+  },
+  {
+    "text": "Transport Management",
+    "href": "",
+    "tag": "button",
+    "visible": true
+  },
+  {
+    "text": "Financial Management",
+    "href": "",
+    "tag": "button",
+    "visible": true
+  },
+  {
+    "text": "HR Management",
+    "href": "",
+    "tag": "button",
+    "visible": true
+  },
+  {
+    "text": "Analytics",
+    "href": "https://qa.university.gyansetu.ai/analytics",
+    "tag": "a",
+    "visible": true
+  },
+  {
+    "text": "Messenger",
+    "href": "https://qa.university.gyansetu.ai/messenger",
+    "tag": "a",
+    "visible": true
+  },
+  {
+    "text": "CRM",
+    "href": "https://rftcrmfront-production.up.railway.app/",
+    "tag": "a",
+    "visible": true
+  },
+  {
+    "text": "Hostel Management",
+    "href": "https://www.hostel.gyansetu.ai/login",
+    "tag": "a",
+    "visible": true
+  },
+  {
+    "text": "Student Distribution",
+    "href": "",
+    "tag": "button",
+    "visible": true
+  },
+  {
+    "text": "Teachers",
+    "href": "",
+    "tag": "button",
+    "visible": true
+  },
+  {
+    "text": "Financial",
+    "href": "",
+    "tag": "button",
+    "visible": true
+  },
+  {
+    "text": "Transport",
+    "href": "",
+    "tag": "button",
+    "visible": true
+  },
+  {
+    "text": "Activity",
+    "href": "",
+    "tag": "button",
+    "visible": true
+  },
+  {
+    "text": "Report Card",
+    "href": "",
+    "tag": "button",
+    "visible": true
+  }
+]

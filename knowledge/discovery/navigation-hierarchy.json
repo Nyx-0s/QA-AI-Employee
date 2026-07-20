@@ -1,0 +1,385 @@
+[
+  {
+    "module": "Administration",
+    "items": [
+      {
+        "text": "Academic session",
+        "href": "https://qa.university.gyansetu.ai/school/administration/academic-session",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "University Dashboard",
+        "href": "https://qa.university.gyansetu.ai/school/university-dashboard",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "University Hierarchy",
+        "href": "https://qa.university.gyansetu.ai/school/university-hierarchy",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Combination Templates",
+        "href": "https://qa.university.gyansetu.ai/school/administration/combination-templates",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Syllabus Management",
+        "href": "https://qa.university.gyansetu.ai/school/syllabus-management",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Selection Report",
+        "href": "https://qa.university.gyansetu.ai/school/administration/subject-buckets/selections",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Institute Gallery",
+        "href": "https://qa.university.gyansetu.ai/school/gallery",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "E-Library",
+        "href": "https://qa.university.gyansetu.ai/school/e-library",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Notifications",
+        "href": "https://qa.university.gyansetu.ai/notifications",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Circular / Notice",
+        "href": "https://qa.university.gyansetu.ai/school/faculty-management/circular-messages",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Students bulk edit",
+        "href": "https://qa.university.gyansetu.ai/school/students/bulk-edit",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Faculty bulk edit",
+        "href": "https://qa.university.gyansetu.ai/school/faculty-management/bulk-edit",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Form Field Management",
+        "href": "https://qa.university.gyansetu.ai/school/form-settings",
+        "tag": "a",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "module": "TimeTable Management",
+    "items": [
+      {
+        "text": "Holiday Management",
+        "href": "https://qa.university.gyansetu.ai/school/administration/holiday-management",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Manual Timetable",
+        "href": "https://qa.university.gyansetu.ai/school/administration/timetable",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "AI Timetable",
+        "href": "https://qa.university.gyansetu.ai/school/administration/ai-timetable",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Room Management",
+        "href": "https://qa.university.gyansetu.ai/school/administration/room-management",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Timetable Reports",
+        "href": "https://qa.university.gyansetu.ai/school/administration/timetable-reports",
+        "tag": "a",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "module": "Attendance",
+    "items": [
+      {
+        "text": "Student Attendance",
+        "href": "https://qa.university.gyansetu.ai/school/student-attendance",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Faculty Attendance",
+        "href": "https://qa.university.gyansetu.ai/school/teacher-attendance",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Bus Attendance",
+        "href": "https://qa.university.gyansetu.ai/school/transport-management/bus-attendance",
+        "tag": "a",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "module": "Student Management",
+    "items": [
+      {
+        "text": "Registration",
+        "href": "https://qa.university.gyansetu.ai/school/students/register-student",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "All Registered Students",
+        "href": "https://qa.university.gyansetu.ai/school/students/register/allStudents",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Admission",
+        "href": "https://qa.university.gyansetu.ai/school/students/register/addNew",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Manage Student",
+        "href": "https://qa.university.gyansetu.ai/school/students/manage-students",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Enquiry Form",
+        "href": "https://qa.university.gyansetu.ai/school/students/enquiry-form",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Enquiry Responses",
+        "href": "https://qa.university.gyansetu.ai/school/students/enquiry-form/responses",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Gate pass",
+        "href": "https://qa.university.gyansetu.ai/school/gatepass",
+        "tag": "a",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "module": "Faculty Management",
+    "items": [
+      {
+        "text": "Staff directory",
+        "href": "https://qa.university.gyansetu.ai/school/faculty-management/teacher-directory",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Staff Categories",
+        "href": "https://qa.university.gyansetu.ai/school/administration/staff-categories",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Faculty → session",
+        "href": "https://qa.university.gyansetu.ai/bulk-promote-faculty-session",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Circular / Notice",
+        "href": "https://qa.university.gyansetu.ai/school/faculty-management/circular-messages",
+        "tag": "a",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "module": "Certificate Management",
+    "items": [
+      {
+        "text": "Transfer Certificates",
+        "href": "https://qa.university.gyansetu.ai/school/students/tc-form",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Report Cards",
+        "href": "https://qa.university.gyansetu.ai/school/report-cards",
+        "tag": "a",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "module": "Transport Management",
+    "items": [
+      {
+        "text": "Driver Directory",
+        "href": "https://qa.university.gyansetu.ai/school/transport-management/driver-directory",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Vehicle Management",
+        "href": "https://qa.university.gyansetu.ai/school/transport-management/vehicle-management",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Transport Routes",
+        "href": "https://qa.university.gyansetu.ai/school/transport-management/transport-routes",
+        "tag": "a",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "module": "Financial Management",
+    "items": [
+      {
+        "text": "Fees Management",
+        "href": "https://qa.university.gyansetu.ai/fees-management",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Collect Fees",
+        "href": "https://qa.university.gyansetu.ai/fees-management?tab=student-fee-payment",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Vendor Management System",
+        "href": "https://qa.university.gyansetu.ai/finance/dashboard",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Setup",
+        "href": "https://qa.university.gyansetu.ai/finance/college-onboarding",
+        "tag": "a",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "module": "HR Management",
+    "items": [
+      {
+        "text": "Salary Operations",
+        "href": "https://qa.university.gyansetu.ai/school/salary/manage",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Reg. approval",
+        "href": "https://qa.university.gyansetu.ai/school/faculty-regularization-approval",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Salary Configuration",
+        "href": "",
+        "tag": "button",
+        "visible": true
+      },
+      {
+        "text": "Payroll",
+        "href": "",
+        "tag": "button",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "module": "Student Distribution",
+    "items": []
+  },
+  {
+    "module": "Teachers",
+    "items": []
+  },
+  {
+    "module": "Financial",
+    "items": [
+      {
+        "text": "Fees Management",
+        "href": "https://qa.university.gyansetu.ai/fees-management",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Collect Fees",
+        "href": "https://qa.university.gyansetu.ai/fees-management?tab=student-fee-payment",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Vendor Management System",
+        "href": "https://qa.university.gyansetu.ai/finance/dashboard",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Setup",
+        "href": "https://qa.university.gyansetu.ai/finance/college-onboarding",
+        "tag": "a",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "module": "Transport",
+    "items": [
+      {
+        "text": "Driver Directory",
+        "href": "https://qa.university.gyansetu.ai/school/transport-management/driver-directory",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Vehicle Management",
+        "href": "https://qa.university.gyansetu.ai/school/transport-management/vehicle-management",
+        "tag": "a",
+        "visible": true
+      },
+      {
+        "text": "Transport Routes",
+        "href": "https://qa.university.gyansetu.ai/school/transport-management/transport-routes",
+        "tag": "a",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "module": "Activity",
+    "items": []
+  },
+  {
+    "module": "Report Card",
+    "items": []
+  }
+]

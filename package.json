@@ -1,58 +1,40 @@
 {
   "name": "rft-aqw-community-edition",
   "version": "1.0.0",
+  "description": "RFT Autonomous QA Workforce Community Edition",
   "private": true,
 
   "scripts": {
+    "dev": "tsx src/index.ts",
+    "cli": "tsx src/cli/index.ts",
 
-    "dev":"tsx src/index.ts",
+    "auth": "tsx src/cli/index.ts auth",
+    "discover": "tsx src/cli/index.ts discover",
+    "inventory": "tsx src/cli/index.ts inventory",
+    "crawl": "tsx src/cli/index.ts crawl",
+    "knowledge": "tsx src/cli/index.ts knowledge",
+    "report": "tsx src/cli/index.ts report",
 
-    "build":"tsc",
-
-    "discover":"tsx src/index.ts discover",
-
-    "inventory":"tsx src/index.ts inventory",
-
-    "auth":"tsx src/index.ts auth",
-
-    "run":"tsx src/index.ts run"
-
+    "build": "tsc"
   },
 
   "dependencies": {
-
-    "@playwright/test":"latest",
-
-    "chalk":"latest",
-
-    "commander":"latest",
-
-    "dotenv":"latest",
-
-    "fs-extra":"latest",
-
-    "uuid":"latest",
-
-    "winston":"latest",
-
-    "zod":"latest"
-
+    "@playwright/test": "^1.54.2",
+    "chalk": "^5.6.0",
+    "commander": "^14.0.0",
+    "dotenv": "^17.2.1",
+    "fs-extra": "^11.3.1",
+    "uuid": "^13.0.0",
+    "winston": "^3.17.0",
+    "zod": "^4.0.14"
   },
 
   "devDependencies": {
-
-    "@types/node":"latest",
-
-    "cross-env":"latest",
-
-    "tsx":"latest",
-
-    "typescript":"latest",
-
-    "eslint":"latest",
-
-    "prettier":"latest"
-
+    "@types/node": "^24.0.15",
+    "cross-env": "^10.0.0",
+    "eslint": "^9.34.0",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2"
   }
-
 }
