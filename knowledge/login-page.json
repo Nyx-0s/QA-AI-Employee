@@ -1,0 +1,37 @@
+{
+    "title": "Gyansetu One World AI",
+    "url": "https://qa.university.gyansetu.ai/auth/school-login",
+    "inputs": [
+        {
+            "type": "email",
+            "id": "email",
+            "name": "email",
+            "placeholder": "Enter your email",
+            "class": "form-input"
+        },
+        {
+            "type": "password",
+            "id": "password",
+            "name": "password",
+            "placeholder": "Enter your password",
+            "class": "form-input"
+        }
+    ],
+    "buttons": [
+        {
+            "text": "Light",
+            "id": "",
+            "class": "theme-toggle "
+        },
+        {
+            "text": "",
+            "id": "",
+            "class": "password-toggle"
+        },
+        {
+            "text": "Sign In",
+            "id": "",
+            "class": "auth-button"
+        }
+    ]
+}
