@@ -187,19 +187,44 @@ export class QAEngine {
       const durationMs =
         finishedAt.getTime() - startedAt.getTime();
 
+      const businessTests = results.flatMap(
+        result => result.businessTests ?? []
+      );
+
+      const businessCounts = businessTests.reduce<
+        Record<string, number>
+      >((counts, test) => {
+        counts[test.status] =
+          (counts[test.status] ?? 0) + 1;
+
+        return counts;
+      }, {});
+
       console.log("");
       console.log("========================================");
       console.log("           QA RUN COMPLETE");
       console.log("========================================");
       console.log("");
-      console.log(`Total tested : ${results.length}`);
-      console.log(`Passed       : ${passed}`);
-      console.log(`Failed       : ${failed}`);
-      console.log(`Skipped      : ${skipped}`);
-      console.log(`Duration     : ${durationMs} ms`);
+
+      console.log(`Pages tested        : ${results.length}`);
+      console.log(`Pages passed        : ${passed}`);
+      console.log(`Pages failed        : ${failed}`);
+      console.log(`Duplicate skipped   : ${skipped}`);
       console.log("");
-      console.log(`JSON report  : ${evidencePath}`);
-      console.log(`HTML report  : ${reportPath}`);
+
+      console.log(`Business tests      : ${businessTests.length}`);
+      console.log(`Business passed     : ${businessCounts.PASS ?? 0}`);
+      console.log(`Business failed     : ${businessCounts.FAIL ?? 0}`);
+      console.log(`Business warnings   : ${businessCounts.WARNING ?? 0}`);
+      console.log(`Business blocked    : ${businessCounts.BLOCKED ?? 0}`);
+      console.log(`Business skipped    : ${businessCounts.SKIPPED ?? 0}`);
+      console.log(`Business not tested : ${businessCounts.NOT_TESTED ?? 0}`);
+      console.log("");
+
+      console.log(`Duration            : ${durationMs} ms`);
+      console.log("");
+      console.log(`JSON report         : ${evidencePath}`);
+      console.log(`HTML report         : ${reportPath}`);
       console.log("");
     } catch (error) {
       const message = this.errorMessage(error);
