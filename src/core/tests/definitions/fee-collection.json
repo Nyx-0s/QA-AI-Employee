@@ -1,0 +1,292 @@
+{
+  "id": "fee-collection",
+  "name": "Fee Collection and Payment Test Suite",
+  "module": "Financial Management",
+  "feature": "Collect Fees",
+  "description": "Functional and business tests for student fee collection and receipt generation.",
+  "routeHints": [
+    "collect-fees",
+    "fee-collection",
+    "student-fees",
+    "collect-student-fees"
+  ],
+  "tests": [
+    {
+      "id": "FEE-001",
+      "name": "Collect Fees page opens",
+      "description": "Verify that the fee collection page loads.",
+      "module": "Financial Management",
+      "feature": "Collect Fees",
+      "category": "PAGE_LOAD",
+      "risk": "CRITICAL",
+      "executionMode": "READ_ONLY",
+      "preconditions": ["Authenticated finance user"],
+      "steps": [
+        "Open Financial Management",
+        "Open Collect Fees",
+        "Wait for the page to load"
+      ],
+      "expected": [
+        {
+          "description": "Collect Fees page loads without a blocking error"
+        }
+      ],
+      "tags": ["fees", "collection", "smoke"],
+      "enabled": true
+    },
+    {
+      "id": "FEE-002",
+      "name": "Student search field works",
+      "description": "Verify that the admission or registration search input accepts data.",
+      "module": "Financial Management",
+      "feature": "Collect Fees",
+      "category": "SEARCH",
+      "risk": "CRITICAL",
+      "executionMode": "SAFE_INTERACTION",
+      "preconditions": ["Collect Fees page is open"],
+      "steps": [
+        "Locate the admission or registration number field",
+        "Enter temporary search text",
+        "Verify the value is retained",
+        "Clear the field"
+      ],
+      "expected": [
+        {
+          "description": "Search input accepts and retains entered text"
+        }
+      ],
+      "tags": ["fees", "search", "student"],
+      "enabled": true
+    },
+    {
+      "id": "FEE-003",
+      "name": "Unknown student is handled",
+      "description": "Verify that an invalid admission number produces a clear no-result response.",
+      "module": "Financial Management",
+      "feature": "Collect Fees",
+      "category": "VALIDATION",
+      "risk": "HIGH",
+      "executionMode": "SAFE_INTERACTION",
+      "preconditions": ["Student search field is available"],
+      "steps": [
+        "Enter a non-existent admission number",
+        "Execute search",
+        "Observe the response"
+      ],
+      "inputs": [
+        {
+          "field": "admissionNumber",
+          "value": "AQW-NON-EXISTENT-999999"
+        }
+      ],
+      "expected": [
+        {
+          "description": "A clear no-record or student-not-found response is displayed"
+        }
+      ],
+      "tags": ["fees", "search", "negative-test"],
+      "enabled": true
+    },
+    {
+      "id": "FEE-004",
+      "name": "Student fee details load",
+      "description": "Verify that a valid student search loads assigned fee details.",
+      "module": "Financial Management",
+      "feature": "Collect Fees",
+      "category": "WORKFLOW",
+      "risk": "CRITICAL",
+      "executionMode": "SAFE_INTERACTION",
+      "preconditions": [
+        "Approved existing QA student",
+        "Student has assigned fees"
+      ],
+      "steps": [
+        "Enter the approved student admission number",
+        "Execute search",
+        "Open the student record",
+        "Verify fee details are displayed"
+      ],
+      "expected": [
+        {
+          "description": "Correct student details are displayed"
+        },
+        {
+          "description": "Assigned fee components are displayed"
+        },
+        {
+          "description": "Outstanding or paid amount is visible"
+        }
+      ],
+      "tags": ["fees", "student", "details"],
+      "enabled": true
+    },
+    {
+      "id": "FEE-005",
+      "name": "Negative payment amount is rejected",
+      "description": "Verify that a negative fee-payment amount is not accepted.",
+      "module": "Financial Management",
+      "feature": "Collect Fees",
+      "category": "VALIDATION",
+      "risk": "CRITICAL",
+      "executionMode": "SAFE_INTERACTION",
+      "preconditions": ["Payment amount field is available"],
+      "steps": [
+        "Enter a negative amount",
+        "Move focus away from the field",
+        "Attempt progression without final payment submission"
+      ],
+      "inputs": [
+        {
+          "field": "amount",
+          "value": -100
+        }
+      ],
+      "expected": [
+        {
+          "description": "Negative amount is rejected or visibly flagged"
+        }
+      ],
+      "tags": ["fees", "payment", "negative-amount"],
+      "enabled": true
+    },
+    {
+      "id": "FEE-006",
+      "name": "Payment above outstanding balance is handled",
+      "description": "Verify that overpayment is blocked or explicitly handled.",
+      "module": "Financial Management",
+      "feature": "Collect Fees",
+      "category": "BUSINESS_RULE",
+      "risk": "CRITICAL",
+      "executionMode": "SAFE_INTERACTION",
+      "preconditions": [
+        "Student fee balance is visible",
+        "Payment amount field is available"
+      ],
+      "steps": [
+        "Read the outstanding balance",
+        "Enter an amount greater than the balance",
+        "Attempt progression without confirming payment"
+      ],
+      "expected": [
+        {
+          "description": "Overpayment is rejected or clearly handled according to configured policy"
+        }
+      ],
+      "tags": ["fees", "payment", "overpayment"],
+      "enabled": true
+    },
+    {
+      "id": "FEE-007",
+      "name": "Payment mode is required",
+      "description": "Verify that payment cannot be completed without selecting a payment mode.",
+      "module": "Financial Management",
+      "feature": "Collect Fees",
+      "category": "VALIDATION",
+      "risk": "CRITICAL",
+      "executionMode": "SAFE_INTERACTION",
+      "preconditions": ["Payment form is visible"],
+      "steps": [
+        "Enter an otherwise valid payment amount",
+        "Leave payment mode unselected",
+        "Attempt progression without final confirmation"
+      ],
+      "expected": [
+        {
+          "description": "Payment progression is blocked until a payment mode is selected"
+        }
+      ],
+      "tags": ["fees", "payment-mode", "validation"],
+      "enabled": true
+    },
+    {
+      "id": "FEE-008",
+      "name": "Successful fee payment",
+      "description": "Verify the complete fee-payment workflow using an approved QA transaction.",
+      "module": "Financial Management",
+      "feature": "Collect Fees",
+      "category": "PAYMENT",
+      "risk": "CRITICAL",
+      "executionMode": "DATA_CREATION",
+      "preconditions": [
+        "Dedicated QA environment",
+        "Approved student and payment amount",
+        "Explicit payment-test approval",
+        "Cleanup or reversal procedure is available"
+      ],
+      "steps": [
+        "Search for the approved student",
+        "Open fee details",
+        "Select an unpaid fee item",
+        "Enter the approved amount",
+        "Select payment mode",
+        "Confirm payment",
+        "Verify success feedback"
+      ],
+      "expected": [
+        {
+          "description": "Payment is recorded successfully"
+        },
+        {
+          "description": "Outstanding balance is updated"
+        },
+        {
+          "description": "Payment mode is stored correctly"
+        }
+      ],
+      "tags": ["fees", "payment", "end-to-end"],
+      "enabled": true
+    },
+    {
+      "id": "FEE-009",
+      "name": "Receipt is generated",
+      "description": "Verify that a successful payment produces a receipt.",
+      "module": "Financial Management",
+      "feature": "Collect Fees",
+      "category": "WORKFLOW",
+      "risk": "CRITICAL",
+      "executionMode": "READ_ONLY",
+      "preconditions": ["A completed QA payment exists"],
+      "steps": [
+        "Open the student's payment history",
+        "Locate the completed QA payment",
+        "Open its receipt"
+      ],
+      "expected": [
+        {
+          "description": "Receipt opens successfully"
+        },
+        {
+          "description": "Receipt contains student, amount, date, and payment-mode information"
+        }
+      ],
+      "tags": ["fees", "receipt", "payment"],
+      "enabled": true
+    },
+    {
+      "id": "FEE-010",
+      "name": "Duplicate payment is prevented",
+      "description": "Verify that the same fee item cannot be accidentally paid twice without warning.",
+      "module": "Financial Management",
+      "feature": "Collect Fees",
+      "category": "BUSINESS_RULE",
+      "risk": "CRITICAL",
+      "executionMode": "DATA_CREATION",
+      "preconditions": [
+        "Dedicated QA environment",
+        "A completed QA payment exists"
+      ],
+      "steps": [
+        "Reopen the previously paid fee item",
+        "Attempt to initiate the same payment again",
+        "Observe duplicate-payment protection"
+      ],
+      "expected": [
+        {
+          "description": "Duplicate payment is blocked or requires explicit confirmation with a clear warning"
+        }
+      ],
+      "tags": ["fees", "duplicate-payment", "business-rule"],
+      "enabled": true
+    }
+  ]
+}

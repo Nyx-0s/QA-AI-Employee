@@ -3,21 +3,20 @@
   "version": "1.0.0",
   "description": "RFT Autonomous QA Workforce Community Edition",
   "private": true,
-
   "scripts": {
     "dev": "tsx src/index.ts",
     "cli": "tsx src/cli/index.ts",
-
     "auth": "tsx src/cli/index.ts auth",
     "discover": "tsx src/cli/index.ts discover",
     "inventory": "tsx src/cli/index.ts inventory",
     "crawl": "tsx src/cli/index.ts crawl",
     "knowledge": "tsx src/cli/index.ts knowledge",
     "report": "tsx src/cli/index.ts report",
-
-    "build": "tsc"
+    "build": "tsc",
+    "qa": "tsx src/cli/index.ts qa",
+    "tests:definitions": "tsx src/core/tests/runtime/validateDefinitions.ts",
+    "planner": "tsx src/core/planner/PlannerDemo.ts"
   },
-
   "dependencies": {
     "@playwright/test": "^1.54.2",
     "chalk": "^5.6.0",
@@ -28,9 +27,9 @@
     "winston": "^3.17.0",
     "zod": "^4.0.14"
   },
-
   "devDependencies": {
-    "@types/node": "^24.0.15",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^24.13.3",
     "cross-env": "^10.0.0",
     "eslint": "^9.34.0",
     "prettier": "^3.6.2",

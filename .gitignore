@@ -4,3 +4,24 @@ test-results
 runtime
 reports
 .env
+
+# Build output
+dist/
+*.js
+*.js.map
+*.d.ts
+*.d.ts.map
+
+# Runtime artifacts
+logs/
+screenshots/
+videos/
+traces/
+runtime/
+reports/
+knowledge/pages/
+
+# Temporary files
+*.bak
+*.before-*
+.DS_Store

@@ -1,0 +1,170 @@
+{
+  "id": "fee-headers",
+  "name": "Fee Header Test Suite",
+  "module": "Financial Management",
+  "feature": "Setup",
+  "description": "Business tests for fee headers, fee types, and fee configuration.",
+  "routeHints": [
+    "fee-header",
+    "fee-type",
+    "fees-setup",
+    "financial-setup"
+  ],
+  "tests": [
+    {
+      "id": "FHD-001",
+      "name": "Fee setup page opens",
+      "description": "Verify that the fee setup page loads successfully.",
+      "module": "Financial Management",
+      "feature": "Setup",
+      "category": "PAGE_LOAD",
+      "risk": "CRITICAL",
+      "executionMode": "READ_ONLY",
+      "preconditions": ["Authenticated user with finance access"],
+      "steps": [
+        "Open Financial Management",
+        "Open Setup",
+        "Wait for the page to load"
+      ],
+      "expected": [
+        {
+          "description": "Fee setup page loads without a blocking error"
+        }
+      ],
+      "tags": ["fees", "setup", "smoke"],
+      "enabled": true
+    },
+    {
+      "id": "FHD-002",
+      "name": "Existing fee headers are displayed",
+      "description": "Verify that configured fee headers or fee types are displayed.",
+      "module": "Financial Management",
+      "feature": "Setup",
+      "category": "UI",
+      "risk": "HIGH",
+      "executionMode": "READ_ONLY",
+      "preconditions": ["Fee setup page is open"],
+      "steps": [
+        "Locate the fee-header list or table",
+        "Verify that the component rendered",
+        "Record row count or empty-state message"
+      ],
+      "expected": [
+        {
+          "description": "Fee header table or a valid empty state is displayed"
+        }
+      ],
+      "tags": ["fees", "headers", "table"],
+      "enabled": true
+    },
+    {
+      "id": "FHD-003",
+      "name": "Fee header name is required",
+      "description": "Verify that a fee header cannot be created without a name.",
+      "module": "Financial Management",
+      "feature": "Setup",
+      "category": "VALIDATION",
+      "risk": "CRITICAL",
+      "executionMode": "SAFE_INTERACTION",
+      "preconditions": ["Add Fee Header form is available"],
+      "steps": [
+        "Open the Add Fee Header form",
+        "Leave the fee header name empty",
+        "Attempt submission"
+      ],
+      "expected": [
+        {
+          "description": "Submission is blocked"
+        },
+        {
+          "description": "Required-field validation is displayed"
+        }
+      ],
+      "tags": ["fees", "headers", "required-fields"],
+      "enabled": true
+    },
+    {
+      "id": "FHD-004",
+      "name": "Duplicate fee header is rejected",
+      "description": "Verify that duplicate fee-header names are not accepted.",
+      "module": "Financial Management",
+      "feature": "Setup",
+      "category": "BUSINESS_RULE",
+      "risk": "CRITICAL",
+      "executionMode": "DATA_CREATION",
+      "preconditions": [
+        "Dedicated QA environment",
+        "An existing fee header is available"
+      ],
+      "steps": [
+        "Read an existing fee-header name",
+        "Attempt to create another header with the same name",
+        "Observe the response"
+      ],
+      "expected": [
+        {
+          "description": "Duplicate fee header is rejected"
+        }
+      ],
+      "tags": ["fees", "headers", "duplicate"],
+      "enabled": true
+    },
+    {
+      "id": "FHD-005",
+      "name": "Fee header can be created",
+      "description": "Verify that an approved temporary fee header can be created.",
+      "module": "Financial Management",
+      "feature": "Setup",
+      "category": "WORKFLOW",
+      "risk": "HIGH",
+      "executionMode": "DATA_CREATION",
+      "preconditions": [
+        "Dedicated QA environment",
+        "Approved temporary fee-header name"
+      ],
+      "steps": [
+        "Open Add Fee Header",
+        "Enter a unique temporary name",
+        "Submit the form",
+        "Search for the created header"
+      ],
+      "expected": [
+        {
+          "description": "Fee header is created successfully"
+        },
+        {
+          "description": "Created fee header appears in the list"
+        }
+      ],
+      "tags": ["fees", "headers", "create"],
+      "enabled": true
+    },
+    {
+      "id": "FHD-006",
+      "name": "Linked fee header deletion is protected",
+      "description": "Verify that a fee header already used in a fee structure cannot be removed silently.",
+      "module": "Financial Management",
+      "feature": "Setup",
+      "category": "BUSINESS_RULE",
+      "risk": "CRITICAL",
+      "executionMode": "DESTRUCTIVE",
+      "preconditions": [
+        "Dedicated QA environment",
+        "A fee header linked to a fee structure",
+        "Explicit destructive-test approval"
+      ],
+      "steps": [
+        "Locate a linked fee header",
+        "Attempt deletion",
+        "Observe dependency protection"
+      ],
+      "expected": [
+        {
+          "description": "Deletion is blocked or requires explicit dependency handling"
+        }
+      ],
+      "tags": ["fees", "headers", "delete", "dependency"],
+      "enabled": true
+    }
+  ]
+}

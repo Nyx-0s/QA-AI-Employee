@@ -1,0 +1,260 @@
+{
+  "id": "student-registration",
+  "name": "Student Registration Test Suite",
+  "module": "Student Management",
+  "feature": "Registration",
+  "description": "Business and functional tests for student registration.",
+  "routeHints": [
+    "registration",
+    "student-registration",
+    "register-student"
+  ],
+  "tests": [
+    {
+      "id": "REG-001",
+      "name": "Registration page opens",
+      "description": "Verify that the student registration page loads successfully.",
+      "module": "Student Management",
+      "feature": "Registration",
+      "category": "PAGE_LOAD",
+      "risk": "CRITICAL",
+      "executionMode": "READ_ONLY",
+      "preconditions": ["Authenticated institute user"],
+      "steps": [
+        "Open Student Management",
+        "Open Registration",
+        "Wait for the page to finish loading"
+      ],
+      "expected": [
+        {
+          "description": "Registration page loads without an authentication redirect"
+        }
+      ],
+      "tags": ["registration", "smoke", "page-load"],
+      "enabled": true
+    },
+    {
+      "id": "REG-002",
+      "name": "Registration form is visible",
+      "description": "Verify that the registration form and its input controls are rendered.",
+      "module": "Student Management",
+      "feature": "Registration",
+      "category": "UI",
+      "risk": "HIGH",
+      "executionMode": "READ_ONLY",
+      "preconditions": ["Registration page is open"],
+      "steps": [
+        "Locate the main registration form",
+        "Count visible input controls",
+        "Locate the submit or save button"
+      ],
+      "expected": [
+        {
+          "description": "At least one registration form is visible"
+        },
+        {
+          "description": "The form contains usable input controls"
+        },
+        {
+          "description": "A save, register, submit, or continue action is available"
+        }
+      ],
+      "tags": ["registration", "form", "ui"],
+      "enabled": true
+    },
+    {
+      "id": "REG-003",
+      "name": "Required fields reject empty submission",
+      "description": "Verify that mandatory fields cannot be submitted empty.",
+      "module": "Student Management",
+      "feature": "Registration",
+      "category": "VALIDATION",
+      "risk": "CRITICAL",
+      "executionMode": "SAFE_INTERACTION",
+      "preconditions": ["Registration form is visible"],
+      "steps": [
+        "Leave mandatory fields empty",
+        "Click the primary submit action",
+        "Observe validation messages and form submission behaviour"
+      ],
+      "expected": [
+        {
+          "description": "Submission is blocked"
+        },
+        {
+          "description": "Mandatory-field validation is displayed"
+        }
+      ],
+      "tags": ["registration", "required-fields", "negative-test"],
+      "enabled": true
+    },
+    {
+      "id": "REG-004",
+      "name": "Invalid email is rejected",
+      "description": "Verify that invalid email syntax is not accepted.",
+      "module": "Student Management",
+      "feature": "Registration",
+      "category": "VALIDATION",
+      "risk": "HIGH",
+      "executionMode": "SAFE_INTERACTION",
+      "preconditions": ["Email input exists"],
+      "steps": [
+        "Enter invalid email data",
+        "Move focus away from the email field",
+        "Attempt form submission if safe"
+      ],
+      "inputs": [
+        {
+          "field": "email",
+          "value": "invalid-email",
+          "description": "Email without @ or domain"
+        }
+      ],
+      "expected": [
+        {
+          "description": "Invalid email is rejected or visibly flagged"
+        }
+      ],
+      "tags": ["registration", "email", "validation"],
+      "enabled": true
+    },
+    {
+      "id": "REG-005",
+      "name": "Invalid phone number is rejected",
+      "description": "Verify that an invalid phone number cannot be accepted as valid.",
+      "module": "Student Management",
+      "feature": "Registration",
+      "category": "VALIDATION",
+      "risk": "HIGH",
+      "executionMode": "SAFE_INTERACTION",
+      "preconditions": ["Phone input exists"],
+      "steps": [
+        "Enter an invalid short phone number",
+        "Move focus away from the field",
+        "Observe validation behaviour"
+      ],
+      "inputs": [
+        {
+          "field": "phone",
+          "value": "123",
+          "description": "Phone number shorter than an expected valid number"
+        }
+      ],
+      "expected": [
+        {
+          "description": "Invalid phone number is rejected or visibly flagged"
+        }
+      ],
+      "tags": ["registration", "phone", "validation"],
+      "enabled": true
+    },
+    {
+      "id": "REG-006",
+      "name": "Registration input fields accept typing",
+      "description": "Verify that visible text inputs can receive and retain valid text.",
+      "module": "Student Management",
+      "feature": "Registration",
+      "category": "INPUT",
+      "risk": "HIGH",
+      "executionMode": "SAFE_INTERACTION",
+      "preconditions": ["Registration form is visible"],
+      "steps": [
+        "Locate visible enabled text inputs",
+        "Enter safe temporary data",
+        "Verify that each field retains the entered value",
+        "Clear temporary data"
+      ],
+      "expected": [
+        {
+          "description": "Enabled text inputs accept and retain entered values"
+        }
+      ],
+      "tags": ["registration", "inputs", "typing"],
+      "enabled": true
+    },
+    {
+      "id": "REG-007",
+      "name": "Registration dropdowns contain options",
+      "description": "Verify that required registration dropdown controls are populated.",
+      "module": "Student Management",
+      "feature": "Registration",
+      "category": "INPUT",
+      "risk": "HIGH",
+      "executionMode": "READ_ONLY",
+      "preconditions": ["Registration form is visible"],
+      "steps": [
+        "Locate visible dropdown controls",
+        "Read available options",
+        "Identify empty or disabled dropdowns"
+      ],
+      "expected": [
+        {
+          "description": "Required dropdowns contain selectable options"
+        }
+      ],
+      "tags": ["registration", "dropdown", "input"],
+      "enabled": true
+    },
+    {
+      "id": "REG-008",
+      "name": "Duplicate registration is blocked",
+      "description": "Verify that the same unique registration data cannot be created twice.",
+      "module": "Student Management",
+      "feature": "Registration",
+      "category": "BUSINESS_RULE",
+      "risk": "CRITICAL",
+      "executionMode": "DATA_CREATION",
+      "preconditions": [
+        "Dedicated QA test environment",
+        "Approved temporary test student data"
+      ],
+      "steps": [
+        "Create a valid test registration",
+        "Repeat registration using the same unique identifiers",
+        "Observe duplicate detection behaviour"
+      ],
+      "expected": [
+        {
+          "description": "Duplicate registration is rejected with a clear message"
+        }
+      ],
+      "tags": ["registration", "duplicate", "business-rule"],
+      "enabled": true
+    },
+    {
+      "id": "REG-009",
+      "name": "Successful registration workflow",
+      "description": "Verify the complete student registration workflow using approved test data.",
+      "module": "Student Management",
+      "feature": "Registration",
+      "category": "WORKFLOW",
+      "risk": "CRITICAL",
+      "executionMode": "DATA_CREATION",
+      "preconditions": [
+        "Dedicated QA test environment",
+        "Approved test registration data",
+        "Cleanup strategy is available"
+      ],
+      "steps": [
+        "Complete all mandatory fields",
+        "Submit registration",
+        "Verify success feedback",
+        "Capture generated registration or admission identifier",
+        "Search for the created student"
+      ],
+      "expected": [
+        {
+          "description": "Registration succeeds"
+        },
+        {
+          "description": "A unique student identifier is generated"
+        },
+        {
+          "description": "The student is searchable after registration"
+        }
+      ],
+      "tags": ["registration", "workflow", "end-to-end"],
+      "enabled": true
+    }
+  ]
+}
