@@ -3,8 +3,11 @@ import path from "path";
 
 import type { PageQAResult } from "../qa/Types";
 import type { TestExecutionResult } from "../execution/TestExecutionResult";
+import { DefectClassifier } from "../ai/DefectClassifier";
 
 export class Reporter {
+  private readonly classifier = new DefectClassifier();
+
   constructor(
     private readonly outputDirectory = "reports/html"
   ) {}
@@ -294,6 +297,9 @@ Generated: ${this.escape(new Date().toLocaleString())}
   <th>Network</th>
   <th>Element Intelligence</th>
   <th>Business Tests</th>
+  <th>Severity</th>
+  <th>Category</th>
+  <th>Owner</th>
   <th>Screenshot</th>
 </tr>
 </thead>
@@ -315,6 +321,7 @@ ${rows}
 
   private renderPageRow(result: PageQAResult): string {
     const businessTests = result.businessTests ?? [];
+    const defect = this.classifier.classify(result);
 
     return `
 <tr>
