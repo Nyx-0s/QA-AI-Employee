@@ -471,7 +471,7 @@ ${rows}
     tests: TestExecutionResult[]
   ): string {
     if (tests.length === 0) {
-      return "No matching definitions";
+      return "—";
     }
 
     const passed = tests.filter(
