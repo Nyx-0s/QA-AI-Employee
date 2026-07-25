@@ -334,8 +334,11 @@ ${rows}
   <td>${result.consoleErrors.length}</td>
   <td>${result.networkErrors.length}</td>
   <td>${this.renderElementIntelligence(result)}</td>
-  <td>${this.renderBusinessTests(businessTests)}</td>
-  <td class="screenshot">${this.escape(result.screenshot)}</td>
+<td>${this.renderBusinessTests(businessTests)}</td>
+<td>${this.escape(defect.severity)}</td>
+<td>${this.escape(defect.category)}</td>
+<td>${this.escape(defect.owner)}</td>
+<td class="screenshot">${this.escape(result.screenshot)}</td>
 </tr>`;
   }
 
