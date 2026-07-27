@@ -4,6 +4,7 @@ import type {
 } from "../intelligence/PageInspector";
 
 import type { TestExecutionResult } from "../execution/TestExecutionResult";
+import type { AIAnalysis } from "../employee/AIAnalysis";
 
 import type {
   ScoreResult,
@@ -65,6 +66,8 @@ export interface PageQAResult {
   error?: string;
 
   businessTests?: TestExecutionResult[];
+
+  aiAnalysis?: AIAnalysis;
 }
 
 export interface QASummary {

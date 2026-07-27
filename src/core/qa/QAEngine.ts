@@ -22,6 +22,7 @@ import type {
   NavigationItem,
   PageQAResult,
 } from "./Types";
+import { QAEmployee } from "../employee/QAEmployee";
 
 export class QAEngine {
   private readonly businessTestRunner = new BusinessTestRunner();
@@ -41,6 +42,8 @@ export class QAEngine {
   );
 
   private readonly intelligenceEngine = new IntelligenceEngine();
+
+  private readonly qaEmployee = new QAEmployee();
 
   private readonly reporter = new Reporter(
     "reports/html"
@@ -168,6 +171,10 @@ export class QAEngine {
 
         console.log("");
       }
+
+      console.log("🧠 Running QA Employee...");
+
+      await this.qaEmployee.analyze(results);
 
       console.log("💾 Saving JSON evidence...");
 

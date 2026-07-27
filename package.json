@@ -15,7 +15,10 @@
     "build": "tsc",
     "qa": "tsx src/cli/index.ts qa",
     "tests:definitions": "tsx src/core/tests/runtime/validateDefinitions.ts",
-    "planner": "tsx src/core/planner/PlannerDemo.ts"
+    "planner": "tsx src/core/planner/PlannerDemo.ts",
+    "test:ollama": "tsx scripts/test-ollama.ts",
+    "test:analysis": "tsx scripts/test-qa-analysis.ts",
+    "workflow": "tsx src/workflows/index.ts"
   },
   "dependencies": {
     "@playwright/test": "^1.54.2",
@@ -25,6 +28,7 @@
     "commander": "^14.0.0",
     "dotenv": "^17.2.1",
     "fs-extra": "^11.3.1",
+    "jsonrepair": "^3.15.0",
     "uuid": "^13.0.0",
     "winston": "^3.17.0",
     "zod": "^4.0.14"
@@ -36,7 +40,7 @@
     "cross-env": "^10.0.0",
     "eslint": "^9.34.0",
     "prettier": "^3.6.2",
-    "tsx": "^4.20.3",
+    "tsx": "^4.23.1",
     "typescript": "^5.9.2"
   }
 }

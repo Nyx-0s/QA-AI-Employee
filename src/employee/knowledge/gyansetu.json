@@ -1,0 +1,14 @@
+{
+  "Academic session":"Controls every academic workflow including admissions, attendance, fees, timetable and examinations.",
+  "Registration":"First stage of student lifecycle.",
+  "Admission":"Creates enrolled students.",
+  "Manage Student":"Core student record module used throughout ERP.",
+  "Fees Management":"Financial backbone of ERP.",
+  "Collect Fees":"Depends on fee structures and student admission.",
+  "Faculty Attendance":"Payroll dependency.",
+  "Student Attendance":"Feeds examination eligibility.",
+  "Transport Routes":"Required by transport allocation.",
+  "Vehicle Management":"Supports transport routes.",
+  "Syllabus Management":"Feeds timetable and examinations.",
+  "University Hierarchy":"Parent dependency for departments, batches, sections and courses."
+}
