@@ -5,6 +5,7 @@ import type { IActionCommand } from "./commands/IActionCommand";
 import { FindFieldCommand } from "./commands/FindFieldCommand";
 import { TypeCommand } from "./commands/TypeCommand";
 import { ClickCommand } from "./commands/ClickCommand";
+import { BlurCommand } from "./commands/BlurCommand";
 
 export class GenericActionRegistry {
 
@@ -26,6 +27,11 @@ export class GenericActionRegistry {
         this.commands.set(
             ActionType.CLICK,
             new ClickCommand()
+        );
+
+        this.commands.set(
+            ActionType.BLUR,
+            new BlurCommand()
         );
 
     }
