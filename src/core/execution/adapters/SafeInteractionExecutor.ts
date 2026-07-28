@@ -45,11 +45,6 @@ export class SafeInteractionExecutor {
       }
 
       switch (test.id) {
-        case "REG-003":
-          return await this.testRequiredFields(page, test, started);
-
-        case "REG-004":
-          return await this.testInvalidEmail(page, test, started);
 case "FEE-002":
           return await this.testStudentSearchField(page, test, started);
 

@@ -77,6 +77,15 @@
         "Click the primary submit action",
         "Observe validation messages and form submission behaviour"
       ],
+      "actions": [
+        {
+          "type": "FIND_BUTTON",
+          "target": "submit"
+        },
+        {
+          "type": "CLICK"
+        }
+      ],
       "expected": [
         {
           "description": "Submission is blocked"
