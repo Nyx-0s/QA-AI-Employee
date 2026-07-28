@@ -7,6 +7,7 @@ import { TypeCommand } from "./commands/TypeCommand";
 import { ClickCommand } from "./commands/ClickCommand";
 import { BlurCommand } from "./commands/BlurCommand";
 import { AssertInvalidCommand } from "./commands/AssertInvalidCommand";
+import { SaveCommand } from "./commands/SaveCommand";
 
 export class GenericActionRegistry {
 
@@ -38,6 +39,11 @@ export class GenericActionRegistry {
         this.commands.set(
             ActionType.ASSERT_INVALID,
             new AssertInvalidCommand()
+        );
+
+        this.commands.set(
+            ActionType.SAVE,
+            new SaveCommand()
         );
 
     }
