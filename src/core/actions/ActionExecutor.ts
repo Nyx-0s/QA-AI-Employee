@@ -12,13 +12,13 @@ export class ActionExecutor {
     async execute(
         context: ExecutionContext,
         actions: Action[]
-    ): Promise<ExecutionResult>{
+    ): Promise<ExecutionResult> {
 
-        const observations:string[]=[];
+        context.observations = [];
 
-        try{
+        try {
 
-            for(const action of actions){
+            for (const action of actions) {
 
                 const command =
                     this.registry.get(action.type);
@@ -28,33 +28,26 @@ export class ActionExecutor {
                     action
                 );
 
-                observations.push(
+                context.observations.push(
                     `${action.type} completed`
                 );
 
             }
 
-            return{
-
-                success:true,
-
-                observations
-
+            return {
+                success: true,
+                observations: context.observations
             };
 
-        }catch(error){
+        } catch (error) {
 
-            return{
-
-                success:false,
-
-                observations,
-
+            return {
+                success: false,
+                observations: context.observations,
                 error:
                     error instanceof Error
                         ? error.message
                         : String(error)
-
             };
 
         }

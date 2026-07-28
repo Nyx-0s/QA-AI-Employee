@@ -1,9 +1,9 @@
-export interface ExecutionResult{
+export interface ExecutionResult {
 
-    success:boolean;
+    success: boolean;
 
-    observations:string[];
+    observations: string[];
 
-    error?:string;
+    error?: string;
 
 }

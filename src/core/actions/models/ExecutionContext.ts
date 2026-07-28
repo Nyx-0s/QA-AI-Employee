@@ -6,6 +6,12 @@ export interface ExecutionContext {
 
     current?: Locator;
 
+    currentForm?: Locator;
+
+    currentRow?: Locator;
+
     variables: Record<string, unknown>;
+
+    observations: string[];
 
 }
