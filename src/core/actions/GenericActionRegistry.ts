@@ -6,6 +6,7 @@ import { FindFieldCommand } from "./commands/FindFieldCommand";
 import { TypeCommand } from "./commands/TypeCommand";
 import { ClickCommand } from "./commands/ClickCommand";
 import { BlurCommand } from "./commands/BlurCommand";
+import { AssertInvalidCommand } from "./commands/AssertInvalidCommand";
 
 export class GenericActionRegistry {
 
@@ -32,6 +33,11 @@ export class GenericActionRegistry {
         this.commands.set(
             ActionType.BLUR,
             new BlurCommand()
+        );
+
+        this.commands.set(
+            ActionType.ASSERT_INVALID,
+            new AssertInvalidCommand()
         );
 
     }
