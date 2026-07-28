@@ -4,6 +4,7 @@ import type { IActionCommand } from "./commands/IActionCommand";
 
 import { FindFieldCommand } from "./commands/FindFieldCommand";
 import { TypeCommand } from "./commands/TypeCommand";
+import { ClickCommand } from "./commands/ClickCommand";
 
 export class GenericActionRegistry {
 
@@ -20,6 +21,11 @@ export class GenericActionRegistry {
         this.commands.set(
             ActionType.TYPE,
             new TypeCommand()
+        );
+
+        this.commands.set(
+            ActionType.CLICK,
+            new ClickCommand()
         );
 
     }
