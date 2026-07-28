@@ -1,3 +1,5 @@
+import type { Action } from "../../actions/models/Action";
+
 export type TestCategory =
   | "PAGE_LOAD"
   | "UI"
@@ -55,6 +57,8 @@ export interface BusinessTestDefinition {
 
   preconditions: string[];
   steps: string[];
+
+  actions?: Action[];
 
   inputs?: TestInputDefinition[];
   expected: TestExpectedResult[];
