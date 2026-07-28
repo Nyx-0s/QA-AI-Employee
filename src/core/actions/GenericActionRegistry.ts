@@ -10,6 +10,7 @@ import { AssertInvalidCommand } from "./commands/AssertInvalidCommand";
 import { AssertVisibleCommand } from "./commands/AssertVisibleCommand";
 import { AssertTextCommand } from "./commands/AssertTextCommand";
 import { SaveCommand } from "./commands/SaveCommand";
+import { WaitCommand } from "./commands/WaitCommand";
 
 export class GenericActionRegistry {
 
@@ -51,6 +52,11 @@ export class GenericActionRegistry {
         this.commands.set(
             ActionType.ASSERT_TEXT,
             new AssertTextCommand()
+        );
+
+        this.commands.set(
+            ActionType.WAIT,
+            new WaitCommand()
         );
 
         this.commands.set(
