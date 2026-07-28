@@ -149,6 +149,22 @@
         "Move focus away from the field",
         "Observe validation behaviour"
       ],
+      "actions": [
+        {
+          "type": "FIND_FIELD",
+          "target": "phone"
+        },
+        {
+          "type": "TYPE",
+          "value": "123"
+        },
+        {
+          "type": "BLUR"
+        },
+        {
+          "type": "ASSERT_INVALID"
+        }
+      ],
       "inputs": [
         {
           "field": "phone",
@@ -179,6 +195,23 @@
         "Enter safe temporary data",
         "Verify that each field retains the entered value",
         "Clear temporary data"
+      ],
+      "actions": [
+        {
+          "type": "FIND_FIELD",
+          "target": "name"
+        },
+        {
+          "type": "TYPE",
+          "value": "AQW_TEST"
+        },
+        {
+          "type": "ASSERT_VALUE",
+          "value": "AQW_TEST"
+        },
+        {
+          "type": "CLEAR"
+        }
       ],
       "expected": [
         {

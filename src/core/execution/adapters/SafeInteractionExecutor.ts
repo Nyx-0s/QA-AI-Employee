@@ -50,14 +50,7 @@ export class SafeInteractionExecutor {
 
         case "REG-004":
           return await this.testInvalidEmail(page, test, started);
-
-        case "REG-005":
-          return await this.testInvalidPhone(page, test, started);
-
-        case "REG-006":
-          return await this.testTyping(page, test, started);
-
-        case "FEE-002":
+case "FEE-002":
           return await this.testStudentSearchField(page, test, started);
 
         case "FEE-003":

@@ -1,10 +1,12 @@
 export enum ActionType {
   FIND_FIELD = "FIND_FIELD",
   FIND_BUTTON = "FIND_BUTTON",
+  FIND_FORM = "FIND_FORM",
 
   TYPE = "TYPE",
   CLICK = "CLICK",
   BLUR = "BLUR",
+  CLEAR = "CLEAR",
 
   SELECT = "SELECT",
 
@@ -13,6 +15,7 @@ export enum ActionType {
   ASSERT_VISIBLE = "ASSERT_VISIBLE",
   ASSERT_INVALID = "ASSERT_INVALID",
   ASSERT_TEXT = "ASSERT_TEXT",
+  ASSERT_VALUE = "ASSERT_VALUE",
 
   SEARCH = "SEARCH",
 

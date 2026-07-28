@@ -3,9 +3,13 @@ import { ActionType } from "./models/ActionType";
 import type { IActionCommand } from "./commands/IActionCommand";
 
 import { FindFieldCommand } from "./commands/FindFieldCommand";
+import { FindButtonCommand } from "./commands/FindButtonCommand";
+import { FindFormCommand } from "./commands/FindFormCommand";
 import { TypeCommand } from "./commands/TypeCommand";
 import { ClickCommand } from "./commands/ClickCommand";
 import { BlurCommand } from "./commands/BlurCommand";
+import { ClearCommand } from "./commands/ClearCommand";
+import { AssertValueCommand } from "./commands/AssertValueCommand";
 import { AssertInvalidCommand } from "./commands/AssertInvalidCommand";
 import { AssertVisibleCommand } from "./commands/AssertVisibleCommand";
 import { AssertTextCommand } from "./commands/AssertTextCommand";
@@ -20,8 +24,18 @@ export class GenericActionRegistry {
     constructor() {
 
         this.commands.set(
+            ActionType.FIND_FORM,
+            new FindFormCommand()
+        );
+
+        this.commands.set(
             ActionType.FIND_FIELD,
             new FindFieldCommand()
+        );
+
+        this.commands.set(
+            ActionType.FIND_BUTTON,
+            new FindButtonCommand()
         );
 
         this.commands.set(
@@ -40,6 +54,11 @@ export class GenericActionRegistry {
         );
 
         this.commands.set(
+            ActionType.CLEAR,
+            new ClearCommand()
+        );
+
+        this.commands.set(
             ActionType.ASSERT_INVALID,
             new AssertInvalidCommand()
         );
@@ -52,6 +71,11 @@ export class GenericActionRegistry {
         this.commands.set(
             ActionType.ASSERT_TEXT,
             new AssertTextCommand()
+        );
+
+        this.commands.set(
+            ActionType.ASSERT_VALUE,
+            new AssertValueCommand()
         );
 
         this.commands.set(
