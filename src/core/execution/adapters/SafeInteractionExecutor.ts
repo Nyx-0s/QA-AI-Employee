@@ -45,9 +45,6 @@ export class SafeInteractionExecutor {
       }
 
       switch (test.id) {
-case "FEE-002":
-          return await this.testStudentSearchField(page, test, started);
-
         case "FEE-003":
           return await this.testUnknownStudent(page, test, started);
 
