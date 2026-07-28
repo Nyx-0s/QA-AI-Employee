@@ -1,24 +1,38 @@
 import { ActionType } from "./models/ActionType";
 
+import { IActionCommand } from "./commands/IActionCommand";
+import { FindFieldCommand } from "./commands/FindFieldCommand";
+
 export class GenericActionRegistry {
 
-    has(action: ActionType): boolean {
+    private readonly commands =
+        new Map<ActionType, IActionCommand>();
 
-        switch(action){
+    constructor(){
 
-            case ActionType.FIND_FIELD:
-            case ActionType.TYPE:
-            case ActionType.CLICK:
-            case ActionType.BLUR:
-            case ActionType.ASSERT_INVALID:
+        this.commands.set(
+            ActionType.FIND_FIELD,
+            new FindFieldCommand()
+        );
 
-                return true;
+    }
 
-            default:
+    get(
+        action: ActionType
+    ): IActionCommand{
 
-                return false;
+        const command =
+            this.commands.get(action);
+
+        if(!command){
+
+            throw new Error(
+                `Unsupported action: ${action}`
+            );
 
         }
+
+        return command;
 
     }
 
