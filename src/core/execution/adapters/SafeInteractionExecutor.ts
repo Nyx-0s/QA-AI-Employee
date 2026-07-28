@@ -3,11 +3,14 @@ import type { Locator, Page } from "@playwright/test";
 import type { BusinessTestDefinition } from "../../tests/models/TestDefinition";
 import type { TestExecutionResult } from "../TestExecutionResult";
 import { FormLocator } from "../utils/FormLocator";
+import { ActionExecutor } from "../../actions/ActionExecutor";
+import type { ExecutionContext } from "../../actions/models/ExecutionContext";
 
 type ResultStatus = TestExecutionResult["status"];
 
 export class SafeInteractionExecutor {
   private readonly formLocator = new FormLocator();
+  private readonly actionExecutor = new ActionExecutor();
 
   async execute(
     page: Page,
@@ -16,6 +19,31 @@ export class SafeInteractionExecutor {
     const started = Date.now();
 
     try {
+
+      if (test.actions?.length) {
+
+        const context: ExecutionContext = {
+          page,
+          variables: {},
+          observations: []
+        };
+
+        const result =
+          await this.actionExecutor.execute(
+            context,
+            test.actions
+          );
+
+        return this.result(
+          test,
+          result.success ? "PASS" : "FAIL",
+          result.observations,
+          Date.now() - started,
+          result.error
+        );
+
+      }
+
       switch (test.id) {
         case "REG-003":
           return await this.testRequiredFields(page, test, started);
