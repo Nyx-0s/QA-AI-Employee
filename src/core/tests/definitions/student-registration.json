@@ -103,6 +103,22 @@
         "Move focus away from the email field",
         "Attempt form submission if safe"
       ],
+      "actions": [
+        {
+          "type": "FIND_FIELD",
+          "target": "email"
+        },
+        {
+          "type": "TYPE",
+          "value": "invalid-email"
+        },
+        {
+          "type": "BLUR"
+        },
+        {
+          "type": "ASSERT_INVALID"
+        }
+      ],
       "inputs": [
         {
           "field": "email",
