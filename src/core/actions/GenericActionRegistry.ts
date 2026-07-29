@@ -15,6 +15,16 @@ import { AssertVisibleCommand } from "./commands/AssertVisibleCommand";
 import { AssertTextCommand } from "./commands/AssertTextCommand";
 import { SaveCommand } from "./commands/SaveCommand";
 import { WaitCommand } from "./commands/WaitCommand";
+import { LogCommand } from "./commands/LogCommand";
+import { StoreCommand } from "./commands/StoreCommand";
+import { ReadValueCommand } from "./commands/ReadValueCommand";
+import { ReadTextCommand } from "./commands/ReadTextCommand";
+import { ReadAttributeCommand } from "./commands/ReadAttributeCommand";
+import { AssertEqualsCommand } from "./commands/AssertEqualsCommand";
+import { AssertContainsCommand } from "./commands/AssertContainsCommand";
+import { IfCommand } from "./commands/IfCommand";
+import { ElseCommand } from "./commands/ElseCommand";
+import { EndIfCommand } from "./commands/EndIfCommand";
 
 export class GenericActionRegistry {
 
@@ -23,82 +33,51 @@ export class GenericActionRegistry {
 
     constructor() {
 
-        this.commands.set(
-            ActionType.FIND_FORM,
-            new FindFormCommand()
-        );
+        this.register(ActionType.FIND_FORM, new FindFormCommand());
+        this.register(ActionType.FIND_FIELD, new FindFieldCommand());
+        this.register(ActionType.FIND_BUTTON, new FindButtonCommand());
 
-        this.commands.set(
-            ActionType.FIND_FIELD,
-            new FindFieldCommand()
-        );
+        this.register(ActionType.TYPE, new TypeCommand());
+        this.register(ActionType.CLICK, new ClickCommand());
+        this.register(ActionType.BLUR, new BlurCommand());
+        this.register(ActionType.CLEAR, new ClearCommand());
 
-        this.commands.set(
-            ActionType.FIND_BUTTON,
-            new FindButtonCommand()
-        );
+        this.register(ActionType.ASSERT_INVALID, new AssertInvalidCommand());
+        this.register(ActionType.ASSERT_VISIBLE, new AssertVisibleCommand());
+        this.register(ActionType.ASSERT_TEXT, new AssertTextCommand());
+        this.register(ActionType.ASSERT_VALUE, new AssertValueCommand());
 
-        this.commands.set(
-            ActionType.TYPE,
-            new TypeCommand()
-        );
+        this.register(ActionType.WAIT, new WaitCommand());
+        this.register(ActionType.SAVE, new SaveCommand());
+        this.register(ActionType.LOG, new LogCommand());
+        this.register(ActionType.STORE, new StoreCommand());
+        this.register(ActionType.READ_VALUE, new ReadValueCommand());
+        this.register(ActionType.READ_TEXT, new ReadTextCommand());
+        this.register(ActionType.READ_ATTRIBUTE, new ReadAttributeCommand());
+        this.register(ActionType.ASSERT_EQUALS, new AssertEqualsCommand());
+        this.register(ActionType.ASSERT_CONTAINS, new AssertContainsCommand());
 
-        this.commands.set(
-            ActionType.CLICK,
-            new ClickCommand()
-        );
+        this.register(ActionType.IF, new IfCommand());
+        this.register(ActionType.ELSE, new ElseCommand());
+        this.register(ActionType.END_IF, new EndIfCommand());
 
-        this.commands.set(
-            ActionType.BLUR,
-            new BlurCommand()
-        );
+    }
 
-        this.commands.set(
-            ActionType.CLEAR,
-            new ClearCommand()
-        );
+    private register(
+        type: ActionType,
+        command: IActionCommand
+    ): void {
 
-        this.commands.set(
-            ActionType.ASSERT_INVALID,
-            new AssertInvalidCommand()
-        );
-
-        this.commands.set(
-            ActionType.ASSERT_VISIBLE,
-            new AssertVisibleCommand()
-        );
-
-        this.commands.set(
-            ActionType.ASSERT_TEXT,
-            new AssertTextCommand()
-        );
-
-        this.commands.set(
-            ActionType.ASSERT_VALUE,
-            new AssertValueCommand()
-        );
-
-        this.commands.set(
-            ActionType.WAIT,
-            new WaitCommand()
-        );
-
-        this.commands.set(
-            ActionType.SAVE,
-            new SaveCommand()
-        );
+        this.commands.set(type, command);
 
     }
 
     get(action: ActionType): IActionCommand {
 
-        const command =
-            this.commands.get(action);
+        const command = this.commands.get(action);
 
         if (!command) {
-            throw new Error(
-                `Unsupported action: ${action}`
-            );
+            throw new Error(`Unsupported action: ${action}`);
         }
 
         return command;

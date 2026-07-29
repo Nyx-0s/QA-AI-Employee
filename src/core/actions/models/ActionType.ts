@@ -1,27 +1,45 @@
 export enum ActionType {
+
+  // Discovery
   FIND_FIELD = "FIND_FIELD",
   FIND_BUTTON = "FIND_BUTTON",
   FIND_FORM = "FIND_FORM",
 
+  // Interaction
   TYPE = "TYPE",
   CLICK = "CLICK",
   BLUR = "BLUR",
   CLEAR = "CLEAR",
-
   SELECT = "SELECT",
-
   WAIT = "WAIT",
 
+  // Runtime
+  STORE = "STORE",
+  READ_TEXT = "READ_TEXT",
+  READ_VALUE = "READ_VALUE",
+  READ_ATTRIBUTE = "READ_ATTRIBUTE",
+
+  // Flow Control
+  IF = "IF",
+  ELSE = "ELSE",
+  END_IF = "END_IF",
+
+  // Assertions
   ASSERT_VISIBLE = "ASSERT_VISIBLE",
   ASSERT_INVALID = "ASSERT_INVALID",
   ASSERT_TEXT = "ASSERT_TEXT",
   ASSERT_VALUE = "ASSERT_VALUE",
+  ASSERT_EQUALS = "ASSERT_EQUALS",
+  ASSERT_CONTAINS = "ASSERT_CONTAINS",
 
+  // Business
   SEARCH = "SEARCH",
-
   SAVE = "SAVE",
-
   DELETE = "DELETE",
+  VERIFY = "VERIFY",
 
-  VERIFY = "VERIFY"
+  // Utility
+  LOG = "LOG",
+  SCREENSHOT = "SCREENSHOT"
+
 }

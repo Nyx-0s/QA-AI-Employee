@@ -11,4 +11,21 @@ export interface Action {
     timeout?: number;
 
     metadata?: Record<string, unknown>;
+
+    // Runtime
+
+    variable?: string;
+
+    expression?: string;
+
+    condition?: string;
+
+    retry?: number;
+
+    optional?: boolean;
+
+    continueOnFailure?: boolean;
+
+    description?: string;
+
 }
