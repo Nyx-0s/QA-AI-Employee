@@ -20,8 +20,11 @@ import { StoreCommand } from "./commands/StoreCommand";
 import { ReadValueCommand } from "./commands/ReadValueCommand";
 import { ReadTextCommand } from "./commands/ReadTextCommand";
 import { ReadAttributeCommand } from "./commands/ReadAttributeCommand";
+import { ReadPageTextCommand } from "./commands/ReadPageTextCommand";
+import { ReadValidationMessagesCommand } from "./commands/ReadValidationMessagesCommand";
 import { AssertEqualsCommand } from "./commands/AssertEqualsCommand";
 import { AssertContainsCommand } from "./commands/AssertContainsCommand";
+import { AssertPageContainsCommand } from "./commands/AssertPageContainsCommand";
 import { IfCommand } from "./commands/IfCommand";
 import { ElseCommand } from "./commands/ElseCommand";
 import { EndIfCommand } from "./commands/EndIfCommand";
@@ -54,8 +57,11 @@ export class GenericActionRegistry {
         this.register(ActionType.READ_VALUE, new ReadValueCommand());
         this.register(ActionType.READ_TEXT, new ReadTextCommand());
         this.register(ActionType.READ_ATTRIBUTE, new ReadAttributeCommand());
+        this.register(ActionType.READ_PAGE_TEXT, new ReadPageTextCommand());
+        this.register(ActionType.READ_VALIDATION_MESSAGES, new ReadValidationMessagesCommand());
         this.register(ActionType.ASSERT_EQUALS, new AssertEqualsCommand());
         this.register(ActionType.ASSERT_CONTAINS, new AssertContainsCommand());
+        this.register(ActionType.ASSERT_PAGE_CONTAINS, new AssertPageContainsCommand());
 
         this.register(ActionType.IF, new IfCommand());
         this.register(ActionType.ELSE, new ElseCommand());
