@@ -20,7 +20,9 @@
       "category": "PAGE_LOAD",
       "risk": "CRITICAL",
       "executionMode": "READ_ONLY",
-      "preconditions": ["Authenticated user with finance access"],
+      "preconditions": [
+        "Authenticated user with finance access"
+      ],
       "steps": [
         "Open Financial Management",
         "Open Setup",
@@ -31,7 +33,11 @@
           "description": "Fee setup page loads without a blocking error"
         }
       ],
-      "tags": ["fees", "setup", "smoke"],
+      "tags": [
+        "fees",
+        "setup",
+        "smoke"
+      ],
       "enabled": true
     },
     {
@@ -43,7 +49,9 @@
       "category": "UI",
       "risk": "HIGH",
       "executionMode": "READ_ONLY",
-      "preconditions": ["Fee setup page is open"],
+      "preconditions": [
+        "Fee setup page is open"
+      ],
       "steps": [
         "Locate the fee-header list or table",
         "Verify that the component rendered",
@@ -54,7 +62,11 @@
           "description": "Fee header table or a valid empty state is displayed"
         }
       ],
-      "tags": ["fees", "headers", "table"],
+      "tags": [
+        "fees",
+        "headers",
+        "table"
+      ],
       "enabled": true
     },
     {
@@ -66,7 +78,9 @@
       "category": "VALIDATION",
       "risk": "CRITICAL",
       "executionMode": "SAFE_INTERACTION",
-      "preconditions": ["Add Fee Header form is available"],
+      "preconditions": [
+        "Add Fee Header form is available"
+      ],
       "steps": [
         "Open the Add Fee Header form",
         "Leave the fee header name empty",
@@ -80,8 +94,21 @@
           "description": "Required-field validation is displayed"
         }
       ],
-      "tags": ["fees", "headers", "required-fields"],
-      "enabled": true
+      "tags": [
+        "fees",
+        "headers",
+        "required-fields"
+      ],
+      "enabled": true,
+      "actions": [
+        {
+          "type": "FIND_FIELD",
+          "target": "fee header"
+        },
+        {
+          "type": "ASSERT_REQUIRED_FIELD"
+        }
+      ]
     },
     {
       "id": "FHD-004",
@@ -106,7 +133,11 @@
           "description": "Duplicate fee header is rejected"
         }
       ],
-      "tags": ["fees", "headers", "duplicate"],
+      "tags": [
+        "fees",
+        "headers",
+        "duplicate"
+      ],
       "enabled": true
     },
     {
@@ -136,7 +167,11 @@
           "description": "Created fee header appears in the list"
         }
       ],
-      "tags": ["fees", "headers", "create"],
+      "tags": [
+        "fees",
+        "headers",
+        "create"
+      ],
       "enabled": true
     },
     {
@@ -163,7 +198,12 @@
           "description": "Deletion is blocked or requires explicit dependency handling"
         }
       ],
-      "tags": ["fees", "headers", "delete", "dependency"],
+      "tags": [
+        "fees",
+        "headers",
+        "delete",
+        "dependency"
+      ],
       "enabled": true
     }
   ]

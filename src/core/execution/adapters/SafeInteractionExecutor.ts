@@ -5,10 +5,16 @@ import type { TestExecutionResult } from "../TestExecutionResult";
 import { FormLocator } from "../utils/FormLocator";
 import { ActionExecutor } from "../../actions/ActionExecutor";
 import type { ExecutionContext } from "../../actions/models/ExecutionContext";
+import { FieldFinder } from "../../actions/utils/FieldFinder";
+import { ButtonFinder } from "../../actions/utils/ButtonFinder";
 
 type ResultStatus = TestExecutionResult["status"];
 
 export class SafeInteractionExecutor {
+
+  private readonly fieldFinder = new FieldFinder();
+  private readonly buttonFinder = new ButtonFinder();
+
   private readonly formLocator = new FormLocator();
   private readonly actionExecutor = new ActionExecutor();
 
@@ -44,30 +50,12 @@ export class SafeInteractionExecutor {
 
       }
 
-      switch (test.id) {
-        case "FEE-003":
-          return await this.testUnknownStudent(page, test, started);
-
-        case "FEE-004":
-          return await this.testStudentFeeDetails(page, test, started);
-
-        case "FEE-005":
-          return await this.testNegativeAmount(page, test, started);
-
-        case "FEE-006":
-          return await this.testOverpayment(page, test, started);
-
-        case "FEE-007":
-          return await this.testPaymentModeRequired(page, test, started);
-
-        default:
-          return this.result(
-            test,
-            "NOT_TESTED",
-            ["No safe executor implemented for this test yet"],
-            Date.now() - started
-          );
-      }
+      return this.result(
+        test,
+        "NOT_TESTED",
+        ["No actions defined for this SAFE_INTERACTION test"],
+        Date.now() - started
+      );
     } catch (error) {
       return this.result(
         test,
@@ -100,7 +88,7 @@ export class SafeInteractionExecutor {
     );
 
     const requiredCount = await this.visibleCount(requiredFields);
-    const submit = await this.findAction(
+    const submit = await this.buttonFinder.find(
       form,
       ["submit", "save", "register", "continue", "next"]
     );
@@ -182,7 +170,7 @@ export class SafeInteractionExecutor {
       return form;
     }
 
-    const input = await this.findField(form, [
+    const input = await this.fieldFinder.find(form, [
       "email",
       "e-mail",
       "mail"
@@ -238,7 +226,7 @@ export class SafeInteractionExecutor {
       return form;
     }
 
-    const input = await this.findField(form, [
+    const input = await this.fieldFinder.find(form, [
       "phone",
       "mobile",
       "contact",
@@ -376,354 +364,6 @@ export class SafeInteractionExecutor {
     );
   }
 
-  private async testUnknownStudent(
-    page: Page,
-    test: BusinessTestDefinition,
-    started: number
-  ): Promise<TestExecutionResult> {
-    const field = await this.findStudentSearchField(page);
-
-    if (!field) {
-      return this.result(
-        test,
-        "BLOCKED",
-        [],
-        Date.now() - started,
-        "Admission or registration search field not found"
-      );
-    }
-
-    const original = await field.inputValue().catch(() => "");
-    const invalidId =
-      String(test.inputs?.[0]?.value || "AQW-NON-EXISTENT-999999");
-
-    await field.fill(invalidId);
-
-    const searchAction = await this.findSearchAction(page);
-
-    if (!searchAction) {
-      await field.fill(original);
-
-      return this.result(
-        test,
-        "BLOCKED",
-        ["Unknown student identifier entered safely"],
-        Date.now() - started,
-        "Search action not found"
-      );
-    }
-
-    await searchAction.click({ timeout: 5000, noWaitAfter: true });
-    await page.waitForTimeout(1200);
-
-    const bodyText = await page.locator("body").innerText().catch(() => "");
-    const lower = bodyText.toLowerCase();
-
-    const noResultTerms = [
-      "no record",
-      "no records",
-      "not found",
-      "no student",
-      "student not found",
-      "no data",
-      "no result",
-      "no results",
-      "does not exist",
-      "invalid admission",
-      "invalid registration"
-    ];
-
-    const matched = noResultTerms.filter(term => lower.includes(term));
-    await field.fill(original).catch(() => undefined);
-
-    return this.result(
-      test,
-      matched.length > 0 ? "PASS" : "WARNING",
-      [
-        `Unknown identifier searched: ${invalidId}`,
-        `No-result indicators detected: ${matched.length}`,
-        ...matched.map(term => `Detected response: ${term}`),
-        "Original search value restored"
-      ],
-      Date.now() - started
-    );
-  }
-
-  private async testStudentFeeDetails(
-    page: Page,
-    test: BusinessTestDefinition,
-    started: number
-  ): Promise<TestExecutionResult> {
-    const studentId =
-      process.env.AQW_QA_STUDENT_ID ||
-      process.env.QA_STUDENT_ADMISSION_NUMBER ||
-      process.env.QA_STUDENT_ID;
-
-    if (!studentId) {
-      return this.result(
-        test,
-        "BLOCKED",
-        [
-          "A valid student search requires an approved QA student identifier"
-        ],
-        Date.now() - started,
-        "Set AQW_QA_STUDENT_ID in .env"
-      );
-    }
-
-    const field = await this.findStudentSearchField(page);
-
-    if (!field) {
-      return this.result(
-        test,
-        "BLOCKED",
-        [],
-        Date.now() - started,
-        "Admission or registration search field not found"
-      );
-    }
-
-    const original = await field.inputValue().catch(() => "");
-    await field.fill(studentId);
-
-    const searchAction = await this.findSearchAction(page);
-
-    if (!searchAction) {
-      await field.fill(original);
-
-      return this.result(
-        test,
-        "BLOCKED",
-        [],
-        Date.now() - started,
-        "Search action not found"
-      );
-    }
-
-    await searchAction.click({ timeout: 5000, noWaitAfter: true });
-    await page.waitForTimeout(1500);
-
-    const studentMatch = page.getByText(studentId, { exact: false }).first();
-
-    if (await studentMatch.isVisible().catch(() => false)) {
-      await studentMatch.click({ timeout: 3000, noWaitAfter: true })
-        .catch(() => undefined);
-
-      await page.waitForTimeout(900);
-    }
-
-    const bodyText = await page.locator("body").innerText().catch(() => "");
-    const lower = bodyText.toLowerCase();
-
-    const studentTerms = [
-      "student name",
-      "admission",
-      "registration",
-      "class",
-      "section"
-    ].filter(term => lower.includes(term));
-
-    const feeTerms = [
-      "fee",
-      "outstanding",
-      "balance",
-      "paid",
-      "due",
-      "amount",
-      "installment",
-      "receipt"
-    ].filter(term => lower.includes(term));
-
-    await field.fill(original).catch(() => undefined);
-
-    const passed =
-      lower.includes(studentId.toLowerCase()) &&
-      studentTerms.length > 0 &&
-      feeTerms.length >= 2;
-
-    return this.result(
-      test,
-      passed ? "PASS" : "WARNING",
-      [
-        `Approved QA student searched: ${studentId}`,
-        `Student-detail indicators detected: ${studentTerms.length}`,
-        `Fee-detail indicators detected: ${feeTerms.length}`,
-        ...studentTerms.map(term => `Student indicator: ${term}`),
-        ...feeTerms.slice(0, 6).map(term => `Fee indicator: ${term}`),
-        "Original search value restored"
-      ],
-      Date.now() - started
-    );
-  }
-
-  private async testNegativeAmount(
-    page: Page,
-    test: BusinessTestDefinition,
-    started: number
-  ): Promise<TestExecutionResult> {
-    const amount = await this.findAmountField(page);
-
-    if (!amount) {
-      return this.result(
-        test,
-        "BLOCKED",
-        [],
-        Date.now() - started,
-        "Payment amount field not found"
-      );
-    }
-
-    const original = await amount.inputValue().catch(() => "");
-    await amount.fill("-100");
-    await amount.blur();
-    await page.waitForTimeout(300);
-
-    const evidence = await this.inspectInputValidation(page, amount);
-    const retained = await amount.inputValue().catch(() => "");
-    const min = Number(evidence.min || "NaN");
-
-    await amount.fill(original);
-
-    const rejected =
-      retained !== "-100" ||
-      evidence.invalid ||
-      evidence.validationText.length > 0 ||
-      (!Number.isNaN(min) && min >= 0);
-
-    return this.result(
-      test,
-      rejected ? "PASS" : "WARNING",
-      [
-        `Negative amount retained: ${retained === "-100"}`,
-        `Configured minimum: ${evidence.min || "not set"}`,
-        `aria-invalid: ${evidence.ariaInvalid || "not set"}`,
-        ...evidence.validationText,
-        "Original amount restored"
-      ],
-      Date.now() - started
-    );
-  }
-
-  private async testOverpayment(
-    page: Page,
-    test: BusinessTestDefinition,
-    started: number
-  ): Promise<TestExecutionResult> {
-    const amount = await this.findAmountField(page);
-
-    if (!amount) {
-      return this.result(
-        test,
-        "BLOCKED",
-        [],
-        Date.now() - started,
-        "Payment amount field not found"
-      );
-    }
-
-    const bodyText = await page.locator("body").innerText().catch(() => "");
-    const balance = this.extractOutstandingBalance(bodyText);
-
-    if (balance === null) {
-      return this.result(
-        test,
-        "BLOCKED",
-        ["Payment amount field detected"],
-        Date.now() - started,
-        "Outstanding balance could not be identified safely"
-      );
-    }
-
-    const original = await amount.inputValue().catch(() => "");
-    const overpayment = balance + Math.max(100, Math.ceil(balance * 0.1));
-
-    await amount.fill(String(overpayment));
-    await amount.blur();
-    await page.waitForTimeout(300);
-
-    const evidence = await this.inspectInputValidation(page, amount);
-    const max = Number(evidence.max || "NaN");
-
-    await amount.fill(original);
-
-    const handled =
-      evidence.invalid ||
-      evidence.validationText.length > 0 ||
-      (!Number.isNaN(max) && max <= balance);
-
-    return this.result(
-      test,
-      handled ? "PASS" : "WARNING",
-      [
-        `Outstanding balance detected: ${balance}`,
-        `Temporary overpayment entered: ${overpayment}`,
-        `Configured maximum: ${evidence.max || "not set"}`,
-        `aria-invalid: ${evidence.ariaInvalid || "not set"}`,
-        ...evidence.validationText,
-        "No payment submission was performed",
-        "Original amount restored"
-      ],
-      Date.now() - started
-    );
-  }
-
-  private async testPaymentModeRequired(
-    page: Page,
-    test: BusinessTestDefinition,
-    started: number
-  ): Promise<TestExecutionResult> {
-    const mode = await this.findPaymentModeControl(page);
-
-    if (!mode) {
-      return this.result(
-        test,
-        "BLOCKED",
-        [],
-        Date.now() - started,
-        "Payment mode control not found"
-      );
-    }
-
-    const required = await mode.getAttribute("required");
-    const ariaRequired = await mode.getAttribute("aria-required");
-    const ariaInvalid = await mode.getAttribute("aria-invalid");
-
-    const paymentAction = await this.findAction(
-      page.locator("body"),
-      ["pay", "collect", "proceed", "continue", "submit"]
-    );
-
-    const actionDisabled = paymentAction
-      ? !(await paymentAction.isEnabled().catch(() => true))
-      : false;
-
-    const labels = await this.nearbyText(mode);
-    const requiredLabel =
-      labels.toLowerCase().includes("required") ||
-      labels.includes("*");
-
-    const protectedByValidation =
-      required !== null ||
-      ariaRequired === "true" ||
-      ariaInvalid === "true" ||
-      actionDisabled ||
-      requiredLabel;
-
-    return this.result(
-      test,
-      protectedByValidation ? "PASS" : "WARNING",
-      [
-        "Payment mode control detected",
-        `required attribute present: ${required !== null}`,
-        `aria-required: ${ariaRequired || "not set"}`,
-        `aria-invalid: ${ariaInvalid || "not set"}`,
-        `Payment action disabled without mode: ${actionDisabled}`,
-        `Required-field label indicator detected: ${requiredLabel}`,
-        "No payment submission was performed"
-      ],
-      Date.now() - started
-    );
-  }
 
   private async requireForm(
     page: Page,
@@ -754,7 +394,7 @@ export class SafeInteractionExecutor {
     ];
 
     for (const scope of scopes) {
-      const field = await this.findField(scope, [
+      const field = await this.fieldFinder.find(scope, [
         "admission",
         "registration",
         "enrollment",
@@ -781,7 +421,7 @@ export class SafeInteractionExecutor {
     ];
 
     for (const scope of scopes) {
-      const field = await this.findField(scope, [
+      const field = await this.fieldFinder.find(scope, [
         "amount",
         "payment amount",
         "pay amount",
@@ -823,8 +463,8 @@ export class SafeInteractionExecutor {
         continue;
       }
 
-      const attributes = await this.elementIdentity(control);
-      const nearby = await this.nearbyText(control);
+      const attributes = await this.fieldFinder.elementIdentity(control);
+      const nearby = await this.fieldFinder.nearbyText(control);
       const haystack = `${attributes} ${nearby}`.toLowerCase();
 
       if (
@@ -843,99 +483,12 @@ export class SafeInteractionExecutor {
   private async findSearchAction(
     page: Page
   ): Promise<Locator | null> {
-    return this.findAction(
+    return this.buttonFinder.find(
       page.locator("body"),
       ["search", "find", "lookup", "go", "fetch"]
     );
   }
 
-  private async findAction(
-    scope: Locator,
-    hints: string[]
-  ): Promise<Locator | null> {
-    const actions = scope.locator(
-      [
-        "button",
-        "input[type='submit']",
-        "input[type='button']",
-        "[role='button']"
-      ].join(",")
-    );
-
-    const total = await actions.count();
-
-    for (let index = 0; index < total; index++) {
-      const action = actions.nth(index);
-
-      if (!(await action.isVisible().catch(() => false))) {
-        continue;
-      }
-
-      if (!(await action.isEnabled().catch(() => false))) {
-        continue;
-      }
-
-      const text = await action.innerText().catch(() => "");
-      const value = await action.getAttribute("value").catch(() => "");
-      const title = await action.getAttribute("title").catch(() => "");
-      const aria = await action.getAttribute("aria-label").catch(() => "");
-      const name = await action.getAttribute("name").catch(() => "");
-      const id = await action.getAttribute("id").catch(() => "");
-
-      const haystack = [
-        text,
-        value || "",
-        title || "",
-        aria || "",
-        name || "",
-        id || ""
-      ]
-        .join(" ")
-        .toLowerCase();
-
-      if (hints.some(hint => haystack.includes(hint.toLowerCase()))) {
-        return action;
-      }
-    }
-
-    return null;
-  }
-
-  private async findField(
-    scope: Locator,
-    hints: string[]
-  ): Promise<Locator | null> {
-    const inputs = scope.locator(
-      [
-        "input:not([type='hidden'])",
-        "textarea"
-      ].join(",")
-    );
-
-    const total = await inputs.count();
-
-    for (let index = 0; index < total; index++) {
-      const input = inputs.nth(index);
-
-      if (!(await input.isVisible().catch(() => false))) {
-        continue;
-      }
-
-      if (!(await input.isEnabled().catch(() => false))) {
-        continue;
-      }
-
-      const identity = await this.elementIdentity(input);
-      const nearby = await this.nearbyText(input);
-      const haystack = `${identity} ${nearby}`.toLowerCase();
-
-      if (hints.some(hint => haystack.includes(hint.toLowerCase()))) {
-        return input;
-      }
-    }
-
-    return null;
-  }
 
   private async inspectInputValidation(
     page: Page,
@@ -1042,50 +595,6 @@ export class SafeInteractionExecutor {
     }
 
     return [...new Set(messages)];
-  }
-
-  private async elementIdentity(
-    element: Locator
-  ): Promise<string> {
-    const attributes = await Promise.all([
-      element.getAttribute("name"),
-      element.getAttribute("id"),
-      element.getAttribute("type"),
-      element.getAttribute("placeholder"),
-      element.getAttribute("aria-label"),
-      element.getAttribute("title"),
-      element.getAttribute("data-testid")
-    ]);
-
-    return attributes.filter(Boolean).join(" ");
-  }
-
-  private async nearbyText(
-    element: Locator
-  ): Promise<string> {
-    const id = await element.getAttribute("id");
-
-    let labelText = "";
-
-    if (id) {
-      labelText = await element
-        .page()
-        .locator(`label[for="${this.escapeAttribute(id)}"]`)
-        .first()
-        .innerText()
-        .catch(() => "");
-    }
-
-    const parentText = await element
-      .locator("xpath=ancestor::*[self::label or self::div or self::td][1]")
-      .innerText()
-      .catch(() => "");
-
-    return `${labelText} ${parentText}`.trim();
-  }
-
-  private escapeAttribute(value: string): string {
-    return value.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
   }
 
   private async visibleCount(

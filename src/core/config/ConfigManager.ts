@@ -18,12 +18,7 @@ const ConfigSchema = z.object({
     .default("100")
     .transform((v) => Number(v)),
 
-  QA_MODE: z.enum([
-    "READ_ONLY",
-    "SAFE_WRITE",
-    "FULL_CRUD",
-    "DESTRUCTIVE"
-  ]),
+
 
   REPORT_DIR: z.string().default("reports"),
   SCREENSHOT_DIR: z.string().default("screenshots"),

@@ -20,7 +20,9 @@
       "category": "PAGE_LOAD",
       "risk": "CRITICAL",
       "executionMode": "READ_ONLY",
-      "preconditions": ["Authenticated finance user"],
+      "preconditions": [
+        "Authenticated finance user"
+      ],
       "steps": [
         "Open Financial Management",
         "Open Collect Fees",
@@ -31,7 +33,11 @@
           "description": "Collect Fees page loads without a blocking error"
         }
       ],
-      "tags": ["fees", "collection", "smoke"],
+      "tags": [
+        "fees",
+        "collection",
+        "smoke"
+      ],
       "enabled": true
     },
     {
@@ -43,7 +49,9 @@
       "category": "SEARCH",
       "risk": "CRITICAL",
       "executionMode": "SAFE_INTERACTION",
-      "preconditions": ["Collect Fees page is open"],
+      "preconditions": [
+        "Collect Fees page is open"
+      ],
       "steps": [
         "Locate the admission or registration number field",
         "Enter temporary search text",
@@ -55,8 +63,53 @@
           "description": "Search input accepts and retains entered text"
         }
       ],
-      "tags": ["fees", "search", "student"],
-      "enabled": true
+      "tags": [
+        "fees",
+        "search",
+        "student"
+      ],
+      "enabled": true,
+      "actions": [
+        {
+          "type": "READ_ENV",
+          "metadata": {
+            "keys": [
+              "AQW_QA_STUDENT_ID",
+              "QA_STUDENT_ADMISSION_NUMBER",
+              "QA_STUDENT_ID"
+            ]
+          },
+          "variable": "studentId"
+        },
+        {
+          "type": "FIND_FIELD",
+          "target": "student"
+        },
+        {
+          "type": "TYPE",
+          "value": "${studentId}"
+        },
+        {
+          "type": "WAIT",
+          "timeout": 500
+        },
+        {
+          "type": "READ_PAGE_TEXT"
+        },
+        {
+          "type": "ASSERT_PAGE_CONTAINS_ANY",
+          "metadata": {
+            "values": [
+              "${studentId}",
+              "search",
+              "student"
+            ]
+          }
+        },
+        {
+          "type": "CLEAR"
+        }
+      ]
     },
     {
       "id": "FEE-003",
@@ -67,11 +120,57 @@
       "category": "VALIDATION",
       "risk": "HIGH",
       "executionMode": "SAFE_INTERACTION",
-      "preconditions": ["Student search field is available"],
+      "preconditions": [
+        "Student search field is available"
+      ],
       "steps": [
         "Enter a non-existent admission number",
         "Execute search",
         "Observe the response"
+      ],
+      "actions": [
+        {
+          "type": "FIND_FIELD",
+          "target": "admission"
+        },
+        {
+          "type": "TYPE",
+          "value": "AQW-NON-EXISTENT-999999"
+        },
+        {
+          "type": "FIND_BUTTON",
+          "target": "search"
+        },
+        {
+          "type": "CLICK"
+        },
+        {
+          "type": "WAIT",
+          "timeout": 1200
+        },
+        {
+          "type": "READ_PAGE_TEXT"
+        },
+        {
+          "type": "ASSERT_PAGE_CONTAINS_ANY",
+          "metadata": {
+            "values": [
+              "no record",
+              "no records",
+              "not found",
+              "student not found",
+              "no student",
+              "no result",
+              "no results",
+              "does not exist",
+              "invalid admission",
+              "invalid registration"
+            ]
+          }
+        },
+        {
+          "type": "CLEAR"
+        }
       ],
       "inputs": [
         {
@@ -84,7 +183,11 @@
           "description": "A clear no-record or student-not-found response is displayed"
         }
       ],
-      "tags": ["fees", "search", "negative-test"],
+      "tags": [
+        "fees",
+        "search",
+        "negative-test"
+      ],
       "enabled": true
     },
     {
@@ -117,8 +220,64 @@
           "description": "Outstanding or paid amount is visible"
         }
       ],
-      "tags": ["fees", "student", "details"],
-      "enabled": true
+      "tags": [
+        "fees",
+        "student",
+        "details"
+      ],
+      "enabled": true,
+      "actions": [
+        {
+          "type": "READ_ENV",
+          "metadata": {
+            "keys": [
+              "AQW_QA_STUDENT_ID",
+              "QA_STUDENT_ADMISSION_NUMBER",
+              "QA_STUDENT_ID"
+            ]
+          },
+          "variable": "studentId"
+        },
+        {
+          "type": "FIND_FIELD",
+          "target": "admission"
+        },
+        {
+          "type": "TYPE",
+          "value": "${studentId}"
+        },
+        {
+          "type": "FIND_BUTTON",
+          "target": "search"
+        },
+        {
+          "type": "CLICK"
+        },
+        {
+          "type": "WAIT",
+          "timeout": 1500
+        },
+        {
+          "type": "READ_PAGE_TEXT"
+        },
+        {
+          "type": "ASSERT_PAGE_CONTAINS_ANY",
+          "metadata": {
+            "values": [
+              "fee",
+              "balance",
+              "paid",
+              "due",
+              "amount",
+              "receipt",
+              "installment"
+            ]
+          }
+        },
+        {
+          "type": "CLEAR"
+        }
+      ]
     },
     {
       "id": "FEE-005",
@@ -129,7 +288,9 @@
       "category": "VALIDATION",
       "risk": "CRITICAL",
       "executionMode": "SAFE_INTERACTION",
-      "preconditions": ["Payment amount field is available"],
+      "preconditions": [
+        "Payment amount field is available"
+      ],
       "steps": [
         "Enter a negative amount",
         "Move focus away from the field",
@@ -146,8 +307,39 @@
           "description": "Negative amount is rejected or visibly flagged"
         }
       ],
-      "tags": ["fees", "payment", "negative-amount"],
-      "enabled": true
+      "tags": [
+        "fees",
+        "payment",
+        "negative-amount"
+      ],
+      "enabled": true,
+      "actions": [
+        {
+          "type": "FIND_FIELD",
+          "target": "amount"
+        },
+        {
+          "type": "TYPE",
+          "value": "-100"
+        },
+        {
+          "type": "BLUR"
+        },
+        {
+          "type": "WAIT",
+          "timeout": 300
+        },
+        {
+          "type": "READ_VALIDATION_MESSAGES",
+          "variable": "validationMessages"
+        },
+        {
+          "type": "ASSERT_INPUT_VALIDATION"
+        },
+        {
+          "type": "CLEAR"
+        }
+      ]
     },
     {
       "id": "FEE-006",
@@ -172,8 +364,51 @@
           "description": "Overpayment is rejected or clearly handled according to configured policy"
         }
       ],
-      "tags": ["fees", "payment", "overpayment"],
-      "enabled": true
+      "tags": [
+        "fees",
+        "payment",
+        "overpayment"
+      ],
+      "enabled": true,
+      "actions": [
+        {
+          "type": "READ_PAGE_TEXT"
+        },
+        {
+          "type": "READ_NUMBER_FROM_PAGE",
+          "variable": "balance"
+        },
+        {
+          "type": "CALCULATE",
+          "expression": "${balance}+100",
+          "variable": "overpayment"
+        },
+        {
+          "type": "FIND_FIELD",
+          "target": "amount"
+        },
+        {
+          "type": "TYPE",
+          "value": "${overpayment}"
+        },
+        {
+          "type": "BLUR"
+        },
+        {
+          "type": "WAIT",
+          "timeout": 300
+        },
+        {
+          "type": "READ_VALIDATION_MESSAGES",
+          "variable": "validationMessages"
+        },
+        {
+          "type": "ASSERT_INPUT_VALIDATION"
+        },
+        {
+          "type": "CLEAR"
+        }
+      ]
     },
     {
       "id": "FEE-007",
@@ -184,7 +419,9 @@
       "category": "VALIDATION",
       "risk": "CRITICAL",
       "executionMode": "SAFE_INTERACTION",
-      "preconditions": ["Payment form is visible"],
+      "preconditions": [
+        "Payment form is visible"
+      ],
       "steps": [
         "Enter an otherwise valid payment amount",
         "Leave payment mode unselected",
@@ -195,8 +432,21 @@
           "description": "Payment progression is blocked until a payment mode is selected"
         }
       ],
-      "tags": ["fees", "payment-mode", "validation"],
-      "enabled": true
+      "tags": [
+        "fees",
+        "payment-mode",
+        "validation"
+      ],
+      "enabled": true,
+      "actions": [
+        {
+          "type": "FIND_FIELD",
+          "target": "payment mode"
+        },
+        {
+          "type": "ASSERT_REQUIRED_FIELD"
+        }
+      ]
     },
     {
       "id": "FEE-008",
@@ -233,7 +483,11 @@
           "description": "Payment mode is stored correctly"
         }
       ],
-      "tags": ["fees", "payment", "end-to-end"],
+      "tags": [
+        "fees",
+        "payment",
+        "end-to-end"
+      ],
       "enabled": true
     },
     {
@@ -245,7 +499,9 @@
       "category": "WORKFLOW",
       "risk": "CRITICAL",
       "executionMode": "READ_ONLY",
-      "preconditions": ["A completed QA payment exists"],
+      "preconditions": [
+        "A completed QA payment exists"
+      ],
       "steps": [
         "Open the student's payment history",
         "Locate the completed QA payment",
@@ -259,7 +515,11 @@
           "description": "Receipt contains student, amount, date, and payment-mode information"
         }
       ],
-      "tags": ["fees", "receipt", "payment"],
+      "tags": [
+        "fees",
+        "receipt",
+        "payment"
+      ],
       "enabled": true
     },
     {
@@ -285,7 +545,11 @@
           "description": "Duplicate payment is blocked or requires explicit confirmation with a clear warning"
         }
       ],
-      "tags": ["fees", "duplicate-payment", "business-rule"],
+      "tags": [
+        "fees",
+        "duplicate-payment",
+        "business-rule"
+      ],
       "enabled": true
     }
   ]

@@ -33,14 +33,40 @@ export class ActionExecutor {
                 const command =
                     this.registry.get(action.type);
 
-                await command.execute(
-                    context,
-                    action
-                );
+                try {
 
-                context.observations.push(
-                    `${action.type} completed`
-                );
+                    await command.execute(
+                        context,
+                        action
+                    );
+
+                    context.observations.push(
+                        `${action.type} completed`
+                    );
+
+                } catch (error) {
+
+                    const message =
+                        error instanceof Error
+                            ? error.message
+                            : String(error);
+
+                    if (
+                        action.optional ||
+                        action.continueOnFailure
+                    ) {
+
+                        context.observations.push(
+                            `${action.type} skipped: ${message}`
+                        );
+
+                        continue;
+
+                    }
+
+                    throw error;
+
+                }
 
             }
 
