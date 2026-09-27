@@ -1,0 +1,6 @@
+company: Timbercrest Camp & RV Park
+draft file: 2026-09-18-timbercrest-camp-rv.md
+sent date: 2026-09-23
+message-id: <443467d9-3935-4d4b-995b-dae86da6d51b@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to reserve@timbercrestrvpark.com; Message-ID <443467d9-3935-4d4b-995b-dae86da6d51b@gmail.com> accepted by relay.

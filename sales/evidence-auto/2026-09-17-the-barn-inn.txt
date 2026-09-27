@@ -1,0 +1,6 @@
+company: The Barn Inn Bed & Breakfast
+draft file: 2026-09-17-the-barn-inn.md
+sent date: 2026-09-20
+message-id: <6787b7d7-10ee-4a0b-8ba5-8ce891ec0a2a@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to reservations@thebarninn.com; Message-ID <6787b7d7-10ee-4a0b-8ba5-8ce891ec0a2a@gmail.com> accepted by relay.

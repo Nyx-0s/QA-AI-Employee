@@ -1,0 +1,6 @@
+company: Expert T's
+draft file: 2026-09-20-expert-ts.md
+sent date: 2026-09-20
+message-id: <078e632f-2b12-4f0c-bc62-882c8045e8ee@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to customerservice.expertts@gmail.com; Message-ID <078e632f-2b12-4f0c-bc62-882c8045e8ee@gmail.com> accepted by relay.

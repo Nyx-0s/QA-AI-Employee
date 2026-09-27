@@ -1,0 +1,6 @@
+company: Black Run Farms
+draft file: 2026-09-23-black-run-farm.md
+sent date: 2026-09-23
+message-id: <2a5e77a3-8487-4a75-8b7a-e7a5467dd58b@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to blackrunfarmsevents@gmail.com; Message-ID <2a5e77a3-8487-4a75-8b7a-e7a5467dd58b@gmail.com> accepted by relay.

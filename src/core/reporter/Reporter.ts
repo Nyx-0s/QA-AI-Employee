@@ -3,10 +3,10 @@ import path from "path";
 
 import type { PageQAResult } from "../qa/Types";
 import type { TestExecutionResult } from "../execution/TestExecutionResult";
-import { DefectClassifier } from "../ai/DefectClassifier";
+import type { QAFinding, QASeverity } from "../ai/models/QAFinding";
+import { FailureAnalyzer } from "../ai/reasoner/FailureAnalyzer";
 
 export class Reporter {
-  private readonly classifier = new DefectClassifier();
 
   constructor(
     private readonly outputDirectory = "reports/html"
@@ -297,6 +297,8 @@ Generated: ${this.escape(new Date().toLocaleString())}
   <th>Network</th>
   <th>Element Intelligence</th>
   <th>Business Tests</th>
+  <th>Findings</th>
+  <th>AI Analysis</th>
   <th>Severity</th>
   <th>Category</th>
   <th>Owner</th>
@@ -319,9 +321,51 @@ ${rows}
     return reportPath;
   }
 
+  /**
+   * Single-source page classification derived from the typed
+   * FailureAnalyzer findings: worst-severity finding wins, ties
+   * resolve to the first finding in deterministic analysis order.
+   */
+  private classify(findings: QAFinding[]): {
+    severity: string;
+    category: string;
+    owner: string;
+  } {
+    if (findings.length === 0) {
+      return { severity: "NONE", category: "NONE", owner: "NONE" };
+    }
+
+    const worst = findings.reduce((current, candidate) =>
+      this.severityRank(candidate.severity) >
+      this.severityRank(current.severity)
+        ? candidate
+        : current
+    );
+
+    return {
+      severity: worst.severity,
+      category: worst.category,
+      owner: worst.responsibleTeam
+    };
+  }
+
+  private severityRank(severity: QASeverity): number {
+    switch (severity) {
+      case "CRITICAL":
+        return 4;
+      case "HIGH":
+        return 3;
+      case "MEDIUM":
+        return 2;
+      default:
+        return 1; // LOW
+    }
+  }
+
   private renderPageRow(result: PageQAResult): string {
     const businessTests = result.businessTests ?? [];
-    const defect = this.classifier.classify(result);
+    const findings = new FailureAnalyzer().analyze(result);
+    const classification = this.classify(findings);
 
     return `
 <tr>
@@ -335,11 +379,169 @@ ${rows}
   <td>${result.networkErrors.length}</td>
   <td>${this.renderElementIntelligence(result)}</td>
 <td>${this.renderBusinessTests(businessTests)}</td>
-<td>${this.escape(defect.severity)}</td>
-<td>${this.escape(defect.category)}</td>
-<td>${this.escape(defect.owner)}</td>
+<td>${this.renderFindings(findings)}</td>
+<td>${this.renderAIAnalysis(result)}</td>
+<td>${this.escape(classification.severity)}</td>
+<td>${this.escape(classification.category)}</td>
+<td>${this.escape(classification.owner)}</td>
 <td class="screenshot">${this.escape(result.screenshot)}</td>
 </tr>`;
+  }
+
+  private renderFindings(findings: QAFinding[]): string {
+
+    if (findings.length === 0) {
+      return "—";
+    }
+
+    const bySeverity = findings.reduce<Record<string, number>>(
+      (counts, finding) => {
+        counts[finding.severity] =
+          (counts[finding.severity] ?? 0) + 1;
+        return counts;
+      },
+      {}
+    );
+
+    const summary = Object.entries(bySeverity)
+      .map(([severity, count]) => `${count} ${severity}`)
+      .join(", ");
+
+    return `
+<details>
+  <summary>
+    ${findings.length} finding(s) — ${this.escape(summary)}
+  </summary>
+
+  <div class="business-tests">
+    ${findings.map(finding => this.renderFinding(finding)).join("")}
+  </div>
+</details>`;
+  }
+
+  private renderFinding(finding: QAFinding): string {
+    const meta = [
+      finding.severity,
+      finding.category,
+      finding.responsibleTeam,
+      `confidence ${finding.confidence}%`
+    ].join(" · ");
+
+    return `
+<div class="business-test">
+  <div class="test-title">${this.escape(finding.title)}</div>
+
+  <div class="test-meta">${this.escape(meta)}</div>
+
+  <div class="test-section">
+    <b>Business impact</b><br>
+    ${this.escape(finding.businessImpact)}
+  </div>
+
+  <div class="test-section">
+    <b>Evidence</b>
+    ${
+      finding.evidence.length > 0
+        ? this.renderList(finding.evidence)
+        : "<span>None recorded</span>"
+    }
+  </div>
+
+  <div class="test-section">
+    <b>Probable root cause</b>
+    ${
+      finding.probableRootCause.length > 0
+        ? this.renderList(finding.probableRootCause)
+        : "<span>Not inferred</span>"
+    }
+  </div>
+
+  <div class="test-section">
+    <b>Reproduction steps</b>
+    ${
+      finding.reproductionSteps.length > 0
+        ? this.renderList(finding.reproductionSteps)
+        : "<span>Not recorded</span>"
+    }
+  </div>
+
+  <div class="test-section">
+    <b>Recommended fix</b>
+    ${
+      finding.recommendedFix.length > 0
+        ? this.renderList(finding.recommendedFix)
+        : "<span>Not proposed</span>"
+    }
+  </div>
+</div>`;
+  }
+
+  private renderAIAnalysis(result: PageQAResult): string {
+    const ai = result.aiAnalysis;
+
+    if (!ai) {
+      return "—";
+    }
+
+    const riskClass =
+      ai.risk === "CRITICAL" || ai.risk === "HIGH"
+        ? "page-fail"
+        : ai.risk === "MEDIUM"
+          ? "test-not-tested"
+          : "page-pass";
+
+    const category = ai.category
+      ? ` · ${this.escape(ai.category)}`
+      : "";
+
+    const rootCauses = (ai.rootCauses ?? [])
+      .map(rootCause => {
+        const evidence =
+          rootCause.evidence.length > 0
+            ? ` <span class="test-meta">— ${this.escape(
+                rootCause.evidence.join("; ")
+              )}</span>`
+            : "";
+
+        return `<li>${this.escape(rootCause.cause)} <span class="test-meta">(confidence ${rootCause.confidence}%)</span>${evidence}</li>`;
+      })
+      .join("");
+
+    const remediations = (ai.remediations ?? [])
+      .map(
+        remediation =>
+          `<li><b>${this.escape(remediation.priority)}</b> · ${this.escape(
+            remediation.team
+          )}: ${this.escape(remediation.action)}</li>`
+      )
+      .join("");
+
+    return `
+<details>
+  <summary>
+    ${this.escape(ai.summary)} —
+    <span class="${riskClass}">${this.escape(ai.risk)}</span>
+    (${ai.confidence}%)
+  </summary>
+
+  <div class="business-tests">
+    <div class="business-test">
+      <div class="test-meta">
+        Risk: ${this.escape(ai.risk)}${category} · confidence ${ai.confidence}%
+      </div>
+
+      <div class="test-section">
+        <b>Probable root causes</b>
+        <ul>${rootCauses || "<li>None inferred</li>"}</ul>
+      </div>
+
+      <div class="test-section">
+        <b>Remediations</b>
+        <ul>${remediations || "<li>None proposed</li>"}</ul>
+      </div>
+    </div>
+  </div>
+</details>`;
   }
 
   private renderElementIntelligence(

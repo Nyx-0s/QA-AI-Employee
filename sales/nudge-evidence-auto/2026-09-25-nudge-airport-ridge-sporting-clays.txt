@@ -1,0 +1,5 @@
+company: Airport Ridge Sporting Clays
+draft file: 2026-09-25-nudge-airport-ridge-sporting-clays.md (nudge; parent outreach/drafts/2026-09-17-airport-ridge-sporting-clays.md)
+sent date: 2026-09-23
+message-id: <4cd5971a-1184-47ca-97a7-8bd8b945562e@gmail.com>
+forwarded header / sent-item paste: (transport curl session — transcript in sales/send-transcript.log; original send message-id 5e8086f1-3fa9-4680-b24a-2303dc8956c2@gmail.com)

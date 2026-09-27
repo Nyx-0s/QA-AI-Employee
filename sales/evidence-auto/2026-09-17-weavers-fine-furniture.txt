@@ -1,0 +1,6 @@
+company: Weaver's Fine Furniture
+draft file: 2026-09-17-weavers-fine-furniture.md
+sent date: 2026-09-20
+message-id: <ead7b7bb-2da4-4443-805b-b6f152195bf1@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to sales@weaverfurniture.com; Message-ID <ead7b7bb-2da4-4443-805b-b6f152195bf1@gmail.com> accepted by relay.

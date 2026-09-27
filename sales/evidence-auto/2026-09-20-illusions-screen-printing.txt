@@ -1,0 +1,6 @@
+company: Illusions Screen Printing
+draft file: 2026-09-20-illusions-screen-printing.md
+sent date: 2026-09-20
+message-id: <6345c0ef-df94-423d-a631-9ec0cefa7073@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to mandymaibach@illusionssp.com; Message-ID <6345c0ef-df94-423d-a631-9ec0cefa7073@gmail.com> accepted by relay.

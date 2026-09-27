@@ -1,0 +1,6 @@
+company: The White Oak Inn
+draft file: 2026-09-17-white-oak-inn.md
+sent date: 2026-09-21
+message-id: <f335bd5d-cf5f-460f-a51b-aaf0b6c3323c@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to yvonne@whiteoakinn.com; Message-ID <f335bd5d-cf5f-460f-a51b-aaf0b6c3323c@gmail.com> accepted by relay.

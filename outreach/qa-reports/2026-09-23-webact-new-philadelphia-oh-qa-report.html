@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Website QA Report — WebAct (New Philadelphia, OH)</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", Arial, sans-serif; margin: 0; background: #f4f6f8; color: #14202b; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 40px 24px; }
+  .brand { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #0e7c66; font-weight: 700; }
+  h1 { margin: 6px 0 2px; font-size: 30px; }
+  .muted { color: #64748b; font-size: 14px; }
+  .scorebox { display: flex; gap: 16px; align-items: baseline; margin: 22px 0; }
+  .score { font-size: 54px; font-weight: 800; }
+  .card { background: #fff; border: 1px solid #dde5ec; border-radius: 12px; padding: 20px 22px; margin: 16px 0; }
+  .finding { padding: 14px 16px; border-left: 4px solid #cbd5e1; background: #f8fafc; border-radius: 0 8px 8px 0; margin: 10px 0; }
+  .sev-critical { border-color: #b91c1c; background: #fef2f2; }
+  .sev-high { border-color: #c2410c; background: #fff7ed; }
+  .sev-medium { border-color: #b45309; background: #fffbeb; }
+  .sev-low { border-color: #475569; background: #f8fafc; }
+  .sev-badge { font-size: 11px; font-weight: 800; letter-spacing: .08em; background: #14202b; color: #fff; padding: 2px 8px; border-radius: 4px; margin-right: 6px; }
+  .finding-line { font-size: 14px; margin-top: 6px; }
+  .evidence { font-size: 12.5px; color: #475569; }
+  .evidence code { background: #eef2f6; padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e2e8f0; }
+  th { background: #14202b; color: #fff; }
+  .good { color: #0e7c66; font-weight: 700; }
+  .warn { color: #b45309; font-weight: 700; }
+  .bad { color: #b91c1c; font-weight: 700; }
+  footer { margin-top: 28px; font-size: 13px; color: #64748b; }
+  footer b { color: #14202b; }
+</style>
+</head>
+<body><div class="wrap">
+  <div class="brand">ConsentArk · AI Employees</div>
+  <h1>Website QA Report — WebAct (New Philadelphia, OH)</h1>
+  <div class="muted">Generated 9/24/2026, 12:45:43 AM · 3 pages reviewed on mobile viewport (390×844)</div>
+
+  <div class="scorebox">
+    <div class="score">68<span style="font-size:20px;color:#64748b;">/100</span></div>
+    <div class="muted">
+      2 findings across 3 pages.<br>
+      Already solid: every page is mobile-ready, every page has a proper title, zero JavaScript errors, every form has a working submit button, no mixed-content warnings.
+    </div>
+  </div>
+
+  <div class="card"><h2 style="margin-top:0;font-size:19px;">What we found, in plain English</h2>
+      <div class="finding sev-medium">
+        <div class="finding-head"><span class="sev-badge">MEDIUM</span> Failed or slow requests <span class="muted">· 1 page</span></div>
+        <div class="finding-line"><b>Why it matters:</b> Missing images, scripts, or data that customers see as a broken page.</div>
+        <div class="finding-line"><b>Smallest fix:</b> Fix or remove the failing resources.</div>
+        <ul class="evidence"><li><code>https://www.webact.com/contact/index.html: GET https://cdn.jotfor.ms/s/umd/c0739864d8d/for-aria-notify-polyfill.js — net::ERR_ABORTED</code></li></ul>
+      </div>
+      <div class="finding sev-medium">
+        <div class="finding-head"><span class="sev-badge">MEDIUM</span> Tap targets smaller than 24×24 px <span class="muted">· 3 pages</span></div>
+        <div class="finding-line"><b>Why it matters:</b> On phones, customers miss taps or hit the wrong link — a common cause of abandoned calls-to-action.</div>
+        <div class="finding-line"><b>Smallest fix:</b> Give buttons and links a minimum 24×24 px touch area (44×44 px is the comfortable standard).</div>
+        <ul class="evidence"><li><code>https://www.webact.com/: (855) 697-4336</code></li><li><code>https://www.webact.com/contact/index.html: (855) 697-4336</code></li><li><code>https://www.webact.com: (855) 697-4336</code></li></ul>
+      </div>
+  </div>
+
+  <div class="card"><h2 style="margin-top:0;font-size:19px;">Page-by-page</h2>
+    <table>
+      <tr><th>Page</th><th>HTTP</th><th>JS errors</th><th>Failed requests</th><th>Broken images</th><th>Mobile viewport</th></tr>
+      <tr>
+        <td><a href="https://www.webact.com/">www.webact.com/</a></td>
+        <td>200</td>
+        <td class="good">0</td>
+        <td class="good">0</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.webact.com/contact/index.html">www.webact.com/contact/index.html</a></td>
+        <td>200</td>
+        <td class="good">0</td>
+        <td class="warn">9</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.webact.com">www.webact.com</a></td>
+        <td>200</td>
+        <td class="good">0</td>
+        <td class="good">0</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+    </table>
+  </div>
+
+  <footer>
+    <b>How this was made:</b> a ConsentArk QA employee crawled 3 public pages of www.webact.com on a phone-sized screen and recorded what a real customer's browser would experience — deterministic checks only, nothing on the site was changed, and no forms were submitted. 
+    An AI employee like this can re-audit your site on a schedule and report in plain English. <b>Curious? Reply and ask for the 15-minute demo.</b>
+  </footer>
+</div></body>
+</html>

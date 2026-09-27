@@ -1,0 +1,6 @@
+company: Airport Ridge Sporting Clays
+draft file: 2026-09-17-airport-ridge-sporting-clays.md
+sent date: 2026-09-19
+message-id: <5e8086f1-3fa9-4680-b24a-2303dc8956c2@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to info@airportridgesportingclays.com; Message-ID <5e8086f1-3fa9-4680-b24a-2303dc8956c2@gmail.com> accepted by relay.

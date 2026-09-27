@@ -1,0 +1,6 @@
+company: Uncle Tom's Cabins
+draft file: 2026-09-17-uncle-toms-cabins.md
+sent date: 2026-09-20
+message-id: <c7f1bdd4-b42d-48a5-93e9-dd5043a79e5f@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to uncletomscabin@yahoo.com; Message-ID <c7f1bdd4-b42d-48a5-93e9-dd5043a79e5f@gmail.com> accepted by relay.

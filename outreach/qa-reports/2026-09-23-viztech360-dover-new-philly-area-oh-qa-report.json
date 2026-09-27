@@ -1,0 +1,213 @@
+{
+  "generatedAt": "2026-09-23T19:16:15.210Z",
+  "startUrl": "https://viztech360.com/",
+  "company": "VizTech360 (Dover/New Philly area, OH)",
+  "pagesVisited": 1,
+  "score": 41,
+  "findings": [
+    {
+      "severity": "CRITICAL",
+      "title": "Pages that fail to load or return errors",
+      "pages": [
+        {
+          "url": "https://viztech360.com/",
+          "ok": true,
+          "httpStatus": 403,
+          "consoleErrors": [
+            "Failed to load resource: the server responded with a status of 403 ()"
+          ],
+          "requestFailures": [
+            "HTTP 403 https://viztech360.com/"
+          ],
+          "broken": [],
+          "mixed": [],
+          "title": "Attention Required! | Cloudflare",
+          "metaDesc": "",
+          "viewport": true,
+          "tapTargets": [
+            "Click to reveal",
+            "Cloudflare"
+          ],
+          "forms": [],
+          "h1Count": 1,
+          "links": [
+            "https://www.cloudflare.com/5xx-error-landing"
+          ]
+        }
+      ],
+      "impact": "Customers hit a dead end exactly where they were ready to contact or buy.",
+      "fix": "Restore the pages or update every link pointing at them.",
+      "evidence": [
+        "https://viztech360.com/ (HTTP 403)"
+      ]
+    },
+    {
+      "severity": "HIGH",
+      "title": "JavaScript errors in the browser console",
+      "pages": [
+        {
+          "url": "https://viztech360.com/",
+          "ok": true,
+          "httpStatus": 403,
+          "consoleErrors": [
+            "Failed to load resource: the server responded with a status of 403 ()"
+          ],
+          "requestFailures": [
+            "HTTP 403 https://viztech360.com/"
+          ],
+          "broken": [],
+          "mixed": [],
+          "title": "Attention Required! | Cloudflare",
+          "metaDesc": "",
+          "viewport": true,
+          "tapTargets": [
+            "Click to reveal",
+            "Cloudflare"
+          ],
+          "forms": [],
+          "h1Count": 1,
+          "links": [
+            "https://www.cloudflare.com/5xx-error-landing"
+          ]
+        }
+      ],
+      "impact": "Broken interactive features on the exact pages customers use.",
+      "fix": "Fix the first console error per page; the rest often cascade.",
+      "evidence": [
+        "https://viztech360.com/: Failed to load resource: the server responded with a status of 403 ()"
+      ]
+    },
+    {
+      "severity": "MEDIUM",
+      "title": "Failed or slow requests",
+      "pages": [
+        {
+          "url": "https://viztech360.com/",
+          "ok": true,
+          "httpStatus": 403,
+          "consoleErrors": [
+            "Failed to load resource: the server responded with a status of 403 ()"
+          ],
+          "requestFailures": [
+            "HTTP 403 https://viztech360.com/"
+          ],
+          "broken": [],
+          "mixed": [],
+          "title": "Attention Required! | Cloudflare",
+          "metaDesc": "",
+          "viewport": true,
+          "tapTargets": [
+            "Click to reveal",
+            "Cloudflare"
+          ],
+          "forms": [],
+          "h1Count": 1,
+          "links": [
+            "https://www.cloudflare.com/5xx-error-landing"
+          ]
+        }
+      ],
+      "impact": "Missing images, scripts, or data that customers see as a broken page.",
+      "fix": "Fix or remove the failing resources.",
+      "evidence": [
+        "https://viztech360.com/: HTTP 403 https://viztech360.com/"
+      ]
+    },
+    {
+      "severity": "MEDIUM",
+      "title": "Tap targets smaller than 24×24 px",
+      "pages": [
+        {
+          "url": "https://viztech360.com/",
+          "ok": true,
+          "httpStatus": 403,
+          "consoleErrors": [
+            "Failed to load resource: the server responded with a status of 403 ()"
+          ],
+          "requestFailures": [
+            "HTTP 403 https://viztech360.com/"
+          ],
+          "broken": [],
+          "mixed": [],
+          "title": "Attention Required! | Cloudflare",
+          "metaDesc": "",
+          "viewport": true,
+          "tapTargets": [
+            "Click to reveal",
+            "Cloudflare"
+          ],
+          "forms": [],
+          "h1Count": 1,
+          "links": [
+            "https://www.cloudflare.com/5xx-error-landing"
+          ]
+        }
+      ],
+      "impact": "On phones, customers miss taps or hit the wrong link — a common cause of abandoned calls-to-action.",
+      "fix": "Give buttons and links a minimum 24×24 px touch area (44×44 px is the comfortable standard).",
+      "evidence": [
+        "https://viztech360.com/: Click to reveal"
+      ]
+    },
+    {
+      "severity": "LOW",
+      "title": "Pages without a meta description",
+      "pages": [
+        {
+          "url": "https://viztech360.com/",
+          "ok": true,
+          "httpStatus": 403,
+          "consoleErrors": [
+            "Failed to load resource: the server responded with a status of 403 ()"
+          ],
+          "requestFailures": [
+            "HTTP 403 https://viztech360.com/"
+          ],
+          "broken": [],
+          "mixed": [],
+          "title": "Attention Required! | Cloudflare",
+          "metaDesc": "",
+          "viewport": true,
+          "tapTargets": [
+            "Click to reveal",
+            "Cloudflare"
+          ],
+          "forms": [],
+          "h1Count": 1,
+          "links": [
+            "https://www.cloudflare.com/5xx-error-landing"
+          ]
+        }
+      ],
+      "impact": "Google invents its own snippet, which may undersell the business.",
+      "fix": "Add one-sentence descriptions that match what each page offers.",
+      "evidence": [
+        "https://viztech360.com/"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://viztech360.com/",
+      "ok": true,
+      "httpStatus": 403,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 ()"
+      ],
+      "requestFailures": [
+        "HTTP 403 https://viztech360.com/"
+      ],
+      "broken": [],
+      "mixed": [],
+      "title": "Attention Required! | Cloudflare",
+      "metaDesc": "",
+      "viewport": true,
+      "tapTargets": [
+        "Click to reveal",
+        "Cloudflare"
+      ],
+      "forms": [],
+      "h1Count": 1
+    }
+  ]
+}

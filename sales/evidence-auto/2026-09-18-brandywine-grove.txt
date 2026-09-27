@@ -1,0 +1,6 @@
+company: Brandywine Grove & Paradise Lake
+draft file: 2026-09-18-brandywine-grove.md
+sent date: 2026-09-23
+message-id: <2f623221-5b46-46a9-a7b6-b2ee47ede8bb@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to Info@brandywinegrove.com; Message-ID <2f623221-5b46-46a9-a7b6-b2ee47ede8bb@gmail.com> accepted by relay.

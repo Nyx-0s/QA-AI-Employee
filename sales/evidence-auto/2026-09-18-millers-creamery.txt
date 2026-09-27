@@ -1,0 +1,6 @@
+company: Miller's Creamery
+draft file: 2026-09-18-millers-creamery.md
+sent date: 2026-09-21
+message-id: <a88b9a1a-8207-49d4-9cb8-bff537820249@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to Mandi@millerscreamery.com; Message-ID <a88b9a1a-8207-49d4-9cb8-bff537820249@gmail.com> accepted by relay.

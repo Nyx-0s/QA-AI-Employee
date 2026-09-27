@@ -1,0 +1,6 @@
+company: Murr Printing & Graphics
+draft file: 2026-09-17-murr-printing.md
+sent date: 2026-09-20
+message-id: <0f8c80a4-70e9-4807-80bd-79bc079ee284@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to murrprinting@gmail.com; Message-ID <0f8c80a4-70e9-4807-80bd-79bc079ee284@gmail.com> accepted by relay.

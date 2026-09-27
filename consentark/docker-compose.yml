@@ -1,0 +1,50 @@
+# ConsentArk — one-command bring-up (Phase 5).
+#
+# Architecture: ONE application container. The API serves the built
+# dashboard from the same process (DASHBOARD_DIST), so there is no nginx
+# and no second service to secure. SQLite lives in the `data` volume —
+# that volume IS the durability story (see README: single-writer limits).
+#
+# The `browser` profile adds Playwright + Chromium for browser tasks:
+#   docker compose --profile browser up
+# It is off by default so the base stack stays small and fast to boot.
+
+services:
+  app:
+    build:
+      context: .
+      # Default: lean image (no Chromium). --profile browser builds/uses the
+      # runtime-browser target, which adds Playwright + Chromium.
+      target: ${CONSENTARK_IMAGE_TARGET:-runtime}
+    container_name: consentark-app
+    ports:
+      - "${CONSENTARK_PORT:-4000}:4000"
+    env_file:
+      - .env
+    environment:
+      # Inside the compose network the FreeLLMAPI service is reachable by
+      # its service name; leave FREELLMAPI_URL as-is in .env for this setup.
+      DATA_DIR: /data
+      DASHBOARD_DIST: /app/apps/dashboard/dist
+    volumes:
+      - consentark-data:/data
+    restart: unless-stopped
+
+  # FreeLLMAPI — the cloud inference layer (optional: omit with a profile).
+  # Image is pinned to what actually exists on Docker Hub; if you run
+  # FreeLLMAPI elsewhere, set FREELLMAPI_URL in .env and remove this service.
+  freellmapi:
+    image: tashfeenahmed/freellmapi:latest
+    container_name: consentark-freellmapi
+    profiles: ["freellmapi"]
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
+
+volumes:
+  consentark-data:
+
+# Usage:
+#   docker compose up -d                     lean stack (chat + API + dashboard)
+#   CONSENTARK_IMAGE_TARGET=runtime-browser docker compose --profile browser up -d
+#                                           full stack incl. browser hands

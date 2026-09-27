@@ -1,0 +1,6 @@
+company: East Holmes Veterinary Clinic
+draft file: 2026-09-20-east-holmes-veterinary.md
+sent date: 2026-09-21
+message-id: <4b9af6bf-2274-4d23-be80-3a2f381c330f@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to EastHolmesVC@yourvetdoc.com; Message-ID <4b9af6bf-2274-4d23-be80-3a2f381c330f@gmail.com> accepted by relay.

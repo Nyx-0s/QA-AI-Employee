@@ -1,0 +1,9 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+# pnpm 11 blocks dependency build scripts by default; these two need them
+# (better-sqlite3 compiles its native binding, esbuild installs its binary).
+allowBuilds:
+  better-sqlite3: true
+  esbuild: true

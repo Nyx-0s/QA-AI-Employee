@@ -1,0 +1,21 @@
+{
+  "name": "consentark",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ConsentArk AI Workforce — role-based AI employees with consent-first, fully auditable automation.",
+  "packageManager": "pnpm@11.15.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "dev": "pnpm --filter @consentark/api dev",
+    "start": "pnpm --filter @consentark/api start",
+    "dev:dashboard": "pnpm --filter @consentark/dashboard dev",
+    "build:dashboard": "pnpm --filter @consentark/dashboard build",
+    "hire": "pnpm --filter @consentark/api exec tsx src/cli/hire.ts",
+    "work": "pnpm --filter @consentark/api exec tsx src/cli/work.ts",
+    "test": "pnpm -r test"
+  }
+}

@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+/*
+ * ConsentArk Supervisor — dark professional UI.
+ * Tailwind 4 (CSS-first config); palette is zinc + a consent-red accent.
+ */
+
+@theme {
+  --color-ca-accent: oklch(0.62 0.22 25);
+  --color-ca-accent-hover: oklch(0.7 0.22 25);
+  --color-ca-ok: oklch(0.72 0.17 155);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}

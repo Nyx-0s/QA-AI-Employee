@@ -1,0 +1,6 @@
+company: Mel & Mary's Cottages
+draft file: 2026-09-17-mel-and-marys-cottages.md
+sent date: 2026-09-20
+message-id: <648be4b5-a6a2-4f35-83e7-661f43f4ea3f@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to ktroyer1976@gmail.com; Message-ID <648be4b5-a6a2-4f35-83e7-661f43f4ea3f@gmail.com> accepted by relay.

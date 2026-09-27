@@ -1,0 +1,6 @@
+company: Harvest Ridge Event Center (Holmes Co. Agricultural Society)
+draft file: 2026-09-18-harvest-ridge-event-center.md
+sent date: 2026-09-23
+message-id: <7eba59c8-8f21-48a1-98f1-6340a8832ae0@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to manager@harvestridgeohio.com; Message-ID <7eba59c8-8f21-48a1-98f1-6340a8832ae0@gmail.com> accepted by relay.

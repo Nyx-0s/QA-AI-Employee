@@ -4,9 +4,11 @@ import { z } from "zod";
 dotenv.config();
 
 const ConfigSchema = z.object({
-  BASE_URL: z.string().min(1),
-  USERNAME: z.string().min(1),
-  PASSWORD: z.string().min(1),
+  // Per-product values are resolved from ProductMemory when set by
+  // `npm run aqw`; the .env entries are optional legacy overrides.
+  BASE_URL: z.string().default(""),
+  USERNAME: z.string().default(""),
+  PASSWORD: z.string().default(""),
 
   HEADLESS: z
     .string()

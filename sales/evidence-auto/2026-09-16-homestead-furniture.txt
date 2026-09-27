@@ -1,0 +1,6 @@
+company: Homestead Furniture
+draft file: 2026-09-16-homestead-furniture.md
+sent date: 2026-09-21
+message-id: <95098ab7-9b8a-4f99-8a51-3970c43f6805@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to sales@homestead-furniture.com; Message-ID <95098ab7-9b8a-4f99-8a51-3970c43f6805@gmail.com> accepted by relay.

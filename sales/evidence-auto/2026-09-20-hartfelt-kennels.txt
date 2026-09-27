@@ -1,0 +1,6 @@
+company: HartFelt Boarding Kennels
+draft file: 2026-09-20-hartfelt-kennels.md
+sent date: 2026-09-21
+message-id: <67df471d-d18c-4b2e-9105-5c9b7eb36d76@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to info@hartfeltkennels.com; Message-ID <67df471d-d18c-4b2e-9105-5c9b7eb36d76@gmail.com> accepted by relay.

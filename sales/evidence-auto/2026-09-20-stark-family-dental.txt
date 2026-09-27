@@ -1,0 +1,6 @@
+company: Stark Family Dental
+draft file: 2026-09-20-stark-family-dental.md
+sent date: 2026-09-23
+message-id: <8e51c406-423c-45c7-bfa2-71488238e071@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to starkfamilydental@gmail.com; Message-ID <8e51c406-423c-45c7-bfa2-71488238e071@gmail.com> accepted by relay.

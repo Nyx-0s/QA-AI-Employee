@@ -1,6 +1,7 @@
 import fs from "fs-extra";
 import { BrowserManager } from "../browser/BrowserManager";
 import { Config } from "../config/ConfigManager";
+import { AQWRuntime } from "../runtime/AQWRuntimeConfig";
 import { Logger } from "../logger/Logger";
 
 export class SessionManager {
@@ -25,8 +26,10 @@ export class SessionManager {
 
         const page=this.browser.getPage();
 
+        const { baseUrl } = AQWRuntime.resolve();
+
         await page.goto(
-            Config.BASE_URL.replace(/\/$/,"") + "/analytics",
+            baseUrl.replace(/\/$/,""),
             {
                 waitUntil:"networkidle",
                 timeout:Config.TIMEOUT

@@ -1,0 +1,6 @@
+company: Rylon Printing
+draft file: 2026-09-23-rylon-printing.md
+sent date: 2026-09-23
+message-id: <52d93112-d353-47f4-a452-9028cb8f6950@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to RylonPrinting@gmail.com; Message-ID <52d93112-d353-47f4-a452-9028cb8f6950@gmail.com> accepted by relay.

@@ -1,0 +1,6 @@
+company: Mohican Adventures
+draft file: 2026-09-20-mohican-adventures.md
+sent date: 2026-09-21
+message-id: <d64d07bb-b831-4fb3-8ec9-cd11057b0e71@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to info@mohicanadventures.com; Message-ID <d64d07bb-b831-4fb3-8ec9-cd11057b0e71@gmail.com> accepted by relay.

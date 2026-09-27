@@ -18,7 +18,9 @@
     "planner": "tsx src/core/planner/PlannerDemo.ts",
     "test:ollama": "tsx scripts/test-ollama.ts",
     "test:analysis": "tsx scripts/test-qa-analysis.ts",
-    "workflow": "tsx src/workflows/index.ts"
+    "qa:report": "node scripts/generate-qa-report.mjs",
+    "workflow": "tsx src/workflows/index.ts",
+    "aqw": "tsx src/cli/index.ts run"
   },
   "dependencies": {
     "@playwright/test": "^1.54.2",

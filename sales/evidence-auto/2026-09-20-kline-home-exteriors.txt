@@ -1,0 +1,6 @@
+company: Kline Home Exteriors
+draft file: 2026-09-20-kline-home-exteriors.md
+sent date: 2026-09-21
+message-id: <fc442d19-e014-4249-be1c-3476d0072dbe@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to Marketing@KlineHomeExteriors.com; Message-ID <fc442d19-e014-4249-be1c-3476d0072dbe@gmail.com> accepted by relay.

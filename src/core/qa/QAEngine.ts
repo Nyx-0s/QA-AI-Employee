@@ -3,6 +3,7 @@ import path from "path";
 
 import { BrowserManager } from "../browser/BrowserManager";
 import { Config } from "../config/ConfigManager";
+import { AQWRuntime, type AQWRuntimeConfig } from "../runtime/AQWRuntimeConfig";
 import { SessionManager } from "../session/SessionManager";
 import { EvidenceManager } from "../evidence/EvidenceManager";
 import { Reporter } from "../reporter/Reporter";
@@ -25,6 +26,8 @@ import type {
 import { QAEmployee } from "../employee/QAEmployee";
 
 export class QAEngine {
+  private runtime!: AQWRuntimeConfig;
+
   private readonly businessTestRunner = new BusinessTestRunner();
   private readonly elementIntelligence = new ElementIntelligence();
   private readonly browser = new BrowserManager();
@@ -55,6 +58,8 @@ export class QAEngine {
   );
 
   async run(): Promise<void> {
+    this.runtime = AQWRuntime.resolve();
+
     const startedAt = new Date();
 
     const results: PageQAResult[] = [];
@@ -456,7 +461,7 @@ export class QAEngine {
     }
 
     try {
-      return new URL(trimmed, Config.BASE_URL).toString();
+      return new URL(trimmed, this.runtime.baseUrl).toString();
     } catch {
       return null;
     }
@@ -486,7 +491,7 @@ export class QAEngine {
 
   private pageNameFromUrl(url: string): string {
     try {
-      const parsed = new URL(url, Config.BASE_URL);
+      const parsed = new URL(url, this.runtime.baseUrl);
       const segments = parsed.pathname
         .split("/")
         .filter(Boolean);

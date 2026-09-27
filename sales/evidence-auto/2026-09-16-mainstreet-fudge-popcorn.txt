@@ -1,0 +1,6 @@
+company: MainStreet Fudge & Popcorn Co
+draft file: 2026-09-16-mainstreet-fudge-popcorn.md
+sent date: 2026-09-21
+message-id: <009f2903-b032-4672-9e62-2fbfaf102cab@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to brenda@mainstreetfudge.com; Message-ID <009f2903-b032-4672-9e62-2fbfaf102cab@gmail.com> accepted by relay.

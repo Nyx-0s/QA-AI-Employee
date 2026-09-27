@@ -1,0 +1,61 @@
+{
+  "at": "2026-09-24T13:48:39.174Z",
+  "rows": 70,
+  "sent": 45,
+  "pending": 23,
+  "replies": 0,
+  "checks": [
+    {
+      "name": "1 quality",
+      "ok": true,
+      "detail": "70/70 drafts pass"
+    },
+    {
+      "name": "2 precompute",
+      "ok": true,
+      "detail": "23 SENT-eligible rows, 0 problem"
+    },
+    {
+      "name": "3 ledger=Rows-line",
+      "ok": true,
+      "detail": "70 vs 70"
+    },
+    {
+      "name": "4 files=rows+SAMPLE",
+      "ok": true,
+      "detail": "70+1(+0 reply) vs 70"
+    },
+    {
+      "name": "5 PENDING=rows-not-SENT/CUT",
+      "ok": true,
+      "detail": "23 vs 23"
+    },
+    {
+      "name": "6 calendar=rows",
+      "ok": true,
+      "detail": "70 vs 70"
+    },
+    {
+      "name": "7 archives=SENT",
+      "ok": true,
+      "detail": "45 vs 45 (rows carrying message-id evidence)"
+    },
+    {
+      "name": "7b reply-log↔drafts",
+      "ok": true,
+      "detail": "0 logged repl(y|ies), 0 response draft(s), 0 draft(s) without an entry, 0 entry/entries missing on disk"
+    },
+    {
+      "name": "8 summary=SENT",
+      "ok": true,
+      "detail": "summary 45 vs ledger 45"
+    },
+    {
+      "name": "9 cli-guard",
+      "ok": true,
+      "detail": "25/25 CLI guard checks pass"
+    }
+  ],
+  "allOk": true,
+  "nudgesDue": []
+}

@@ -1,8 +1,8 @@
 node_modules
 playwright-report
 test-results
-runtime
-reports
+/runtime
+/reports
 .env
 
 # Build output
@@ -17,8 +17,6 @@ logs/
 screenshots/
 videos/
 traces/
-runtime/
-reports/
 knowledge/pages/
 
 # Temporary files

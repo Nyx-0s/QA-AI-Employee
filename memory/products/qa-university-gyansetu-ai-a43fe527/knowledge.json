@@ -1,0 +1,1550 @@
+{
+  "Administration": {
+    "description": "Administration module: 13 of 13 pages inventoried, including Academic session, University Dashboard, University Hierarchy, Combination Templates, Syllabus Management, Selection Report, Institute Gallery, E-Library, Notifications, Circular / Notice, Students bulk edit, Faculty bulk edit.",
+    "pageCount": 13,
+    "pages": [
+      {
+        "name": "Academic session",
+        "url": "https://qa.university.gyansetu.ai/school/administration/academic-session",
+        "inputs": [
+          "2025-26",
+          "dd-mm-yyyy",
+          "date"
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Create academic year",
+          "Set current",
+          "Edit",
+          "Delete"
+        ],
+        "dropdowns": [],
+        "tables": 1
+      },
+      {
+        "name": "University Dashboard",
+        "url": "https://qa.university.gyansetu.ai/school/university-dashboard",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Run FK backfill"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      },
+      {
+        "name": "University Hierarchy",
+        "url": "https://qa.university.gyansetu.ai/school/university-hierarchy",
+        "inputs": [
+          "Search departments…"
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Refresh",
+          "Departments\n16",
+          "Programs\n12",
+          "Courses\n204",
+          "Batches\n559",
+          "Year / Semester\n2954"
+        ],
+        "dropdowns": [],
+        "tables": 1
+      },
+      {
+        "name": "Combination Templates",
+        "url": "https://qa.university.gyansetu.ai/school/administration/combination-templates",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "New Template"
+        ],
+        "dropdowns": [
+          "All\nBACHELOR OF BUSINESS ADMINISTRATION\nDiploma\nPost Graduate\nPost Graduate\nPost",
+          "Select programme",
+          "Select course"
+        ],
+        "tables": 1
+      },
+      {
+        "name": "Syllabus Management",
+        "url": "https://qa.university.gyansetu.ai/school/syllabus-management",
+        "inputs": [
+          "Search name, code, assessment…"
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Subject Catalogue",
+          "Subject Assignment",
+          "Class view\nLegacy class · import · template",
+          "Unresolved imports\nReview failed or pending imports",
+          "Audit timeline\nTrack syllabus change history",
+          "Bulk Delete"
+        ],
+        "dropdowns": [
+          "All types\nTheory\nPractical\nLab\nProject",
+          "All credits\n1\n2\n3\n3.5\n4\n5\n6\n8\n10\n12\n15\n20\n22\n26\nRFT_QA_DATA_20260720091141_7473\n",
+          "All assessments\nAEC\nDISCIPLINE\nMajor\nMAJOR\nMDC\nRFT_QA_SYLLABUS_1784540359471_892",
+          "All\nAssigned to programme\nNot assigned",
+          "All\nHas books\nNo books yet"
+        ],
+        "tables": 1
+      },
+      {
+        "name": "Selection Report",
+        "url": "https://qa.university.gyansetu.ai/school/administration/subject-buckets/selections",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Refresh",
+          "Export CSV"
+        ],
+        "dropdowns": [
+          "Select departments\nBBA\nRFT_QA_HIERARCHY_1784540348169_455\nSanskaram Ayurvedic Me",
+          "Select department first",
+          "No batches — create in Hierarchy hub",
+          "No terms — create a batch first",
+          "Select sections"
+        ],
+        "tables": 0
+      },
+      {
+        "name": "Institute Gallery",
+        "url": "https://qa.university.gyansetu.ai/school/gallery",
+        "inputs": [
+          "🔍 Search images...",
+          "date"
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Gallery View",
+          "Events View"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      },
+      {
+        "name": "E-Library",
+        "url": "https://qa.university.gyansetu.ai/school/e-library",
+        "inputs": [
+          "Search by title..."
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Browse",
+          "Pending",
+          "Root",
+          "New Folder",
+          "Upload"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      },
+      {
+        "name": "Notifications",
+        "url": "https://qa.university.gyansetu.ai/notifications",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "All",
+          "Unread",
+          "Read",
+          "Load more notifications"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      },
+      {
+        "name": "Circular / Notice",
+        "url": "https://qa.university.gyansetu.ai/school/faculty-management/circular-messages",
+        "inputs": [
+          "Search messages..."
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "New",
+          "All Messages",
+          "Announcement",
+          "Notice",
+          "Event",
+          "Message"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      },
+      {
+        "name": "Students bulk edit",
+        "url": "https://qa.university.gyansetu.ai/school/students/bulk-edit",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Manage Students",
+          "Student\n\nEdit student profile fields",
+          "Teachers\n\nEdit teacher / faculty fields",
+          "Continue"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      },
+      {
+        "name": "Faculty bulk edit",
+        "url": "https://qa.university.gyansetu.ai/school/faculty-management/bulk-edit",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Staff Directory",
+          "Student\n\nEdit student profile fields",
+          "Teachers\n\nEdit teacher / faculty fields",
+          "Continue"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      },
+      {
+        "name": "Form Field Management",
+        "url": "https://qa.university.gyansetu.ai/school/form-settings",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Admission Form",
+          "Registration Form",
+          "Driver Form",
+          "Route Form",
+          "Vehicle Form",
+          "Staff Directory"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      }
+    ],
+    "keyControls": [
+      "date",
+      "Refresh",
+      "Student\n\nEdit student profile fields",
+      "Teachers\n\nEdit teacher / faculty fields",
+      "Continue",
+      "Staff Directory",
+      "2025-26",
+      "dd-mm-yyyy",
+      "Create academic year",
+      "Set current",
+      "Edit",
+      "Delete",
+      "Run FK backfill",
+      "Search departments…",
+      "Departments\n16",
+      "Programs\n12",
+      "Courses\n204",
+      "Batches\n559",
+      "Year / Semester\n2954",
+      "New Template"
+    ]
+  },
+  "TimeTable Management": {
+    "description": "TimeTable Management module: 5 of 5 pages inventoried, including Holiday Management, Manual Timetable, AI Timetable, Room Management, Timetable Reports.",
+    "pageCount": 5,
+    "pages": [
+      {
+        "name": "Holiday Management",
+        "url": "https://qa.university.gyansetu.ai/school/administration/holiday-management",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Declare Holiday",
+          "Calendar & Holidays",
+          "Compensation Tracker",
+          "Calendar Years",
+          "Grid",
+          "List"
+        ],
+        "dropdowns": [
+          "Timetable (Active)"
+        ],
+        "tables": 0
+      },
+      {
+        "name": "Manual Timetable",
+        "url": "https://qa.university.gyansetu.ai/school/administration/timetable",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      },
+      {
+        "name": "AI Timetable",
+        "url": "https://qa.university.gyansetu.ai/school/administration/ai-timetable",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      },
+      {
+        "name": "Room Management",
+        "url": "https://qa.university.gyansetu.ai/school/administration/room-management",
+        "inputs": [
+          "Search blocks..."
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Sync Data",
+          "Add Block",
+          "Blocks / Buildings\n0",
+          "Room Types\n0",
+          "Rooms\n0"
+        ],
+        "dropdowns": [
+          "All records\nActive\nInactive"
+        ],
+        "tables": 0
+      },
+      {
+        "name": "Timetable Reports",
+        "url": "https://qa.university.gyansetu.ai/school/administration/timetable-reports",
+        "inputs": [
+          "Search faculty, designation, subject..."
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Faculty Utilization Report",
+          "Room Utilization Report",
+          "Export",
+          "All (0)",
+          "Over (0)",
+          "Optimal (0)"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      }
+    ],
+    "keyControls": [
+      "Declare Holiday",
+      "Calendar & Holidays",
+      "Compensation Tracker",
+      "Calendar Years",
+      "Grid",
+      "List",
+      "Timetable (Active)",
+      "Search blocks...",
+      "Sync Data",
+      "Add Block",
+      "Blocks / Buildings\n0",
+      "Room Types\n0",
+      "Rooms\n0",
+      "All records\nActive\nInactive",
+      "Search faculty, designation, subject...",
+      "Faculty Utilization Report",
+      "Room Utilization Report",
+      "Export",
+      "All (0)",
+      "Over (0)"
+    ]
+  },
+  "Attendance": {
+    "description": "Attendance module: 3 of 3 pages inventoried, including Student Attendance, Faculty Attendance, Bus Attendance.",
+    "pageCount": 3,
+    "pages": [
+      {
+        "name": "Student Attendance",
+        "url": "https://qa.university.gyansetu.ai/school/student-attendance",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      },
+      {
+        "name": "Faculty Attendance",
+        "url": "https://qa.university.gyansetu.ai/school/teacher-attendance",
+        "inputs": [
+          "Search teachers...",
+          "Add notes..."
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Daily Attendance",
+          "Leave History",
+          "Leave Balances",
+          "Reports",
+          "Summaries",
+          "Dashboard"
+        ],
+        "dropdowns": [],
+        "tables": 1
+      },
+      {
+        "name": "Bus Attendance",
+        "url": "https://qa.university.gyansetu.ai/school/transport-management/bus-attendance",
+        "inputs": [
+          "date",
+          "Search by name, admission no., roll no."
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Refresh",
+          "Show Reports"
+        ],
+        "dropdowns": [
+          "Choose a bus...",
+          "All\nPresent\nAbsent\nLate\nNot Marked"
+        ],
+        "tables": 0
+      }
+    ],
+    "keyControls": [
+      "Search teachers...",
+      "Add notes...",
+      "Daily Attendance",
+      "Leave History",
+      "Leave Balances",
+      "Reports",
+      "Summaries",
+      "Dashboard",
+      "date",
+      "Search by name, admission no., roll no.",
+      "Refresh",
+      "Show Reports",
+      "Choose a bus...",
+      "All\nPresent\nAbsent\nLate\nNot Marked"
+    ]
+  },
+  "Student Management": {
+    "description": "Student Management module: 7 of 7 pages inventoried, including Registration, All Registered Students, Admission, Manage Student, Enquiry Form, Enquiry Responses, Gate pass.",
+    "pageCount": 7,
+    "pages": [
+      {
+        "name": "Registration",
+        "url": "https://qa.university.gyansetu.ai/school/students/register-student",
+        "inputs": [
+          "Registration form number",
+          "regnDate",
+          "e.g., 2025-2026",
+          "Enter student full name",
+          "10-digit mobile number",
+          "student@example.com",
+          "dob",
+          "e.g., General, OBC, SC, ST",
+          "12-digit Aadhaar number",
+          "Complete address"
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Generate",
+          "Previous",
+          "Next"
+        ],
+        "dropdowns": [
+          "registrationDepartmentId",
+          "registrationCourseId",
+          "registrationBatchId",
+          "registrationTermId",
+          "registrationSectionId",
+          "gender",
+          "religion",
+          "bloodGroup"
+        ],
+        "tables": 0
+      },
+      {
+        "name": "All Registered Students",
+        "url": "https://qa.university.gyansetu.ai/school/students/register/allStudents",
+        "inputs": [
+          "Search by name, reg no, registration date (e.g. 01-07-2026), department…",
+          "date"
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Register New Student",
+          "Export CSV",
+          "Clear filters",
+          "Reg. Date\n↓",
+          "View admitted",
+          "View 26-27/0000005"
+        ],
+        "dropdowns": [
+          "Newest first\nOldest first",
+          "All departments\nSanskaram Ayurvedic Medical College & Hospital\nSanskaram College",
+          "All courses\nBachelor of Ayurvedic Medicine & Surgery\nBachelor of Laws (Hons.)\nBa",
+          "All batches\n2024-2029\n2026-2029\n2026-2030\n2026-2031",
+          "All terms\n0603 – Bachelor of Laws (Hons.) – Semester 1 (2026-2029) · B2951\n1302 ",
+          "All sections\nA",
+          "All statuses\nAdmitted\nPaid\nPending\nUnpaid"
+        ],
+        "tables": 1
+      },
+      {
+        "name": "Admission",
+        "url": "https://qa.university.gyansetu.ai/school/students/register/addNew",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Print Form",
+          "1\nLoading…"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      },
+      {
+        "name": "Manage Student",
+        "url": "https://qa.university.gyansetu.ai/school/students/manage-students",
+        "inputs": [
+          "Search by name or father name (partial), or full roll number (exact)"
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Import",
+          "Export",
+          "Bulk Delete",
+          "Promote students",
+          "Demote students",
+          "Raise Payment"
+        ],
+        "dropdowns": [
+          "All sessions\n2038-39\n2038 — current\n2032-2036\n2030-31\n2029-30\n2028-29\n2027-28\n20",
+          "All departments\nBBA\nRFT_QA_HIERARCHY_1784540348169_455\nSanskaram Ayurvedic Medic",
+          "Select department first",
+          "Select program first",
+          "Select course first",
+          "Select batch first",
+          "All Classes",
+          "All Sections"
+        ],
+        "tables": 0
+      },
+      {
+        "name": "Enquiry Form",
+        "url": "https://qa.university.gyansetu.ai/school/students/enquiry-form",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "New Form",
+          "Deactivate",
+          "Delete",
+          "Edit Fields",
+          "Responses"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      },
+      {
+        "name": "Enquiry Responses",
+        "url": "https://qa.university.gyansetu.ai/school/students/enquiry-form/responses/5",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management"
+        ],
+        "dropdowns": [
+          "All Payment Statuses\nPending\nPartial Paid\nFully Paid",
+          "All Promotion Statuses\nNot Promoted\nMoved to Registration\nMoved to Admission",
+          "Not Paid\nPartial Paid\nFully Paid"
+        ],
+        "tables": 1
+      },
+      {
+        "name": "Gate pass",
+        "url": "https://qa.university.gyansetu.ai/school/gatepass",
+        "inputs": [
+          "Search name, admission no., gate pass no."
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Issue gate pass"
+        ],
+        "dropdowns": [
+          "All statuses\nIssued\nUsed\nCancelled\nPending"
+        ],
+        "tables": 0
+      }
+    ],
+    "keyControls": [
+      "Registration form number",
+      "regnDate",
+      "e.g., 2025-2026",
+      "Enter student full name",
+      "10-digit mobile number",
+      "student@example.com",
+      "dob",
+      "e.g., General, OBC, SC, ST",
+      "12-digit Aadhaar number",
+      "Complete address",
+      "Generate",
+      "Previous",
+      "Next",
+      "registrationDepartmentId",
+      "registrationCourseId",
+      "registrationBatchId",
+      "registrationTermId",
+      "registrationSectionId",
+      "gender",
+      "religion"
+    ]
+  },
+  "Faculty Management": {
+    "description": "Faculty Management module: 4 of 4 pages inventoried, including Staff directory, Staff Categories, Faculty → session, Circular / Notice.",
+    "pageCount": 4,
+    "pages": [
+      {
+        "name": "Staff directory",
+        "url": "https://qa.university.gyansetu.ai/school/faculty-management/teacher-directory",
+        "inputs": [
+          "Search by name, email, employee code..."
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Bulk Delete",
+          "Move to session",
+          "Import",
+          "Export CSV",
+          "Add staff",
+          "Active"
+        ],
+        "dropdowns": [
+          "All categories\nTeaching Staff\nNon-Teaching Staff",
+          "All staff\nActive staff\nInactive staff",
+          "All classes"
+        ],
+        "tables": 1
+      },
+      {
+        "name": "Staff Categories",
+        "url": "https://qa.university.gyansetu.ai/school/administration/staff-categories",
+        "inputs": [
+          "Search by name or code"
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Add category",
+          "Add sub",
+          "Edit",
+          "Delete",
+          "Refresh",
+          "Previous"
+        ],
+        "dropdowns": [
+          "All statuses\nActive only\nInactive only",
+          "Not archived\nArchived only\nAll (incl. archived)"
+        ],
+        "tables": 1
+      },
+      {
+        "name": "Faculty → session",
+        "url": "https://qa.university.gyansetu.ai/bulk-promote-faculty-session",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Back to Staff Directory",
+          "Assign session to selected",
+          "Prev",
+          "Next"
+        ],
+        "dropdowns": [],
+        "tables": 1
+      },
+      {
+        "name": "Circular / Notice",
+        "url": "https://qa.university.gyansetu.ai/school/faculty-management/circular-messages",
+        "inputs": [
+          "Search messages..."
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "New",
+          "All Messages",
+          "Announcement",
+          "Notice",
+          "Event",
+          "Message"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      }
+    ],
+    "keyControls": [
+      "Search by name, email, employee code...",
+      "Bulk Delete",
+      "Move to session",
+      "Import",
+      "Export CSV",
+      "Add staff",
+      "Active",
+      "All categories\nTeaching Staff\nNon-Teaching Staff",
+      "All staff\nActive staff\nInactive staff",
+      "All classes",
+      "Search by name or code",
+      "Add category",
+      "Add sub",
+      "Edit",
+      "Delete",
+      "Refresh",
+      "Previous",
+      "All statuses\nActive only\nInactive only",
+      "Not archived\nArchived only\nAll (incl. archived)",
+      "Back to Staff Directory"
+    ]
+  },
+  "Certificate Management": {
+    "description": "Certificate Management module: 2 of 2 pages inventoried, including Transfer Certificates, Report Cards.",
+    "pageCount": 2,
+    "pages": [
+      {
+        "name": "Transfer Certificates",
+        "url": "https://qa.university.gyansetu.ai/school/students/tc-form",
+        "inputs": [
+          "Search by TC No, name, admission, parents, or address"
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Generate New Certificate",
+          "Export CSV"
+        ],
+        "dropdowns": [
+          "All Classes"
+        ],
+        "tables": 1
+      },
+      {
+        "name": "Report Cards",
+        "url": "https://qa.university.gyansetu.ai/school/report-cards",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      }
+    ],
+    "keyControls": [
+      "Search by TC No, name, admission, parents, or address",
+      "Generate New Certificate",
+      "Export CSV",
+      "All Classes"
+    ]
+  },
+  "Transport Management": {
+    "description": "Transport Management module: 3 of 3 pages inventoried, including Driver Directory, Vehicle Management, Transport Routes.",
+    "pageCount": 3,
+    "pages": [
+      {
+        "name": "Driver Directory",
+        "url": "https://qa.university.gyansetu.ai/school/transport-management/driver-directory",
+        "inputs": [
+          "Search drivers by name, license, or contact..."
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Export CSV",
+          "Add New Driver"
+        ],
+        "dropdowns": [
+          "All Status\nActive\nInactive"
+        ],
+        "tables": 0
+      },
+      {
+        "name": "Vehicle Management",
+        "url": "https://qa.university.gyansetu.ai/school/transport-management/vehicle-management",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      },
+      {
+        "name": "Transport Routes",
+        "url": "https://qa.university.gyansetu.ai/school/transport-management/transport-routes",
+        "inputs": [
+          "Search by route name, from or to location..."
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Export CSV",
+          "Add New Route"
+        ],
+        "dropdowns": [
+          "All Status\nActive\nInactive"
+        ],
+        "tables": 0
+      }
+    ],
+    "keyControls": [
+      "Export CSV",
+      "All Status\nActive\nInactive",
+      "Search drivers by name, license, or contact...",
+      "Add New Driver",
+      "Search by route name, from or to location...",
+      "Add New Route"
+    ]
+  },
+  "Financial Management": {
+    "description": "Financial Management module: 4 of 4 pages inventoried, including Fees Management, Collect Fees, Vendor Management System, Setup.",
+    "pageCount": 4,
+    "pages": [
+      {
+        "name": "Fees Management",
+        "url": "https://qa.university.gyansetu.ai/fees-management",
+        "inputs": [
+          "Search fee types…"
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Fee Types",
+          "Fee Groups",
+          "Collect Fees",
+          "Extra Fees",
+          "Transport Fees",
+          "Collect Transport Fees"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      },
+      {
+        "name": "Collect Fees",
+        "url": "https://qa.university.gyansetu.ai/fees-management?tab=student-fee-payment",
+        "inputs": [
+          "Partial name match",
+          "Admission, REG-, or portal ID",
+          "Partial father name",
+          "e.g. 1",
+          "date"
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Fee Types",
+          "Fee Groups",
+          "Collect Fees",
+          "Extra Fees",
+          "Transport Fees",
+          "Collect Transport Fees"
+        ],
+        "dropdowns": [
+          "All departments\nBBA\nRFT_QA_HIERARCHY_1784540348169_455\nSanskaram Ayurvedic Medic",
+          "Select department first",
+          "Select program first",
+          "Select course first",
+          "Select batch first",
+          "Any fee status\nBalance due\nPartially paid\nFully paid (ledger)\nNot yet billed",
+          "Any mode\nCASH\nCHEQUE\nDD\nUPI\nONLINE\nNEFT\nRTGS\nCARD\nBANK_TRANSFER"
+        ],
+        "tables": 0
+      },
+      {
+        "name": "Vendor Management System",
+        "url": "https://qa.university.gyansetu.ai/finance/college-onboarding",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "1. Chart of accounts",
+          "2. Financial year & books",
+          "3. Opening balances",
+          "4. Vendors",
+          "5. Expense defaults",
+          "6. Complete"
+        ],
+        "dropdowns": [],
+        "tables": 1
+      },
+      {
+        "name": "Setup",
+        "url": "https://qa.university.gyansetu.ai/finance/college-onboarding",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "1. Chart of accounts",
+          "2. Financial year & books",
+          "3. Opening balances",
+          "4. Vendors",
+          "5. Expense defaults",
+          "6. Complete"
+        ],
+        "dropdowns": [],
+        "tables": 1
+      }
+    ],
+    "keyControls": [
+      "Fee Types",
+      "Fee Groups",
+      "Collect Fees",
+      "Extra Fees",
+      "Transport Fees",
+      "Collect Transport Fees",
+      "1. Chart of accounts",
+      "2. Financial year & books",
+      "3. Opening balances",
+      "4. Vendors",
+      "5. Expense defaults",
+      "6. Complete",
+      "Search fee types…",
+      "Partial name match",
+      "Admission, REG-, or portal ID",
+      "Partial father name",
+      "e.g. 1",
+      "date",
+      "All departments\nBBA\nRFT_QA_HIERARCHY_1784540348169_455\nSanskaram Ayurvedic Medic",
+      "Select department first"
+    ]
+  },
+  "HR Management": {
+    "description": "HR Management module: 2 of 4 pages inventoried, including Salary Operations, Reg. approval.",
+    "pageCount": 2,
+    "pages": [
+      {
+        "name": "Salary Operations",
+        "url": "https://qa.university.gyansetu.ai/school/salary/manage",
+        "inputs": [
+          "Search employee..."
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Salary Configuration",
+          "Payroll",
+          "Record Payment",
+          "Bulk Disbursement",
+          "Generate Reports",
+          "Export CSV"
+        ],
+        "dropdowns": [
+          "January\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDec",
+          "2026\n2025\n2024\n2023\n2022",
+          "All departments\nAdministration\nBBA\nNo department assigned",
+          "All statuses\nNo Payroll\nDraft\nProcessed\nFinalized\nReady for payment\nCancelled"
+        ],
+        "tables": 0
+      },
+      {
+        "name": "Reg. approval",
+        "url": "https://qa.university.gyansetu.ai/school/faculty-regularization-approval",
+        "inputs": [
+          "Teacher name, email, or reason…",
+          "date"
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Salary Configuration",
+          "Payroll",
+          "Refresh",
+          "Apply search"
+        ],
+        "dropdowns": [
+          "All\nPending\nApproved\nRejected\nCancelled",
+          "All\nPresent\nLate\nAbsent\nHalf day",
+          "All teachers\nBharti\nDr Abhishek Verma\nDr Alka Khaneja\nDr Ankita\nDr Chhavi yadav\n",
+          "All departments"
+        ],
+        "tables": 0
+      }
+    ],
+    "keyControls": [
+      "Salary Configuration",
+      "Payroll",
+      "Search employee...",
+      "Record Payment",
+      "Bulk Disbursement",
+      "Generate Reports",
+      "Export CSV",
+      "January\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDec",
+      "2026\n2025\n2024\n2023\n2022",
+      "All departments\nAdministration\nBBA\nNo department assigned",
+      "All statuses\nNo Payroll\nDraft\nProcessed\nFinalized\nReady for payment\nCancelled",
+      "Teacher name, email, or reason…",
+      "date",
+      "Refresh",
+      "Apply search",
+      "All\nPending\nApproved\nRejected\nCancelled",
+      "All\nPresent\nLate\nAbsent\nHalf day",
+      "All teachers\nBharti\nDr Abhishek Verma\nDr Alka Khaneja\nDr Ankita\nDr Chhavi yadav\n",
+      "All departments"
+    ]
+  },
+  "Student Distribution": {
+    "description": "Student Distribution module: 0 of 0 pages inventoried.",
+    "pageCount": 0,
+    "pages": [],
+    "keyControls": []
+  },
+  "Teachers": {
+    "description": "Teachers module: 0 of 0 pages inventoried.",
+    "pageCount": 0,
+    "pages": [],
+    "keyControls": []
+  },
+  "Financial": {
+    "description": "Financial module: 4 of 4 pages inventoried, including Fees Management, Collect Fees, Vendor Management System, Setup.",
+    "pageCount": 4,
+    "pages": [
+      {
+        "name": "Fees Management",
+        "url": "https://qa.university.gyansetu.ai/fees-management",
+        "inputs": [
+          "Search fee types…"
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Fee Types",
+          "Fee Groups",
+          "Collect Fees",
+          "Extra Fees",
+          "Transport Fees",
+          "Collect Transport Fees"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      },
+      {
+        "name": "Collect Fees",
+        "url": "https://qa.university.gyansetu.ai/fees-management?tab=student-fee-payment",
+        "inputs": [
+          "Partial name match",
+          "Admission, REG-, or portal ID",
+          "Partial father name",
+          "e.g. 1",
+          "date"
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Fee Types",
+          "Fee Groups",
+          "Collect Fees",
+          "Extra Fees",
+          "Transport Fees",
+          "Collect Transport Fees"
+        ],
+        "dropdowns": [
+          "All departments\nBBA\nRFT_QA_HIERARCHY_1784540348169_455\nSanskaram Ayurvedic Medic",
+          "Select department first",
+          "Select program first",
+          "Select course first",
+          "Select batch first",
+          "Any fee status\nBalance due\nPartially paid\nFully paid (ledger)\nNot yet billed",
+          "Any mode\nCASH\nCHEQUE\nDD\nUPI\nONLINE\nNEFT\nRTGS\nCARD\nBANK_TRANSFER"
+        ],
+        "tables": 0
+      },
+      {
+        "name": "Vendor Management System",
+        "url": "https://qa.university.gyansetu.ai/finance/college-onboarding",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "1. Chart of accounts",
+          "2. Financial year & books",
+          "3. Opening balances",
+          "4. Vendors",
+          "5. Expense defaults",
+          "6. Complete"
+        ],
+        "dropdowns": [],
+        "tables": 1
+      },
+      {
+        "name": "Setup",
+        "url": "https://qa.university.gyansetu.ai/finance/college-onboarding",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "1. Chart of accounts",
+          "2. Financial year & books",
+          "3. Opening balances",
+          "4. Vendors",
+          "5. Expense defaults",
+          "6. Complete"
+        ],
+        "dropdowns": [],
+        "tables": 1
+      }
+    ],
+    "keyControls": [
+      "Fee Types",
+      "Fee Groups",
+      "Collect Fees",
+      "Extra Fees",
+      "Transport Fees",
+      "Collect Transport Fees",
+      "1. Chart of accounts",
+      "2. Financial year & books",
+      "3. Opening balances",
+      "4. Vendors",
+      "5. Expense defaults",
+      "6. Complete",
+      "Search fee types…",
+      "Partial name match",
+      "Admission, REG-, or portal ID",
+      "Partial father name",
+      "e.g. 1",
+      "date",
+      "All departments\nBBA\nRFT_QA_HIERARCHY_1784540348169_455\nSanskaram Ayurvedic Medic",
+      "Select department first"
+    ]
+  },
+  "Transport": {
+    "description": "Transport module: 3 of 3 pages inventoried, including Driver Directory, Vehicle Management, Transport Routes.",
+    "pageCount": 3,
+    "pages": [
+      {
+        "name": "Driver Directory",
+        "url": "https://qa.university.gyansetu.ai/school/transport-management/driver-directory",
+        "inputs": [
+          "Search drivers by name, license, or contact..."
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Export CSV",
+          "Add New Driver"
+        ],
+        "dropdowns": [
+          "All Status\nActive\nInactive"
+        ],
+        "tables": 0
+      },
+      {
+        "name": "Vehicle Management",
+        "url": "https://qa.university.gyansetu.ai/school/transport-management/vehicle-management",
+        "inputs": [],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management"
+        ],
+        "dropdowns": [],
+        "tables": 0
+      },
+      {
+        "name": "Transport Routes",
+        "url": "https://qa.university.gyansetu.ai/school/transport-management/transport-routes",
+        "inputs": [
+          "Search by route name, from or to location..."
+        ],
+        "buttons": [
+          "Administration",
+          "TimeTable Management",
+          "Attendance",
+          "Student Management",
+          "Faculty Management",
+          "Certificate Management",
+          "Transport Management",
+          "Financial Management",
+          "HR Management",
+          "Export CSV",
+          "Add New Route"
+        ],
+        "dropdowns": [
+          "All Status\nActive\nInactive"
+        ],
+        "tables": 0
+      }
+    ],
+    "keyControls": [
+      "Export CSV",
+      "All Status\nActive\nInactive",
+      "Search drivers by name, license, or contact...",
+      "Add New Driver",
+      "Search by route name, from or to location...",
+      "Add New Route"
+    ]
+  },
+  "Activity": {
+    "description": "Activity module: 0 of 0 pages inventoried.",
+    "pageCount": 0,
+    "pages": [],
+    "keyControls": []
+  },
+  "Report Card": {
+    "description": "Report Card module: 0 of 0 pages inventoried.",
+    "pageCount": 0,
+    "pages": [],
+    "keyControls": []
+  }
+}

@@ -1,0 +1,6 @@
+company: American Hall Venue
+draft file: 2026-09-17-american-hall-venue.md
+sent date: 2026-09-19
+message-id: <29bd69f8-23eb-410e-950a-35ce81119b63@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to americanhallvenue@gmail.com; Message-ID <29bd69f8-23eb-410e-950a-35ce81119b63@gmail.com> accepted by relay.

@@ -1,4 +1,4 @@
-import { OllamaClient } from "../src/employee/OllamaClient";
+import { OllamaClient } from "../src/core/employee/OllamaClient";
 
 (async () => {
   const ai = new OllamaClient();

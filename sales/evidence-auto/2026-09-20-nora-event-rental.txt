@@ -1,0 +1,6 @@
+company: Nora Event Rental Co
+draft file: 2026-09-20-nora-event-rental.md
+sent date: 2026-09-23
+message-id: <c9a69431-75e2-464b-bdd4-36e01d8eaf96@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to noraevent@outlook.com; Message-ID <c9a69431-75e2-464b-bdd4-36e01d8eaf96@gmail.com> accepted by relay.

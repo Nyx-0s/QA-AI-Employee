@@ -1,0 +1,6 @@
+company: Baltzly Dental
+draft file: 2026-09-20-baltzly-dental.md
+sent date: 2026-09-23
+message-id: <9fe93e8c-a8a9-453e-a04d-5c37a12311ca@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to office@baltzlydental.com; Message-ID <9fe93e8c-a8a9-453e-a04d-5c37a12311ca@gmail.com> accepted by relay.

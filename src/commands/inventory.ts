@@ -1,4 +1,5 @@
 import fs from "fs-extra";
+import type { Page } from "@playwright/test";
 
 import { BrowserManager } from "../core/browser/BrowserManager";
 import { SessionManager } from "../core/session/SessionManager";
@@ -49,11 +50,18 @@ export async function inventoryCommand(): Promise<void> {
 
     if (!restored) {
       throw new Error(
-        "Session could not be restored. Run npm run auth."
+        "Session could not be restored. Run `npm run auth`."
       );
     }
 
     const page = browser.getPage();
+
+    if (await looksLikeLoginPage(page)) {
+      throw new Error(
+        `Saved session redirected to a login page (${page.url()}). ` +
+          "The session may be expired. Run `npm run auth` to refresh it."
+      );
+    }
 
     page.setDefaultTimeout(15000);
     page.setDefaultNavigationTimeout(30000);
@@ -143,4 +151,21 @@ export async function inventoryCommand(): Promise<void> {
   } finally {
     await browser.close().catch(() => undefined);
   }
+}
+
+async function looksLikeLoginPage(page: Page): Promise<boolean> {
+  const url = page.url();
+
+  if (/\/login|\/signin|\/sign-in|loginpage|log-in/i.test(url)) {
+    return true;
+  }
+
+  const body = await page
+    .locator("body")
+    .innerText()
+    .catch(() => "");
+
+  return /choose your login type|sign in to access your|log in to access your|select your login type|please sign in|login to continue/i.test(
+    body
+  );
 }

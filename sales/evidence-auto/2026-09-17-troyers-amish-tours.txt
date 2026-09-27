@@ -1,0 +1,6 @@
+company: Troyer's Amish Tours
+draft file: 2026-09-17-troyers-amish-tours.md
+sent date: 2026-09-20
+message-id: <7f82b815-01af-4e86-9dd3-6e2f5650c8db@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to rich@troyersamishtours.com; Message-ID <7f82b815-01af-4e86-9dd3-6e2f5650c8db@gmail.com> accepted by relay.

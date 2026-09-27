@@ -1,0 +1,6 @@
+company: Dutch Craft Furniture
+draft file: 2026-09-17-dutch-craft-furniture.md
+sent date: 2026-09-20
+message-id: <1a168e0f-d3d7-42e0-abc6-3dae71b0d908@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to dutchcraftfurniture@gmail.com; Message-ID <1a168e0f-d3d7-42e0-abc6-3dae71b0d908@gmail.com> accepted by relay.

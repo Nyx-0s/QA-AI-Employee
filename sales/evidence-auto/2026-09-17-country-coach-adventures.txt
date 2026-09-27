@@ -1,0 +1,6 @@
+company: Country Coach Adventures
+draft file: 2026-09-17-country-coach-adventures.md
+sent date: 2026-09-19
+message-id: <fad63907-066a-49d6-8bac-c2ffa832dfa2@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to johnandcarol44608@yahoo.com; Message-ID <fad63907-066a-49d6-8bac-c2ffa832dfa2@gmail.com> accepted by relay.

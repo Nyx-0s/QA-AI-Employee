@@ -1,0 +1,6 @@
+company: A Day in the Country B&B
+draft file: 2026-09-17-a-day-in-the-country.md
+sent date: 2026-09-19
+message-id: <fbf935c2-fe73-43fe-8bad-2b44685519f5@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to countrytreasures@roadrunner.com; Message-ID <fbf935c2-fe73-43fe-8bad-2b44685519f5@gmail.com> accepted by relay.

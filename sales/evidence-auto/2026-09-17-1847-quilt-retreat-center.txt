@@ -1,0 +1,6 @@
+company: 1847 Quilt Retreat Center at Hotel Millersburg
+draft file: 2026-09-17-1847-quilt-retreat-center.md
+sent date: 2026-09-19
+message-id: <2ae9702d-b719-498c-a15d-82cecc087f7c@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to 1847QuiltRetreatCenter@gmail.com; Message-ID <2ae9702d-b719-498c-a15d-82cecc087f7c@gmail.com> accepted by relay.

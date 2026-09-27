@@ -1,0 +1,5 @@
+company: American Hall Venue
+draft file: 2026-09-25-nudge-american-hall-venue.md (nudge; parent outreach/drafts/2026-09-17-american-hall-venue.md)
+sent date: 2026-09-23
+message-id: <85de8ed2-8175-4a1e-96bf-ef5f7e6ad75c@gmail.com>
+forwarded header / sent-item paste: (transport curl session — transcript in sales/send-transcript.log; original send message-id 29bd69f8-23eb-410e-950a-35ce81119b63@gmail.com)

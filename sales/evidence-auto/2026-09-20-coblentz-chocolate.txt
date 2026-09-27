@@ -1,0 +1,6 @@
+company: Coblentz Chocolate Company
+draft file: 2026-09-20-coblentz-chocolate.md
+sent date: 2026-09-21
+message-id: <523d337c-fb9b-4c60-aa03-7fe9e58653a7@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to info@coblentzchocolates.com; Message-ID <523d337c-fb9b-4c60-aa03-7fe9e58653a7@gmail.com> accepted by relay.

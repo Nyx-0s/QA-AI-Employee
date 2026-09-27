@@ -1,0 +1,6 @@
+company: Five Alarm Powerwash
+draft file: 2026-09-20-five-alarm-powerwash.md
+sent date: 2026-09-23
+message-id: <8e3948b0-5137-4927-8f30-5f8ff493a1d5@gmail.com>
+forwarded header / sent-item paste:
+Sent via operator-authorized SMTP transport (operator grant 2026-09-19); curl smtp session to Office@fivealarmpowerwash.com; Message-ID <8e3948b0-5137-4927-8f30-5f8ff493a1d5@gmail.com> accepted by relay.

@@ -1,0 +1,5 @@
+company: Weaver's Fine Furniture
+draft file: 2026-09-25-nudge-weavers-fine-furniture.md (nudge; parent outreach/drafts/2026-09-17-weavers-fine-furniture.md)
+sent date: 2026-09-23
+message-id: <b8603eda-b263-47b3-9e29-88e5d4bf36cd@gmail.com>
+forwarded header / sent-item paste: (transport curl session — transcript in sales/send-transcript.log; original send message-id ead7b7bb-2da4-4443-805b-b6f152195bf1@gmail.com)
