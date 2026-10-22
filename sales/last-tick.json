@@ -1,8 +1,8 @@
 {
-  "at": "2026-09-24T13:48:39.174Z",
+  "at": "2026-09-30T17:07:35.486Z",
   "rows": 70,
-  "sent": 45,
-  "pending": 23,
+  "sent": 47,
+  "pending": 21,
   "replies": 0,
   "checks": [
     {
@@ -13,7 +13,7 @@
     {
       "name": "2 precompute",
       "ok": true,
-      "detail": "23 SENT-eligible rows, 0 problem"
+      "detail": "21 SENT-eligible rows, 0 problem"
     },
     {
       "name": "3 ledger=Rows-line",
@@ -28,7 +28,7 @@
     {
       "name": "5 PENDING=rows-not-SENT/CUT",
       "ok": true,
-      "detail": "23 vs 23"
+      "detail": "21 vs 21"
     },
     {
       "name": "6 calendar=rows",
@@ -38,7 +38,7 @@
     {
       "name": "7 archives=SENT",
       "ok": true,
-      "detail": "45 vs 45 (rows carrying message-id evidence)"
+      "detail": "47 vs 47 (rows carrying message-id evidence)"
     },
     {
       "name": "7b reply-log↔drafts",
@@ -47,8 +47,8 @@
     },
     {
       "name": "8 summary=SENT",
-      "ok": true,
-      "detail": "summary 45 vs ledger 45"
+      "ok": false,
+      "detail": "summary 45 vs ledger 47"
     },
     {
       "name": "9 cli-guard",
@@ -56,6 +56,17 @@
       "detail": "25/25 CLI guard checks pass"
     }
   ],
-  "allOk": true,
-  "nudgesDue": []
+  "allOk": false,
+  "nudgesDue": [
+    "MainStreet Fudge & Popcorn Co (due 2026-09-28)",
+    "Homestead Furniture (due 2026-09-28)",
+    "The White Oak Inn (due 2026-09-28)",
+    "Miller's Creamery (due 2026-09-28)",
+    "All Events Rental (due 2026-09-28)",
+    "Mohican Adventures (due 2026-09-28)",
+    "Coblentz Chocolate Company (due 2026-09-28)",
+    "East Holmes Veterinary Clinic (due 2026-09-28)",
+    "HartFelt Boarding Kennels (due 2026-09-28)",
+    "Kline Home Exteriors (due 2026-09-28)"
+  ]
 }

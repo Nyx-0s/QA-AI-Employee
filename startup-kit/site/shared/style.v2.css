@@ -1,0 +1,449 @@
+:root{
+  --ivory:#faf7ef; --paper:#f3eddd; --ink:#1a2b24; --muted:#5c6f66;
+  --emerald:#0b3d2e; --emerald-2:#145843; --gold:#d9c08a; --gold-2:#b9975b;
+  --line:#e3d9c2; --card:#fffdf6; --max:1080px; --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ivory);color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  font-size:16px;line-height:1.6;overflow-x:hidden}
+img,table{max-width:100%}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;color:var(--emerald);
+  line-height:1.15;margin:0 0 .5rem;font-weight:600}
+h1{font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.01em}
+h1 em{font-style:italic;color:var(--emerald-2)}
+h2{font-size:clamp(1.4rem,3vw,2rem)}
+h3{font-size:1.1rem}
+p{margin:.5rem 0 1rem}
+a{color:var(--emerald-2)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.wrap.narrow{max-width:720px}
+/* nav */
+.site-nav{background:var(--emerald);color:#fff;position:sticky;top:0;z-index:50}
+.site-nav .wrap{display:flex;align-items:center;gap:16px;padding-top:12px;padding-bottom:12px}
+.brand{color:#fff;text-decoration:none;font-family:Fraunces,Georgia,serif;
+  font-size:1.25rem;font-weight:700;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.brand-mark{width:30px;height:30px;border-radius:8px;background:var(--gold);
+  color:var(--emerald);display:inline-flex;align-items:center;justify-content:center;
+  font-family:Fraunces,Georgia,serif;font-weight:700}
+.nav-links{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+.nav-links a{color:#e9e2cf;text-decoration:none;font-size:.9rem;
+  padding:8px 10px;border-radius:8px;white-space:nowrap}
+.nav-links a:hover{background:rgba(255,255,255,.12);color:#fff}
+.nav-links a.active{background:var(--gold);color:var(--emerald);font-weight:700}
+.nav-toggle{display:none;margin-left:auto;background:none;border:1px solid var(--gold);
+  color:#fff;border-radius:8px;padding:6px 10px;font-size:1rem}
+/* hero + sections */
+.hero{background:var(--emerald);color:#f4efe0;padding:56px 0 48px}
+.hero h1{color:#fff}
+.hero .lede{font-size:1.1rem;max-width:640px;color:#e7dfc8}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;
+  font-weight:700;color:var(--gold-2);margin:0 0 .5rem}
+.hero .eyebrow{color:var(--gold)}
+section{padding:44px 0}
+.section-paper{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.section-head{max-width:680px;margin-bottom:24px}
+.section-head.center{text-align:center;margin-left:auto;margin-right:auto}
+.quote{font-family:Fraunces,Georgia,serif;font-size:1.25rem;color:var(--emerald)}
+/* buttons */
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 8px}
+.btn{display:inline-block;background:var(--gold);color:var(--emerald);
+  font-weight:700;text-decoration:none;padding:12px 20px;border-radius:10px;border:1px solid var(--gold)}
+.btn:hover{background:#e6cf9c}
+.btn.ghost{background:transparent;color:var(--emerald);border:1px solid var(--emerald)}
+.hero .btn.ghost{color:#fff;border-color:var(--gold)}
+.trust-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px;font-size:.9rem;color:#ddd3b8}
+/* cards + grids */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.card.link{cursor:pointer}
+.card.link:hover{border-color:var(--gold-2)}
+.glyph{font-family:Fraunces,Georgia,serif;color:var(--gold-2);font-weight:700;font-size:1rem}
+.go{font-weight:700;color:var(--emerald-2)}
+.price{font-family:Fraunces,Georgia,serif;font-size:1.1rem;color:var(--emerald);font-weight:700}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;background:#e8f0eb;
+  color:var(--emerald);border-radius:999px;padding:3px 10px;margin-bottom:8px}
+/* steps */
+.step-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.step h3{margin-top:0}
+ol.beats,ol.steps{padding-left:1.2rem}
+ol.beats li,ol.steps li{margin-bottom:12px}
+/* tables */
+table.rate{width:100%;border-collapse:collapse;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--r);overflow:hidden;font-size:.95rem}
+table.rate th,table.rate td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+table.rate th{background:var(--emerald);color:#fff}
+/* guarantee */
+.guarantee{background:var(--emerald);color:#f4efe0;border-radius:var(--r);
+  padding:32px;text-align:center;max-width:720px;margin:0 auto}
+.guarantee h3{color:var(--gold);font-size:1.5rem}
+.seal{width:64px;height:64px;border-radius:50%;background:var(--gold);color:var(--emerald);
+  display:flex;align-items:center;justify-content:center;font-family:Fraunces,Georgia,serif;
+  font-weight:700;font-size:1.5rem;margin:0 auto 12px}
+/* footer */
+.site-footer{background:var(--emerald);color:#d8cfae;margin-top:24px}
+.site-footer .wrap{padding-top:32px;padding-bottom:32px;display:grid;
+  grid-template-columns:2fr 1fr 1fr;gap:20px}
+.site-footer a{color:#efe6cc;text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+.fine{border-top:1px solid rgba(217,192,138,.3);padding:12px 0;font-size:.8rem;color:#b9ad8b}
+.fine .wrap{display:block}
+/* forms */
+.field{margin-bottom:14px}
+label{display:block;font-weight:700;margin-bottom:4px}
+input,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);
+  border-radius:8px;font:inherit;background:#fff;color:var(--ink)}
+small.hint{color:var(--muted)}
+/* responsive */
+@media(max-width:860px){
+  .grid-3,.grid-2{grid-template-columns:1fr}
+  .step-grid{grid-template-columns:1fr 1fr}
+  .site-footer .wrap{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  body{font-size:15px}
+  .hero{padding:40px 0 32px}
+  .step-grid{grid-template-columns:1fr}
+  .nav-toggle{display:flex}
+  .nav-links{display:none;width:100%;flex-direction:column;padding-bottom:8px}
+  .nav-links.open{display:flex}
+  table.rate{display:block;overflow-x:auto}
+}
+/* ---- realtime/smooth + 3D nav (additive; JS-off safe, no layout shift) ---- */
+/* FAST: will-change intentionally ~nowhere (compositor layers are expensive).
+   Only the sticky nav keeps it, and only for box-shadow (cheap). Section/hero
+   wraps animate via transform but must NOT pin layers — mobile GPUs OOM. */
+.site-nav{perspective:900px;transition:box-shadow .25s ease,background-color .25s ease}
+.hero{content-visibility:auto;contain-intrinsic-size:auto 480px}
+.site-nav .wrap{transform-style:preserve-3d}
+.site-nav.scrolled{box-shadow:0 10px 30px rgba(0,0,0,.28);background:#0a3528}
+.site-nav.scrolled .wrap{transform:translateZ(6px)}
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:2px;border-radius:6px}
+.site-nav a:focus-visible,.nav-toggle:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+/* 3D lift containers: perspective on grids, translateZ on hover (transform-only, CLS-safe) */
+.grid-3,.grid-2,.step-grid{perspective:900px}
+.card,.step{transform-style:preserve-3d;backface-visibility:hidden;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.card:hover,.step:hover{transform:translateZ(10px) translateY(-3px);
+  box-shadow:0 16px 32px rgba(11,61,46,.14);border-color:var(--gold-2)}
+.card:active,.step:active{transform:translateZ(4px) translateY(-1px)}
+/* FLIP active pill (JS-injected .nav-pill; hidden without JS) */
+.nav-links{position:relative}
+.nav-pill{position:absolute;top:4px;bottom:4px;left:0;width:0;opacity:0;
+  background:var(--gold);border-radius:8px;z-index:0;pointer-events:none;
+  transform:translateX(0);box-shadow:0 2px 10px rgba(0,0,0,.2)}
+.nav-links a{position:relative;z-index:1;
+  transition:transform .18s ease,background-color .18s ease,color .18s ease}
+.nav-links a:hover{transform:translateZ(12px) translateY(-1px)}
+html.js .nav-links.has-pill a.active{background:transparent;color:var(--emerald)}
+/* Reveal states: hidden ONLY when html.js is present (JS-off stays visible) */
+html.js .reveal{opacity:0;transform:translateY(14px);
+  transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.3,1)}
+html.js .reveal.is-visible{opacity:1;transform:none}
+/* Hamburger morph (bars injected by JS; original glyph still works pre-JS) */
+.nav-toggle{flex-direction:column;gap:4px;align-items:center;justify-content:center;
+  min-width:40px;min-height:36px;cursor:pointer}
+.nav-toggle.has-bars{line-height:0}
+.nav-toggle span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;
+  transition:transform .25s ease,opacity .2s ease}
+.nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.site-nav.menu-open{box-shadow:0 10px 30px rgba(0,0,0,.28)}
+/* ---- whole-site 3D push v3d2 (additive; transform/opacity only, JS-off safe) ---- */
+/* Anchor offset so smooth scrolls clear the sticky nav (native smooth already on html). */
+html{scroll-padding-top:76px}
+section{scroll-margin-top:70px}
+/* Section depth layers: each section is its own 3D stage (sticky nav unaffected). */
+section{perspective:1200px}
+.section-head,.guarantee,table.rate{transform-style:preserve-3d}
+/* Staggered 3D entrances: upgrade the flat rise to a rotateX settle.
+   Later rule wins at equal specificity; .is-visible reset below still applies. */
+html.js .reveal{transform:translateY(18px) rotateX(5deg);transform-origin:50% 0}
+/* 3D pricing table: subtle stage tilt on hover, text stays readable (max 2deg). */
+table.rate{transition:transform .3s ease,box-shadow .3s ease}
+table.rate:hover{transform:rotateX(2deg) translateZ(8px);
+  box-shadow:0 18px 36px rgba(11,61,46,.16)}
+/* Guarantee seal pop: card tilts, seal floats toward viewer on hover. */
+.guarantee{perspective:800px;transition:transform .3s ease,box-shadow .3s ease}
+.guarantee:hover{transform:rotateX(2deg) translateY(-3px);
+  box-shadow:0 20px 44px rgba(0,0,0,.3)}
+.seal{transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.7,.3,1.4)}
+.guarantee:hover .seal{transform:translateZ(26px) rotateY(14deg)}
+/* Footer rise: hidden ONLY when html.js is present (JS-off stays visible). */
+html.js .site-footer{opacity:0;transform:translateY(26px);
+  transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
+html.js .site-footer.is-visible{opacity:1;transform:none}
+/* Hero pointer parallax: JS drives --hx/--hy on .hero (rAF, fine-pointer only).
+   Children keep their reveal transforms — wrap rotation is independent.
+   FAST: no will-change pin (wrap is one layer, created on demand by transform). */
+html.js .hero{perspective:1100px}
+html.js .hero .wrap{transform-style:preserve-3d;
+  transform:rotateX(var(--hx,0deg)) rotateY(var(--hy,0deg))}
+/* Small phones */
+@media(max-width:390px){
+  .wrap{padding:0 16px}
+  .brand{font-size:1.08rem}
+  .brand-mark{width:26px;height:26px;font-size:.95rem}
+  .hero{padding:32px 0 28px}
+  .hero .lede{font-size:1rem}
+  .cta-row{gap:10px}
+  .cta-row .btn{width:100%;text-align:center}
+  .card,.step{padding:18px}
+  .site-nav .wrap{gap:10px;padding-top:10px;padding-bottom:10px}
+  .guarantee{padding:24px 18px}
+  html.js .cinema-canvas{opacity:.4}
+  html.js .cinema-grain{opacity:.05}
+  html.js .cinema-sweep{width:60%}
+}
+/* ---- CINEMA vcinema: full-site 3D + cinematic hero/nav/camera (additive) ---- */
+/* All cinematic visuals gate behind html.js (JS-off stays ivory/emerald).
+   Canvas/sweep/grain/bar nodes are JS-injected; CSS alone never adds black. */
+html.js body.cinema{perspective:1800px}
+html.js .section-paper{perspective:1400px}
+html.js .hero{position:relative;overflow:hidden;isolation:isolate;perspective:1400px}
+/* Letterbox rhythm: inset cinematic shading only (never covers copy). */
+html.js .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 10%,rgba(255,255,255,.06),transparent 55%),
+    radial-gradient(140% 120% at 50% 115%,rgba(0,0,0,.38),transparent 60%);
+  opacity:0;transition:opacity 1.1s ease}
+html.js body.is-entered .hero::before{opacity:1}
+html.js .hero::after{content:"";position:absolute;left:0;right:0;top:0;height:10px;z-index:1;
+  pointer-events:none;opacity:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.5),transparent);
+  transition:opacity 1s ease}
+html.js .hero .cinema-bar{position:absolute;left:0;right:0;top:0;height:8px;z-index:1;
+  pointer-events:none;opacity:0;background:linear-gradient(180deg,rgba(0,0,0,.55),transparent);
+  transition:opacity 1s ease}
+html.js .hero .cinema-bar.bot{top:auto;bottom:0;transform:scaleY(-1)}
+html.js body.is-entered .hero::after,html.js body.is-entered .hero .cinema-bar{opacity:.9}
+/* Canvas 2D stage (transparent; JS freezes without wipe — never black). */
+html.js .cinema-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;
+  pointer-events:none;opacity:.6;background:transparent}
+html.js .hero .wrap{position:relative;z-index:2}
+/* Light sweep: diagonal gold sheen drifting across hero (transform-only). */
+html.js .cinema-sweep{position:absolute;top:-25%;bottom:-25%;left:-35%;width:42%;z-index:1;
+  pointer-events:none;opacity:0;
+  background:linear-gradient(100deg,transparent 0%,rgba(217,192,138,.13) 45%,
+    rgba(255,246,220,.2) 50%,rgba(217,192,138,.13) 55%,transparent 100%);
+  transform:translateX(-140%) skewX(-12deg)}
+html.js body.is-entered .cinema-sweep{opacity:1;animation:cinema-sweep 9s ease-in-out infinite}
+/* FAST: sweep + grain are desktop-only eye candy. Below 861px they are display:none
+   (no infinite compositor work on phones — old #3 jank source). */
+@media(max-width:860px){
+  html.js .cinema-sweep,html.js .cinema-grain{display:none!important}
+  html.js .cinema-canvas{opacity:.35}
+}
+@keyframes cinema-sweep{
+  0%{transform:translateX(-140%) skewX(-12deg)}
+  55%{transform:translateX(340%) skewX(-12deg)}
+  100%{transform:translateX(340%) skewX(-12deg)}
+}
+/* Film grain: tiny inline SVG turbulence, steps() drift (transform/opacity only). */
+html.js .cinema-grain{position:absolute;inset:-48px;z-index:1;pointer-events:none;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
+  animation:cinema-grain 1.1s steps(3) infinite}
+@keyframes cinema-grain{
+  0%{transform:translate(0,0)}
+  33%{transform:translate(-14px,9px)}
+  66%{transform:translate(11px,-13px)}
+  100%{transform:translate(0,0)}
+}
+/* 3D nav: solid depth + sliding gold volume + scroll-act elevation + mobile morph.
+   FAST: NO backdrop-filter (blur(14px) on a sticky full-width bar repaints every
+   scroll frame — the old #2 jank source). Solid emerald + border + shadow only. */
+html.js .site-nav{background:#0b3d2e;
+  border-bottom:1px solid rgba(217,192,138,.22)}
+html.js .site-nav.scrolled{background:#0a3528;
+  box-shadow:0 14px 34px rgba(0,0,0,.32),inset 0 -1px 0 rgba(217,192,138,.4)}
+html.js .site-nav.scrolled .wrap{transform:translateZ(12px)}
+.nav-pill{background:linear-gradient(180deg,#e8d199,var(--gold) 55%,#c3a15c)!important;
+  box-shadow:0 4px 14px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.6)!important}
+html.js .nav-links.has-pill a.active{text-shadow:0 1px 0 rgba(255,255,255,.4)}
+@media(max-width:480px){
+  html.js .nav-links.open{display:flex;transform-origin:50% 0;animation:nav-morph .32s cubic-bezier(.2,.7,.3,1)}
+  html.js .nav-links.open a{animation:nav-link-in .34s cubic-bezier(.2,.7,.3,1) backwards}
+  html.js .nav-links.open a:nth-child(2){animation-delay:.03s}
+  html.js .nav-links.open a:nth-child(3){animation-delay:.06s}
+  html.js .nav-links.open a:nth-child(4){animation-delay:.09s}
+  html.js .nav-links.open a:nth-child(5){animation-delay:.12s}
+  html.js .nav-links.open a:nth-child(6){animation-delay:.15s}
+  html.js .nav-links.open a:nth-child(7){animation-delay:.18s}
+  html.js .nav-links.open a:nth-child(8){animation-delay:.21s}
+}
+@keyframes nav-morph{from{opacity:0;transform:perspective(700px) rotateX(-12deg) translateY(-8px)}to{opacity:1;transform:none}}
+@keyframes nav-link-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+/* Scroll-driven FLIGHT camera (vfast true-3D): JS writes
+   --cam-tilt/--cam-dolly/--flight-z; wrap dollies through depth (transform-only).
+   Section = chamber, .wrap = camera rig. translateZ pops the centered chamber
+   forward like a vault-corridor fly-through (igloo-like, zero WebGL). */
+html.js section .wrap{
+  transform:translateZ(var(--flight-z,0px)) rotateX(var(--cam-tilt,0deg)) translateY(var(--cam-dolly,0px))}
+html.js .hero .wrap{transform:rotateX(var(--hx,0deg)) rotateY(var(--hy,0deg))}
+/* Layered depth stage: heads float above cards (pure CSS, no DOM/copy change).
+   Scoped to .is-visible so the .reveal entrance (opacity/translateY/rotateX)
+   still plays first; depth applies after entrance. Cards keep hover lift. */
+html.js section .section-head.is-visible{transform:translateZ(34px)}
+html.js section .card.is-visible:nth-child(1){transform:translateZ(18px)}
+html.js section .card.is-visible:nth-child(2){transform:translateZ(30px)}
+html.js section .card.is-visible:nth-child(3){transform:translateZ(18px)}
+html.js section .card.is-visible:hover{transform:translateZ(38px) translateY(-3px)}
+html.js section .step.is-visible:nth-child(odd){transform:translateZ(12px)}
+html.js section .step.is-visible:nth-child(even){transform:translateZ(26px)}
+/* Vault-gate haze: faint static vignette per chamber for depth (no animation,
+   composited once — cheap). pointer-events none, never covers copy. */
+html.js section{position:relative}
+html.js section::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background:radial-gradient(120% 100% at 50% 50%,transparent 62%,rgba(11,61,46,.08) 100%)}
+/* Small screens: dolly-only (rotateX perspective widens boxes by ~4px at 390px). */
+@media(max-width:480px){
+  html.js section .wrap{transform:translateY(var(--cam-dolly,0px))}
+}
+/* Page-enter choreography: pre-enter hides ONLY under html.js+cinema-pre; entered settles. */
+html.js body.cinema-pre .hero .eyebrow,html.js body.cinema-pre .hero h1,
+html.js body.cinema-pre .hero .lede,html.js body.cinema-pre .hero .cta-row,
+html.js body.cinema-pre .hero .trust-row{opacity:0;transform:translateY(24px) rotateX(9deg)}
+html.js body.is-entered .hero .eyebrow,html.js body.is-entered .hero h1,
+html.js body.is-entered .hero .lede,html.js body.is-entered .hero .cta-row,
+html.js body.is-entered .hero .trust-row{transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
+html.js body.is-entered .hero h1{transition-delay:.06s}
+html.js body.is-entered .hero .lede{transition-delay:.12s}
+html.js body.is-entered .hero .cta-row{transition-delay:.18s}
+html.js body.is-entered .hero .trust-row{transition-delay:.24s}
+/* Smooth anchor fly: brief Z pop on target (transform-only, never hides copy). */
+html.js .fly-target{transition:transform .5s ease,box-shadow .5s ease}
+html.js .fly-target.flying{transform:translateZ(14px) scale(1.008);
+  box-shadow:0 18px 40px rgba(11,61,46,.18)}
+/* ---- v2 PERF + PINNED-HERO (appended; overrides above, additive) ---- */
+/* v2 kills the two infinite desktop animations for real (JS no longer injects
+   the nodes either — belt and suspenders). Static bar stays (no animation). */
+html.js .cinema-sweep,html.js .cinema-grain{display:none!important;animation:none!important}
+/* v2 kills whole-page hover tilt (hero-only 3D model). Keep affordable
+   shadow/border feedback; drop translateZ/rotateX pops that pinned extra
+   compositor layers per card on iGPU. */
+.card:hover,.step:hover{transform:translateY(-3px);
+  box-shadow:0 16px 32px rgba(11,61,46,.14);border-color:var(--gold-2)}
+.card:active,.step:active{transform:translateY(-1px)}
+table.rate:hover{transform:none;box-shadow:0 18px 36px rgba(11,61,46,.16)}
+.guarantee:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(0,0,0,.3)}
+.guarantee:hover .seal{transform:none}
+html.js section .section-head.is-visible,
+html.js section .card.is-visible:nth-child(1),
+html.js section .card.is-visible:nth-child(2),
+html.js section .card.is-visible:nth-child(3),
+html.js section .step.is-visible:nth-child(odd),
+html.js section .step.is-visible:nth-child(even),
+html.js section .card.is-visible:hover{transform:none}
+/* PINNED full-viewport hero (igloo-honest, WebGL-free): hero fills the first
+   viewport and centers its copy; the 2D dust canvas + scroll camera
+   (--hx/--hy) + enter choreography supply the flight feel. Sections below
+   keep solid backgrounds so they visually slide OVER the hero. No position:
+   fixed (a11y/back-button safe), no layout shift, JS-off = static emerald. */
+html.js .hero{min-height:92svh;min-height:92vh;display:flex;align-items:center;
+  padding:72px 0 64px}
+html.js .hero .wrap{width:100%}
+html.js .cinema-canvas{opacity:.5}
+@media(max-width:860px){
+  html.js .hero{min-height:78svh;padding:56px 0 48px}
+  html.js .cinema-canvas{opacity:.35}
+}
+/* Reduced motion: kill smooth scroll, 3D, pill, reveal, cinema — content stays visible */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .site-nav,.site-nav .wrap,.nav-links a,.card,.step,.guarantee,table.rate,
+  .site-footer,.hero .wrap,.seal,section .wrap,.fly-target{transform:none!important}
+  .card:hover,.step:hover,table.rate:hover,.guarantee:hover,.fly-target.flying{transform:none;box-shadow:none}
+  .guarantee:hover .seal{transform:none}
+  html.js .site-footer{opacity:1!important;transform:none!important}
+  .nav-pill,.cinema-canvas,.cinema-sweep,.cinema-grain,.hero .cinema-bar{display:none!important}
+  html.js .hero::before,html.js .hero::after{content:none!important}
+  .nav-links.open,.nav-links.open a{animation:none!important}
+  html.js .nav-links.has-pill a.active{background:var(--gold)!important;color:var(--emerald)!important}
+  html.js .reveal{opacity:1!important;transform:none!important}
+  html.js body.cinema-pre .hero .eyebrow,html.js body.cinema-pre .hero h1,
+  html.js body.cinema-pre .hero .lede,html.js body.cinema-pre .hero .cta-row,
+  html.js body.cinema-pre .hero .trust-row{opacity:1!important;transform:none!important}
+  .nav-toggle span{transition:none}
+}
+/* ---- IGLOO-HERO: lightweight immersive chambers (original, additive) ---- */
+/* JS-off fail-safe: static emerald gradient + full text readable, no canvas
+   needed. Base rules are NOT html.js-gated so no-JS still gets the scene. */
+.hero{background:linear-gradient(165deg,#0e4a38 0%,#0b3d2e 42%,#072a20 100%)}
+.hero.igloo{position:relative;overflow:hidden;isolation:isolate;
+  min-height:100svh;min-height:100vh;display:flex;align-items:center;
+  padding:72px 0 64px;perspective:1400px}
+.hero.igloo .wrap{position:relative;z-index:3;width:100%;
+  transform-style:preserve-3d;
+  transform:rotateX(var(--igy,0deg)) rotateY(var(--igx,0deg)) translateY(var(--igdolly,0px))}
+/* Layered CSS 3D chambers: three depth planes behind copy (transform-only,
+   composited once, no animation = zero per-frame cost). */
+.igloo-stage{display:block!important;position:absolute;inset:0;z-index:0;
+  pointer-events:none;transform-style:preserve-3d}
+.igloo-chamber{position:absolute;inset:-6%;border:1px solid rgba(217,192,138,.14);
+  border-radius:22px;pointer-events:none}
+.igloo-chamber--back{inset:6% 10%;opacity:.55;transform:translateZ(-90px);
+  background:radial-gradient(80% 70% at 50% 30%,rgba(255,255,255,.05),transparent 65%)}
+.igloo-chamber--mid{inset:3% 6%;opacity:.7;transform:translateZ(-45px);
+  background:radial-gradient(70% 60% at 50% 62%,rgba(217,192,138,.07),transparent 65%)}
+.igloo-chamber--front{inset:0 3%;opacity:.9;transform:translateZ(0);
+  background:radial-gradient(120% 100% at 50% 110%,rgba(0,0,0,.30),transparent 60%)}
+/* Gold gate glow: static radial wash behind headline (no animation, no blur
+   filter — plain gradient layer, painted once). Original abstract shape. */
+.igloo-gate{display:block!important;position:absolute;left:50%;top:44%;
+  width:min(720px,92%);aspect-ratio:1.6;transform:translate(-50%,-50%);
+  background:radial-gradient(50% 50% at 50% 50%,rgba(217,192,138,.20),rgba(217,192,138,.06) 55%,transparent 72%);
+  pointer-events:none}
+/* Seal arcs: two abstract concentric arc rings (borders only, original). */
+.igloo-seal{display:block!important;position:absolute;left:50%;top:44%;
+  width:min(560px,84%);aspect-ratio:1;transform:translate(-50%,-50%);
+  pointer-events:none;opacity:.8}
+.igloo-seal-arc{position:absolute;inset:0;border-radius:50%;
+  border:1px solid rgba(217,192,138,.28);border-top-color:rgba(233,214,164,.75);
+  border-right-color:transparent}
+.igloo-seal-arc--a{inset:6%;opacity:.9}
+.igloo-seal-arc--b{inset:16%;opacity:.55;border-top-color:rgba(233,214,164,.45);
+  border-left-color:transparent;border-right-color:rgba(217,192,138,.30)}
+/* ONE particle canvas: transparent, sits above chambers below copy. */
+.igloo-field{display:block!important;position:absolute;inset:0;width:100%;
+  height:100%;pointer-events:none;background:transparent;opacity:.85}
+/* Enter choreography: copy rises once (transform/opacity only). */
+.hero.igloo .eyebrow,.hero.igloo h1,.hero.igloo .lede,
+.hero.igloo .cta-row,.hero.igloo .trust-row{opacity:0;
+  transform:translateY(22px)}
+.hero.igloo.igloo-entered .eyebrow,.hero.igloo.igloo-entered h1,
+.hero.igloo.igloo-entered .lede,.hero.igloo.igloo-entered .cta-row,
+.hero.igloo.igloo-entered .trust-row{opacity:1;transform:none;
+  transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
+html.js .hero.igloo.igloo-entered h1{transition-delay:.06s}
+html.js .hero.igloo.igloo-entered .lede{transition-delay:.12s}
+html.js .hero.igloo.igloo-entered .cta-row{transition-delay:.18s}
+html.js .hero.igloo.igloo-entered .trust-row{transition-delay:.24s}
+@media(max-width:860px){
+  .hero.igloo{min-height:92svh;padding:56px 0 48px}
+  .igloo-chamber--back{inset:8% 12%}
+  .igloo-gate{width:120%;opacity:.8}
+  .igloo-seal{width:110%;opacity:.6}
+  .igloo-field{opacity:.6}
+}
+/* 390px clean: single column, full-width CTAs, thinner rings, no overflow. */
+@media(max-width:390px){
+  .hero.igloo{padding:40px 0 36px;min-height:100svh}
+  .hero.igloo .lede{font-size:1rem}
+  .igloo-chamber{border-radius:16px}
+  .igloo-chamber--back{inset:10% 14%}
+  .igloo-gate{width:140%;opacity:.7}
+  .igloo-seal{width:130%;opacity:.5}
+  .igloo-field{opacity:.5}
+}
+/* Reduced motion: static scene — chambers stay, no transforms/transitions. */
+@media(prefers-reduced-motion:reduce){
+  .hero.igloo .wrap{transform:none!important}
+  .hero.igloo .eyebrow,.hero.igloo h1,.hero.igloo .lede,
+  .hero.igloo .cta-row,.hero.igloo .trust-row{opacity:1!important;transform:none!important;
+    transition:none!important}
+  .igloo-field{display:none!important}
+}

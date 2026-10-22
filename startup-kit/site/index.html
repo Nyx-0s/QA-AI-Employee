@@ -5,13 +5,60 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ConsentArk — Hire your first AI employee this week</title>
 <meta name="description" content="AI employees for small business: they work inside your rules, pause for your approval before anything is submitted, and write a plain-English audit trail of every step.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0b3d2e">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared/style.css">
+<link rel="stylesheet" href="/shared/style.v3.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b3d2e'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' fill='%23d9c08a' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<style>
+/* Inline critical CSS: explicit light background + dark ink, so a missing or blocked /shared/style.css never renders transparent-on-black. System font stacks keep text readable if Google Fonts is blocked. */
+html{background:#faf7ef;color:#1a2b24}
+body{background:#faf7ef;color:#1a2b24;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:Fraunces,Georgia,"Times New Roman",serif;color:#0b3d2e;line-height:1.15;margin:0 0 .5rem;font-weight:600}
+h1{font-size:clamp(2rem,5vw,3.2rem)}
+h2{font-size:clamp(1.4rem,3vw,2rem)}
+p{margin:.5rem 0 1rem}
+a{color:#145843}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.site-nav,.noscript-nav{background:#0b3d2e;color:#fff}
+.site-nav a,.noscript-nav a{color:#e9e2cf;text-decoration:none}
+.brand{color:#fff;text-decoration:none;font-weight:700}
+.hero{background:#0b3d2e;color:#f4efe0;padding:56px 0 48px}
+.hero h1{color:#fff}
+.hero .lede{color:#e7dfc8}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:700;color:#8a6d2b}
+.hero .eyebrow{color:#d9c08a}
+.btn{display:inline-block;background:#d9c08a;color:#0b3d2e;font-weight:700;text-decoration:none;padding:12px 20px;border-radius:10px;border:1px solid #d9c08a}
+.btn.ghost{background:transparent;color:#0b3d2e;border:1px solid #0b3d2e}
+.hero .btn.ghost{color:#fff;border-color:#d9c08a}
+.card{background:#fffdf6;color:#1a2b24;border:1px solid #e3d9c2;border-radius:14px;padding:22px}
+.section-paper{background:#f3eddd;color:#1a2b24;border-top:1px solid #e3d9c2;border-bottom:1px solid #e3d9c2}
+.site-footer{background:#0b3d2e;color:#d8cfae}
+.site-footer a{color:#efe6cc}
+table.rate th{background:#0b3d2e;color:#fff}
+</style>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b3d2e'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' fill='%23d9c08a' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
 </head>
 <body data-root="" data-page="home">
+<noscript>
+<style>.nav-toggle{display:none!important}</style>
+<div class="noscript-nav" style="background:#0b3d2e;color:#ffffff">
+<div class="wrap" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px">
+<a class="brand" href="/index.html" style="color:#ffffff">ConsentArk</a>
+<nav aria-label="Primary" style="display:flex;gap:4px 12px;flex-wrap:wrap;margin-left:auto">
+<a href="/index.html" style="color:#e9e2cf">Home</a>
+<a href="/workforce.html" style="color:#e9e2cf">Workforce</a>
+<a href="/pricing.html" style="color:#e9e2cf">Pricing</a>
+<a href="/philosophy.html" style="color:#e9e2cf">Philosophy</a>
+<a href="/how-it-works.html" style="color:#e9e2cf">How it works</a>
+<a href="/demo.html" style="color:#e9e2cf">Demo</a>
+<a href="/contact.html" style="color:#e9e2cf">Contact</a>
+</nav>
+</div>
+</div>
+</noscript>
 <div class="hero">
   <div class="wrap">
     <p class="eyebrow">Consent-first AI employees for small business</p>
@@ -38,24 +85,24 @@
         <p>We don't sell experiments. Every employee below is a template we run on our own work before it ever touches yours.</p>
       </div>
       <div class="grid-3">
-        <div class="card link" onclick="location.href='workforce.html'">
+        <a class="card link" href="/workforce.html" style="display:block;text-decoration:none;color:inherit">
           <div class="glyph">01</div>
           <h3>Data Clerk</h3>
           <p>Reads bookings, orders, and applications from wherever they arrive and enters them where they belong — pausing for your approval before anything is submitted.</p>
           <p class="go">Hire this employee →</p>
-        </div>
-        <div class="card link" onclick="location.href='workforce.html'">
+        </a>
+        <a class="card link" href="/workforce.html" style="display:block;text-decoration:none;color:inherit">
           <div class="glyph">02</div>
           <h3>QA Analyst</h3>
           <p>Walks your website on a phone-sized screen like a real customer, records what breaks, and explains it in plain English — with evidence, not jargon.</p>
           <p class="go">Hire this employee →</p>
-        </div>
-        <div class="card link" onclick="location.href='workforce.html'">
+        </a>
+        <a class="card link" href="/workforce.html" style="display:block;text-decoration:none;color:inherit">
           <div class="glyph">03</div>
           <h3>Outreach Assistant</h3>
           <p>Drafts short, evidence-based follow-up emails from real research. Drafts only — nothing is ever sent without a human pressing send.</p>
           <p class="go">Hire this employee →</p>
-        </div>
+        </a>
       </div>
       <div class="cta-row">
         <a class="btn ghost" href="workforce.html">See the full workforce →</a>
@@ -102,6 +149,7 @@
     </div>
   </div>
 </section>
-<script src="shared/site.js"></script>
+<script src="/shared/site.v3.js" defer></script>
+<script src="/shared/igloo-hero.v3.js" defer></script>
 </body>
 </html>

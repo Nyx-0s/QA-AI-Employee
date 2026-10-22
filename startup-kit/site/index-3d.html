@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConsentArk — Hire your first AI employee this week</title>
+<meta name="description" content="AI employees for small business: Data Clerk $500+$300, QA $750+$400, Outreach $500+$300. Free 7-day pilot, 30-day guarantee. An immersive 3D laptop entry.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0b3d2e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@400..800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b3d2e'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' fill='%23d9c08a' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<!--
+  ConsentArk immersive 3D entry — original code and copy throughout.
+  Three.js loads from CDN via the importmap below; shared/laptop-3d.js owns the
+  scene (an original laptop from primitives: base box + screen box + keyboard
+  plane + trackpad + CanvasTexture dashboard with gate queue + audit trail).
+  No igloo.inc assets, shaders, or text are used or copied. The renderer uses a
+  transparent clear so the emerald CSS gradient shows through (never black).
+  If WebGL or the CDN fails, the .static-laptop CSS laptop below carries the
+  hero with readable copy — content never depends on the canvas. The loader
+  (#laptop-veil) lifts on the first painted frame and self-fades via CSS after
+  ~3s even if all JS fails, and <noscript> removes it instantly.
+-->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+<style>
+/* ---- base: deep emerald (never black), ivory ink ---- */
+html{background:#0b3d2e;color:#f4efe0}
+body{background:#0b3d2e;color:#f4efe0;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:Fraunces,Georgia,"Times New Roman",serif;color:#fff;line-height:1.15;margin:0 0 .5rem;font-weight:600}
+h1{font-size:clamp(2rem,5vw,3.2rem)}
+h2{font-size:clamp(1.4rem,3vw,2rem)}
+p{margin:.5rem 0 1rem}
+a{color:#f0dfae}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:700;color:#d9c08a}
+.btn{display:inline-block;background:#d9c08a;color:#0b3d2e;font-weight:700;text-decoration:none;padding:12px 20px;border-radius:10px;border:1px solid #d9c08a}
+.btn.ghost{background:transparent;color:#fff;border:1px solid #d9c08a}
+.card{background:#fffdf6;color:#1a2b24;border:1px solid #e3d9c2;border-radius:14px;padding:22px}
+.card h3{color:#0b3d2e}
+.card p{color:#1a2b24}
+/* ---- loader veil: fades on JS signal AND on its own (never traps) ---- */
+#laptop-veil{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:radial-gradient(120% 100% at 50% 20%,#10503c 0%,#0b3d2e 55%,#07271d 100%);color:#f4efe0;transition:opacity .7s ease;animation:caVeilKill .8s ease 2.8s forwards}
+#laptop-veil.lift{opacity:0;pointer-events:none}
+@keyframes caVeilKill{to{opacity:0;visibility:hidden;pointer-events:none}}
+.veil-ring{width:72px;height:72px;border-radius:50%;border:3px solid rgba(217,192,138,.25);border-top-color:#d9c08a;animation:caSpin 1.1s linear infinite}
+@keyframes caSpin{to{transform:rotate(360deg)}}
+.veil-word{font-family:Fraunces,Georgia,serif;font-size:1.1rem;color:#e9d6a4;letter-spacing:.02em}
+/* ---- fixed 3D stage + pure-CSS static laptop fallback behind the canvas ---- */
+#laptop-stage{position:fixed;inset:0;z-index:0;overflow:hidden;background:radial-gradient(120% 100% at 50% 15%,#10503c 0%,#0b3d2e 55%,#07271d 100%)}
+.static-hero{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.static-dust{position:absolute;inset:0;background-image:radial-gradient(1.5px 1.5px at 12% 68%,rgba(233,214,164,.8),transparent 60%),radial-gradient(1.5px 1.5px at 24% 30%,rgba(233,214,164,.7),transparent 60%),radial-gradient(2px 2px at 38% 78%,rgba(233,214,164,.6),transparent 60%),radial-gradient(1.5px 1.5px at 55% 22%,rgba(233,214,164,.75),transparent 60%),radial-gradient(1.5px 1.5px at 68% 62%,rgba(233,214,164,.65),transparent 60%),radial-gradient(2px 2px at 79% 34%,rgba(233,214,164,.6),transparent 60%),radial-gradient(1.5px 1.5px at 88% 74%,rgba(233,214,164,.7),transparent 60%),radial-gradient(1.5px 1.5px at 45% 48%,rgba(255,246,224,.5),transparent 60%);animation:caDustDrift 9s ease-in-out infinite alternate}
+/* Static laptop: pure CSS, readable with zero JS. Screen carries real text. */
+.static-laptop{position:relative;width:min(66vmin,440px);filter:drop-shadow(0 24px 60px rgba(0,0,0,.45))}
+.static-screen{border:3px solid #d9c08a;border-radius:12px;background:linear-gradient(180deg,#10503c,#0a3527);padding:12px 14px;color:#f4efe0}
+.static-screen .s-bar{font-family:Fraunces,Georgia,serif;color:#e9d6a4;font-size:.95rem;margin-bottom:8px}
+.static-screen ul{list-style:none;margin:0 0 8px;padding:0;font-size:.78rem}
+.static-screen li{border:1px solid rgba(217,192,138,.55);border-radius:8px;padding:5px 8px;margin:5px 0;background:rgba(244,239,224,.08);display:flex;justify-content:space-between;gap:8px}
+.static-screen li b{color:#f0dfae}
+.static-screen .s-pill{background:#d9c08a;color:#0b3d2e;border-radius:6px;padding:0 8px;font-weight:700;font-size:.72rem}
+.static-screen .s-trail{font-family:ui-monospace,Menlo,monospace;font-size:.68rem;color:#cfe3d4;margin:0}
+.static-base{height:14px;margin:0 0 0;background:linear-gradient(180deg,#31473d,#1a2b24);border:1px solid #d9c08a;border-top:none;border-radius:0 0 14px 14px}
+.static-glow{position:absolute;inset:-24%;border-radius:50%;background:radial-gradient(closest-side,rgba(217,192,138,.16),rgba(217,192,138,0) 70%);pointer-events:none}
+@keyframes caDustDrift{from{background-position:0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0}to{background-position:18px -22px,-14px 16px,22px 12px,-20px -14px,12px 20px,-16px -18px,20px 14px,-10px -12px}}
+#laptop-gl{position:absolute;inset:0;width:100%;height:100%;display:block;background:transparent}
+body.webgl-off #laptop-gl{display:none}
+/* ---- scrolling content floats above the stage ---- */
+.vault-content{position:relative;z-index:1}
+.vault-nav{position:sticky;top:0;z-index:5;background:rgba(7,39,29,.82);backdrop-filter:blur(8px);border-bottom:1px solid rgba(217,192,138,.25)}
+.vault-nav .wrap{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
+.brand{color:#fff;text-decoration:none;font-weight:700}
+.vault-nav nav{display:flex;gap:4px 14px;flex-wrap:wrap;margin-left:auto}
+.vault-nav nav a{color:#e9e2cf;text-decoration:none;font-size:.92rem}
+.chamber{min-height:100vh;display:flex;align-items:center;padding:64px 0}
+.chamber .panel{background:rgba(7,39,29,.72);border:1px solid rgba(217,192,138,.35);border-radius:18px;padding:clamp(24px,4vw,48px);backdrop-filter:blur(6px)}
+.chamber .lede{color:#e7dfc8;font-size:clamp(1.02rem,1.6vw,1.2rem)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.trust-row{display:flex;gap:8px 20px;flex-wrap:wrap;margin-top:18px;color:#e7dfc8;font-size:.95rem}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.rate-line{background:rgba(217,192,138,.12);border:1px solid rgba(217,192,138,.4);border-radius:12px;padding:14px 16px;color:#f0dfae;font-weight:600}
+.rate-detail{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.rate-detail .card small{color:#41544c}
+.scroll-hint{margin-top:26px;color:#d9c08a;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase}
+.vault-footer{background:rgba(7,39,29,.9);border-top:1px solid rgba(217,192,138,.25);color:#d8cfae;padding:28px 0}
+.vault-footer a{color:#efe6cc}
+@media (max-width:860px){.grid-3,.rate-detail{grid-template-columns:1fr}}
+@media (max-width:390px){
+  body{font-size:15px}
+  .chamber{padding:48px 0}
+  .static-laptop{width:78vmin}
+  .static-screen .s-trail{font-size:.62rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .veil-ring{animation:none}
+  .static-dust{animation:none}
+  #laptop-veil{animation-duration:.8s}
+}
+</style>
+</head>
+<body>
+<noscript>
+<style>#laptop-veil{display:none!important}.vault-nav .nav-toggle{display:none!important}</style>
+</noscript>
+
+<!-- Loader: lifted by JS on the first painted frame; CSS auto-fades it after ~3s regardless. -->
+<div id="laptop-veil" aria-hidden="true">
+  <div class="veil-ring"></div>
+  <div class="veil-word">Warming up your laptop&hellip;</div>
+</div>
+
+<!-- Fixed 3D stage: CSS laptop behind, WebGL canvas above (transparent clear). -->
+<div id="laptop-stage" aria-hidden="true">
+  <div class="static-hero">
+    <div class="static-dust"></div>
+    <div class="static-laptop" role="img" aria-label="ConsentArk approval gate on a laptop">
+      <div class="static-glow"></div>
+      <div class="static-screen">
+        <div class="s-bar">ConsentArk — Approval Gate</div>
+        <ul>
+          <li><span><b>Data Clerk</b> · invoice #1042</span><span class="s-pill">Approve</span></li>
+          <li><span><b>QA Analyst</b> · checkout break</span><span class="s-pill">Approve</span></li>
+          <li><span><b>Outreach</b> · follow-up ×3</span><span class="s-pill">Approve</span></li>
+        </ul>
+        <p class="s-trail">✓ audit trail — every step written down</p>
+      </div>
+      <div class="static-base"></div>
+    </div>
+  </div>
+  <canvas id="laptop-gl" tabindex="-1"></canvas>
+</div>
+
+<div class="vault-content">
+  <div class="vault-nav">
+    <div class="wrap">
+      <a class="brand" href="index.html">ConsentArk</a>
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="workforce.html">Workforce</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="demo.html">Demo</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Chamber 1: the laptop -->
+  <section class="chamber" data-chamber="0" aria-labelledby="gate-h">
+    <div class="wrap">
+      <div class="panel">
+        <p class="eyebrow">Consent-first AI employees for small business &middot; immersive entry</p>
+        <h1 id="gate-h">Hire your first AI employee this week.</h1>
+        <p class="lede">Not a chatbot. An employee with a job, locked doors, and a paper trail: it works inside the websites you allow, <b>pauses for your approval before anything is submitted</b>, and writes down every step in plain English.</p>
+        <div class="cta-row">
+          <a class="btn" href="contact.html">See it on your own workflow — free</a>
+          <a class="btn ghost" href="workforce.html">Meet the employees</a>
+        </div>
+        <div class="trust-row">
+          <span>&#10003; Start with a free 7-day pilot on your real work</span>
+          <span>&#10003; Backed by our 30-day guarantee — hours saved or every dollar refunded</span>
+          <span>&#10003; Your data stays in your sealed appliance</span>
+          <span>&#10003; Drafts only — nothing sends without you</span>
+        </div>
+        <p class="scroll-hint">Scroll to orbit the laptop &darr;</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chamber 2: the workforce -->
+  <section class="chamber" data-chamber="1" aria-labelledby="crew-h">
+    <div class="wrap">
+      <div class="panel">
+        <p class="eyebrow">The workforce</p>
+        <h2 id="crew-h">Small, honest, and already working.</h2>
+        <p class="lede">Three employees, each with one job it does well — pausing for your approval before anything is submitted.</p>
+        <div class="grid-3">
+          <div class="card"><h3>Data Clerk</h3><p>Reads bookings, orders, and applications from wherever they arrive and enters them where they belong.</p></div>
+          <div class="card"><h3>QA Analyst</h3><p>Walks your website on a phone-sized screen like a real customer and reports breaks in plain English.</p></div>
+          <div class="card"><h3>Outreach Assistant</h3><p>Drafts short, evidence-based follow-up emails from real research. Drafts only — never sent without you.</p></div>
+        </div>
+        <div class="cta-row">
+          <a class="btn ghost" href="workforce.html">See the full workforce &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chamber 3: the rate card -->
+  <section class="chamber" data-chamber="2" aria-labelledby="rate-h">
+    <div class="wrap">
+      <div class="panel">
+        <p class="eyebrow">Rate card — founding cohort</p>
+        <h2 id="rate-h">One setup. One retainer. Nothing else.</h2>
+        <p class="rate-line">Data Clerk $500+$300 &middot; QA $750+$400 &middot; Outreach $500+$300</p>
+        <div class="rate-detail">
+          <div class="card"><h3>Data Clerk</h3><p><b>$500</b> setup + <b>$300/mo</b> retainer. <small>First-year total $4,100.</small></p></div>
+          <div class="card"><h3>QA Analyst</h3><p><b>$750</b> setup + <b>$400/mo</b> retainer. <small>First-year total $5,550.</small></p></div>
+          <div class="card"><h3>Outreach Assistant</h3><p><b>$500</b> setup + <b>$300/mo</b> retainer. <small>First-year total $4,100.</small></p></div>
+        </div>
+        <div class="trust-row">
+          <span>&#10003; Every pilot begins as a free 7-day pilot — no card on file</span>
+          <span>&#10003; Covered by the 30-day guarantee after conversion</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn" href="contact.html">Start a free 7-day pilot</a>
+          <a class="btn ghost" href="pricing.html">Full pricing details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="vault-footer">
+    <div class="wrap">
+      <p>ConsentArk — automation you can put on the stand. Prefer the classic page? <a href="index.html">Back to home</a>.</p>
+    </div>
+  </footer>
+</div>
+
+<script src="shared/laptop-3d.js" defer></script>
+</body>
+</html>

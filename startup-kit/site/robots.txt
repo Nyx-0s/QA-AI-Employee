@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://c0nsen7.xyz/sitemap.xml

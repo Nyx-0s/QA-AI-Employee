@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Website QA Report — eyemg</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", Arial, sans-serif; margin: 0; background: #f4f6f8; color: #14202b; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 40px 24px; }
+  .brand { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #0e7c66; font-weight: 700; }
+  h1 { margin: 6px 0 2px; font-size: 30px; }
+  .muted { color: #64748b; font-size: 14px; }
+  .scorebox { display: flex; gap: 16px; align-items: baseline; margin: 22px 0; }
+  .score { font-size: 54px; font-weight: 800; }
+  .card { background: #fff; border: 1px solid #dde5ec; border-radius: 12px; padding: 20px 22px; margin: 16px 0; }
+  .finding { padding: 14px 16px; border-left: 4px solid #cbd5e1; background: #f8fafc; border-radius: 0 8px 8px 0; margin: 10px 0; }
+  .sev-critical { border-color: #b91c1c; background: #fef2f2; }
+  .sev-high { border-color: #c2410c; background: #fff7ed; }
+  .sev-medium { border-color: #b45309; background: #fffbeb; }
+  .sev-low { border-color: #475569; background: #f8fafc; }
+  .sev-badge { font-size: 11px; font-weight: 800; letter-spacing: .08em; background: #14202b; color: #fff; padding: 2px 8px; border-radius: 4px; margin-right: 6px; }
+  .finding-line { font-size: 14px; margin-top: 6px; }
+  .evidence { font-size: 12.5px; color: #475569; }
+  .evidence code { background: #eef2f6; padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e2e8f0; }
+  th { background: #14202b; color: #fff; }
+  .good { color: #0e7c66; font-weight: 700; }
+  .warn { color: #b45309; font-weight: 700; }
+  .bad { color: #b91c1c; font-weight: 700; }
+  footer { margin-top: 28px; font-size: 13px; color: #64748b; }
+  footer b { color: #14202b; }
+</style>
+</head>
+<body><div class="wrap">
+  <div class="brand">ConsentArk · AI Employees</div>
+  <h1>Website QA Report — eyemg</h1>
+  <div class="muted">Generated 9/29/2026, 11:22:45 PM · 10 pages reviewed on mobile viewport (390×844)</div>
+
+  <div class="scorebox">
+    <div class="score">0<span style="font-size:20px;color:#64748b;">/100</span></div>
+    <div class="muted">
+      5 findings across 10 pages.<br>
+      Already solid: every page is mobile-ready, every page has a proper title, every form has a working submit button.
+    </div>
+  </div>
+
+  <div class="card"><h2 style="margin-top:0;font-size:19px;">What we found, in plain English</h2>
+      <div class="finding sev-high">
+        <div class="finding-head"><span class="sev-badge">HIGH</span> JavaScript errors in the browser console <span class="muted">· 10 pages</span></div>
+        <div class="finding-line"><b>Why it matters:</b> Broken interactive features on the exact pages customers use.</div>
+        <div class="finding-line"><b>Smallest fix:</b> Fix the first console error per page; the rest often cascade.</div>
+        <ul class="evidence"><li><code>https://www.eyemg.com/: Failed to load resource: the server responded with a status of 403 ()</code></li><li><code>https://www.eyemg.com/cms/web-developer-akron-canton-cleveland/index.html: Failed to load resource: the server responded with a status of 403 ()</code></li><li><code>https://www.eyemg.com/cms/why-eyemg-is-different/index.html: Failed to load resource: the server responded with a status of 403 ()</code></li><li><code>https://www.eyemg.com/cms/open-source-web/index.html: Failed to load resource: the server responded with a status of 403 ()</code></li><li><code>https://www.eyemg.com/cms/eyemg-team/index.html: Failed to load resource: the server responded with a status of 403 ()</code></li></ul>
+      </div>
+      <div class="finding sev-high">
+        <div class="finding-head"><span class="sev-badge">HIGH</span> Mixed content (http assets on https pages) <span class="muted">· 6 pages</span></div>
+        <div class="finding-line"><b>Why it matters:</b> Browsers block or warn on these — visible breakage for every customer.</div>
+        <div class="finding-line"><b>Smallest fix:</b> Serve all assets over https.</div>
+        <ul class="evidence"><li><code>https://www.eyemg.com/: http://www.eyemg.com/siteflow/images/eyemg-600x600.jpg</code></li><li><code>https://www.eyemg.com/cms/web-developer-akron-canton-cleveland/index.html: http://www.eyemg.com/siteflow/images/eyemg-600x600.jpg</code></li><li><code>https://www.eyemg.com/cms/open-source-web/index.html: http://www.eyemg.com/cms/images-general/d2929de38b33f0d9/large/open_source_logos.jpg</code></li><li><code>https://www.eyemg.com/cms/eyemg-team/index.html: http://www.eyemg.com/siteflow/images/eyemg-600x600.jpg</code></li><li><code>https://www.eyemg.com/cms/jobs/index.html: http://www.eyemg.com/cms/images-general/9924f248a1890e54/large/trap.jpg</code></li></ul>
+      </div>
+      <div class="finding sev-medium">
+        <div class="finding-head"><span class="sev-badge">MEDIUM</span> Failed or slow requests <span class="muted">· 10 pages</span></div>
+        <div class="finding-line"><b>Why it matters:</b> Missing images, scripts, or data that customers see as a broken page.</div>
+        <div class="finding-line"><b>Smallest fix:</b> Fix or remove the failing resources.</div>
+        <ul class="evidence"><li><code>https://www.eyemg.com/: HTTP 403 https://static.getclicky.com/js</code></li><li><code>https://www.eyemg.com/cms/web-developer-akron-canton-cleveland/index.html: HTTP 403 https://static.getclicky.com/js</code></li><li><code>https://www.eyemg.com/cms/why-eyemg-is-different/index.html: HTTP 403 https://static.getclicky.com/js</code></li><li><code>https://www.eyemg.com/cms/open-source-web/index.html: HTTP 403 https://static.getclicky.com/js</code></li><li><code>https://www.eyemg.com/cms/eyemg-team/index.html: HTTP 403 https://static.getclicky.com/js</code></li></ul>
+      </div>
+      <div class="finding sev-medium">
+        <div class="finding-head"><span class="sev-badge">MEDIUM</span> Tap targets smaller than 24×24 px <span class="muted">· 10 pages</span></div>
+        <div class="finding-line"><b>Why it matters:</b> On phones, customers miss taps or hit the wrong link — a common cause of abandoned calls-to-action.</div>
+        <div class="finding-line"><b>Smallest fix:</b> Give buttons and links a minimum 24×24 px touch area (44×44 px is the comfortable standard).</div>
+        <ul class="evidence"><li><code>https://www.eyemg.com/: Accessibility Screen-Reader Guide, Feedback, and Issue Repor</code></li><li><code>https://www.eyemg.com/cms/web-developer-akron-canton-cleveland/index.html: Accessibility Screen-Reader Guide, Feedback, and Issue Repor</code></li><li><code>https://www.eyemg.com/cms/why-eyemg-is-different/index.html: Home</code></li><li><code>https://www.eyemg.com/cms/open-source-web/index.html: Accessibility Screen-Reader Guide, Feedback, and Issue Repor</code></li><li><code>https://www.eyemg.com/cms/eyemg-team/index.html: Accessibility Screen-Reader Guide, Feedback, and Issue Repor</code></li></ul>
+      </div>
+      <div class="finding sev-low">
+        <div class="finding-head"><span class="sev-badge">LOW</span> Pages without a meta description <span class="muted">· 6 pages</span></div>
+        <div class="finding-line"><b>Why it matters:</b> Google invents its own snippet, which may undersell the business.</div>
+        <div class="finding-line"><b>Smallest fix:</b> Add one-sentence descriptions that match what each page offers.</div>
+        <ul class="evidence"><li><code>https://www.eyemg.com/cms/why-eyemg-is-different/index.html</code></li><li><code>https://www.eyemg.com/cms/open-source-web/index.html</code></li><li><code>https://www.eyemg.com/cms/eyemg-team/index.html</code></li><li><code>https://www.eyemg.com/cms/jobs/index.html</code></li><li><code>https://www.eyemg.com/cms/eyemg-history/index.html</code></li></ul>
+      </div>
+  </div>
+
+  <div class="card"><h2 style="margin-top:0;font-size:19px;">Page-by-page</h2>
+    <table>
+      <tr><th>Page</th><th>HTTP</th><th>JS errors</th><th>Failed requests</th><th>Broken images</th><th>Mobile viewport</th></tr>
+      <tr>
+        <td><a href="https://www.eyemg.com/">www.eyemg.com/</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="warn">4</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.eyemg.com/cms/web-developer-akron-canton-cleveland/index.html">www.eyemg.com/cms/web-developer-akron-canton-cleveland/index</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="warn">3</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.eyemg.com/cms/why-eyemg-is-different/index.html">www.eyemg.com/cms/why-eyemg-is-different/index.html</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="warn">2</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.eyemg.com/cms/open-source-web/index.html">www.eyemg.com/cms/open-source-web/index.html</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="warn">2</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.eyemg.com/cms/eyemg-team/index.html">www.eyemg.com/cms/eyemg-team/index.html</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="warn">2</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.eyemg.com/cms/hosting-colocation-akron-canton-cleveland/index.html">www.eyemg.com/cms/hosting-colocation-akron-canton-cleveland/</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="warn">2</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.eyemg.com/cms/jobs/index.html">www.eyemg.com/cms/jobs/index.html</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="warn">2</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.eyemg.com/cms/eyemg-history/index.html">www.eyemg.com/cms/eyemg-history/index.html</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="warn">2</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.eyemg.com/cms/web-design/akron-canton-cleveland-ohio/index.html">www.eyemg.com/cms/web-design/akron-canton-cleveland-ohio/ind</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="warn">2</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.eyemg.com/cms/responsive-web-design/index.html">www.eyemg.com/cms/responsive-web-design/index.html</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="warn">2</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+    </table>
+  </div>
+
+  <footer>
+    <b>How this was made:</b> a ConsentArk QA employee crawled 10 public pages of www.eyemg.com on a phone-sized screen and recorded what a real customer's browser would experience — deterministic checks only, nothing on the site was changed, and no forms were submitted. 
+    An AI employee like this can re-audit your site on a schedule and report in plain English. <b>Curious? Reply and ask for the 15-minute demo.</b>
+  </footer>
+</div></body>
+</html>

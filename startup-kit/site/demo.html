@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConsentArk — Live demo</title>
+<meta name="description" content="A 15-minute demo in five beats: the hire, the work, the pause, the receipts, the offer. No video — live on your kind of work.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0b3d2e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/style.v3.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b3d2e'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' fill='%23d9c08a' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<style>
+/* Inline critical CSS: explicit light background + dark ink, so a missing or blocked /shared/style.css never renders transparent-on-black. System font stacks keep text readable if Google Fonts is blocked. */
+html{background:#faf7ef;color:#1a2b24}
+body{background:#faf7ef;color:#1a2b24;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:Fraunces,Georgia,"Times New Roman",serif;color:#0b3d2e;line-height:1.15;margin:0 0 .5rem;font-weight:600}
+h1{font-size:clamp(2rem,5vw,3.2rem)}
+h2{font-size:clamp(1.4rem,3vw,2rem)}
+p{margin:.5rem 0 1rem}
+a{color:#145843}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.site-nav,.noscript-nav{background:#0b3d2e;color:#fff}
+.site-nav a,.noscript-nav a{color:#e9e2cf;text-decoration:none}
+.brand{color:#fff;text-decoration:none;font-weight:700}
+.hero{background:#0b3d2e;color:#f4efe0;padding:56px 0 48px}
+.hero h1{color:#fff}
+.hero .lede{color:#e7dfc8}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:700;color:#8a6d2b}
+.hero .eyebrow{color:#d9c08a}
+.btn{display:inline-block;background:#d9c08a;color:#0b3d2e;font-weight:700;text-decoration:none;padding:12px 20px;border-radius:10px;border:1px solid #d9c08a}
+.btn.ghost{background:transparent;color:#0b3d2e;border:1px solid #0b3d2e}
+.hero .btn.ghost{color:#fff;border-color:#d9c08a}
+.card{background:#fffdf6;color:#1a2b24;border:1px solid #e3d9c2;border-radius:14px;padding:22px}
+.section-paper{background:#f3eddd;color:#1a2b24;border-top:1px solid #e3d9c2;border-bottom:1px solid #e3d9c2}
+.site-footer{background:#0b3d2e;color:#d8cfae}
+.site-footer a{color:#efe6cc}
+table.rate th{background:#0b3d2e;color:#fff}
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b3d2e'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' fill='%23d9c08a' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+</head>
+<body data-root="" data-page="demo">
+<noscript>
+<style>.nav-toggle{display:none!important}</style>
+<div class="noscript-nav" style="background:#0b3d2e;color:#ffffff">
+<div class="wrap" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px">
+<a class="brand" href="/index.html" style="color:#ffffff">ConsentArk</a>
+<nav aria-label="Primary" style="display:flex;gap:16px;flex-wrap:wrap;margin-left:auto">
+<a href="/index.html" style="color:#e9e2cf">Home</a>
+<a href="/workforce.html" style="color:#e9e2cf">Workforce</a>
+<a href="/pricing.html" style="color:#e9e2cf">Pricing</a>
+<a href="/philosophy.html" style="color:#e9e2cf">Philosophy</a>
+<a href="/how-it-works.html" style="color:#e9e2cf">How it works</a>
+<a href="/demo.html" style="color:#e9e2cf">Demo</a>
+<a href="/contact.html" style="color:#e9e2cf">Contact</a>
+</nav>
+</div>
+</div>
+</noscript>
+<div class="hero"><div class="wrap">
+<p class="eyebrow">The 15-minute demo</p>
+<h1>Three things: the work, the pause, the receipts.</h1>
+<p class="lede">No recorded video — the demo is live, on your kind of work, in the same five beats every time. The prospect sees an AI employee do their kind of work, sees it stop and ask permission, and sees the audit trail.</p>
+<div class="cta-row"><a class="btn" href="contact.html">Book the demo on your workflow</a><a class="btn ghost" href="index.html">Back to home</a></div>
+</div></div>
+<section><div class="wrap">
+<ol class="beats">
+<li><strong>Beat 1 — the hire (2 min).</strong> We hire a Data Clerk in front of you with your website in its allowlist and the consent gate ON. You see the three settings: allowlist (your site only), consent gate ON, step cap. Allowlist means it can't wander; consent gate means nothing goes out without your click.</li>
+<li><strong>Beat 2 — the work (5 min).</strong> The employee does your workflow — e.g. reads a form on your site, fills a sample order, verifies each field before typing. Never a task that isn't your workflow.</li>
+<li><strong>Beat 3 — the pause (4 min).</strong> The task parks at awaiting approval. Nothing has been sent — it filled the form and stopped. This is the moment you stay in control, every time. You approve, or you don't; then we click Approve and it finishes. The gate is never turned off, even to "show it faster."</li>
+<li><strong>Beat 4 — the receipts (3 min).</strong> We open the task's audit trail and scroll it slowly: every step in plain English — what it read, what it typed, what it asked permission for, what you approved. The employee that writes its own time sheet.</li>
+<li><strong>Beat 5 — the offer (1 min).</strong> Free for 7 days on your real work. We set it up, you keep the audit trail. If it doesn't save you time, we pull it and you owe nothing.</li>
+</ol>
+</div></section>
+<div class="section-paper"><section><div class="wrap">
+<div class="section-head"><p class="eyebrow">Demo rules</p><h2>What we will and won't do.</h2></div>
+<ol class="steps">
+<li>Never demo a task that isn't your workflow.</li>
+<li>Never turn the consent gate off.</li>
+<li>Never claim a customer we don't have — "You'd be my first, which is why it's free," is stronger than a fake logo wall.</li>
+</ol>
+<div class="cta-row"><a class="btn" href="contact.html">Book the demo on your workflow</a><a class="btn ghost" href="how-it-works.html">How hiring works</a></div>
+</div></section></div>
+<script src="/shared/site.v3.js" defer></script>
+<script src="/shared/igloo-hero.v3.js" defer></script>
+</body>
+</html>

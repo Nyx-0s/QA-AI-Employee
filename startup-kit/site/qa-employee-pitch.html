@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Employee — QA Analyst | ConsentArk</title>
+<style>
+  :root {
+    --bg: #0a0b0d;
+    --bg-elev: #101216;
+    --panel: #14171c;
+    --line: #242a34;
+    --line-soft: #1c2026;
+    --text: #e8eaf0;
+    --muted: #8b93a0;
+    --muted-soft: #6b727e;
+    --accent: #b8860b;
+    --accent-light: #d4af7a;
+    --accent-soft: #8a6d2b;
+    --green: #8fae7e;
+    --white: #ffffff;
+    --font-serif: "Cormorant Garamond", "Playfair Display", "Georgia", serif;
+    --font-sans: "Inter", "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--text); font-family: var(--font-sans); }
+  body { overflow: hidden; height: 100vh; display: flex; flex-direction: column; }
+
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 28px; border-bottom: 1px solid var(--line);
+    flex-shrink: 0;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand .logo {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-serif); font-size: 18px; color: var(--bg);
+    box-shadow: 0 0 0 1px rgba(184,134,11,0.15);
+  }
+  .brand .name { font-family: var(--font-serif); font-weight: 400; font-size: 18px; letter-spacing: 1px; }
+  .brand .sub { font-size: 11px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+  .topnav { display: flex; gap: 4px; }
+  .topnav a {
+    color: var(--muted); text-decoration: none; font-size: 12px;
+    padding: 8px 10px; border-radius: 6px; font-weight: 500;
+    letter-spacing: 0.3px; transition: .15s; border: 1px solid transparent;
+  }
+  .topnav a:hover { color: var(--white); background: var(--bg-elev); }
+  .topnav a.active { color: var(--white); border-color: var(--accent-light); }
+
+  .deck { flex: 1; position: relative; overflow: hidden; background: var(--bg); }
+
+  .slide {
+    position: absolute; inset: 0; overflow: auto;
+    display: none; flex-direction: column; justify-content: center;
+    opacity: 0; transition: opacity .35s ease;
+    padding: 60px 80px 90px;
+  }
+  .slide.active { display: flex; opacity: 1; }
+  .slide .deco {
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 40%, var(--green) 100%);
+    border-radius: 3px 3px 0 0;
+  }
+  .slide .num {
+    position: absolute; top: 24px; left: 80px; font-size: 12px; color: var(--muted);
+    letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+  }
+  .kicker {
+    font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 18px; font-family: var(--font-sans);
+  }
+  .title {
+    font-family: var(--font-serif); font-size: 44px; font-weight: 400;
+    line-height: 1.15; max-width: 900px; color: var(--white); margin-bottom: 24px;
+  }
+  .sub { font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 760px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; }
+  .card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 22px; position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    border-radius: 0 4px 4px 0; opacity: .85;
+  }
+  .card .icon { font-size: 26px; margin-bottom: 10px; }
+  .card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .card p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px; text-align: center; }
+  .stat .v { font-size: 32px; font-family: var(--font-serif); font-weight: 400; color: var(--accent); line-height: 1.2; }
+  .stat .l { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 4px; }
+  .steps { display: flex; gap: 0; margin: 20px 0 8px; }
+  .steps .step {
+    flex: 1; position: relative; padding: 10px 8px; text-align: center;
+    border: 1px solid var(--line); border-radius: 10px; font-size: 12px; color: var(--muted); font-weight: 600;
+  }
+  .steps .step.active { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+  .steps .step .arrow {
+    position: absolute; top: 22%; right: -10px; font-weight: 700; color: var(--muted);
+  }
+  .steps .step.active .arrow { color: var(--bg); }
+  .footer {
+    border-top: 1px solid var(--line); padding: 14px 80px; font-size: 10px; color: var(--muted);
+    display: flex; justify-content: space-between; flex-shrink: 0;
+  }
+  .features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .features .feat { display: flex; gap: 14px; align-items: flex-start; }
+  .features .feat .mark { font-size: 20px; line-height: 1.4; color: var(--accent); }
+  .cta {
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    border-radius: 14px; padding: 32px 36px; margin-top: 28px;
+  }
+  .cta .big { font-family: var(--font-serif); font-size: 24px; font-weight: 400; color: var(--bg); }
+  .cta p { color: rgba(255,255,255,0.9); font-size: 15px; line-height: 1.7; margin-top: 8px; }
+  .pricing-table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+  .pricing-table th { background: var(--bg-elev); color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; padding: 12px; text-align: left; border-bottom: 1px solid var(--line); }
+  .pricing-table td { padding: 14px 12px; border-bottom: 1px solid var(--line-soft); }
+  .pricing-table tr:last-child td { border-bottom: none; }
+  .pricing-table .name { font-weight: 600; font-size: 14px; color: var(--text); }
+  .pricing-table .desc { font-size: 11px; color: var(--muted); }
+  .pricing-table .price { font-size: 20px; font-weight: 700; color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <div class="logo">AI</div>
+    <div>
+      <div class="name">ConsentArk</div>
+      <div class="sub">Autonomous QA Workforce</div>
+    </div>
+  </div>
+  <nav class="topnav">
+    <a href="#p1">Overview</a>
+    <a href="#p2">Problem</a>
+    <a href="#p3">The Employee</a>
+    <a href="#p4">How It Works</a>
+    <a href="#p5">Proof</a>
+    <a href="#p6">Deliverables</a>
+    <a href="#p7">Security &amp; Consent</a>
+    <a href="#p8">Pilot</a>
+    <a href="#p9">Pricing</a>
+    <a href="#p10">Contact</a>
+  </nav>
+</div>
+
+<div class="deck">
+
+  <div class="slide active" id="p1">
+    <div class="deco"></div>
+    <div class="num">01</div>
+    <div class="kicker">ConsentArk · Community Edition</div>
+    <div class="title">Hire an Employee, Not a Tool</div>
+    <p class="sub">A trained AI worker that walks your product, finds defects, and writes a plain-English report — while it asks you before anything is submitted. No software to operate. No blind trust.</p>
+    <div style="margin-top:28px; display:flex; gap:16px; flex-wrap:wrap;">
+      <div class="card" style="flex:1; min-width:170px; padding:18px;">
+        <div class="icon">🔍</div>
+        <h3>QA Analyst</h3>
+        <p>Site-walking QA staff, ready to deploy.</p>
+      </div>
+      <div class="card" style="flex:1; min-width:170px; padding:18px;">
+        <div class="icon">📋</div>
+        <h3>Audit Trail</h3>
+        <p>Every step written in plain English.</p>
+      </div>
+      <div class="card" style="flex:1; min-width:170px; padding:18px;">
+        <div class="icon">⏸️</div>
+        <h3>Ask-First Gate</h3>
+        <p>No submission, no send, without your yes.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" id="p2">
+    <div class="deco"></div>
+    <div class="num">02</div>
+    <div class="kicker">The Problem</div>
+    <div class="title">Small Teams Are Drowning<br>in Repetitive Digital Work</div>
+    <p class="sub">Every booking, re-keying, form entry, and follow-up check is attention divided across humans, chat tools, and blind automations. Too repetitive for a person, too scattered for off-the-shelf software.</p>
+    <div class="grid-3" style="margin-top:24px;">
+      <div class="card">
+        <div class="icon">🧑‍💻</div>
+        <h3>Estimating Error</h3>
+        <p>Human re-keying and spot-checks cost real money per customer.</p>
+      </div>
+      <div class="card">
+        <div class="icon">⏱️</div>
+        <h3>Attention Split</h3>
+        <p>The owner answers emails instead of growing the business.</p>
+      </div>
+      <div class="card">
+        <div class="icon">❌</div>
+        <h3>Blind Trust</h3>
+        <p>Automation tools move data on triggers you configure and trust blindly.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" id="p3">
+    <div class="deco"></div>
+    <div class="num">03</div>
+    <div class="kicker">The Product</div>
+    <div class="title">Hire an Employee, Not a Tool</div>
+    <p class="sub">The QA Employee is the QA Analyst role of ConsentArk. It has a job description, an allowlist, an approval gate, and an audit trail — just like a member of your own team.</p>
+    <div class="grid-2" style="margin-top:20px;">
+      <div class="card">
+        <div class="icon">📝</div>
+        <div>
+          <h3>Job Description</h3>
+          <p>Agreed at kickoff: walk the product, test the flows, report findings in plain English.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon">🔐</div>
+        <div>
+          <h3>Allowlist</h3>
+          <p>It works only inside the domains you name. Nothing outside the fence.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon">⏸️</div>
+        <div>
+          <h3>Ask-First Gate</h3>
+          <p>It stops and asks before anything is submitted. A human clicks to approve.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon">📄</div>
+        <div>
+          <h3>Audit Trail</h3>
+          <p>Every step timestamped and written in plain English. No black box.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" id="p4">
+    <div class="deco"></div>
+    <div class="num">04</div>
+    <div class="kicker">How It Works</div>
+    <div class="title">Deploy, Train, Watch</div>
+    <div class="steps">
+      <div class="step active">1 · Kickoff (30 min)</div>
+      <div class="step"><div class="arrow">→</div>2 · Deploy &amp; train</div>
+      <div class="step"><div class="arrow">→</div>3 · Supervised days 1–2</div>
+      <div class="step"><div class="arrow">→</div>4 · In rhythm by day 3</div>
+    </div>
+    <p class="sub" style="margin-top:14px;">Pilot live within a week of your yes. We tell you at kickoff if your workflow is outside what we've proven — so you never find out halfway through.</p>      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:16px; margin-top:20px;">
+      <div class="card"><div class="icon">🏗️</div><div style="font-weight:700;">Deploy</div><div style="font-size:13px; color:var(--muted);">Sealed appliance, one data volume per customer.</div></div>
+      <div class="card"><div class="icon">🧠</div><div style="font-weight:700;">Train</div><div style="font-size:13px; color:var(--muted);">Job description, allowlist, and rules loaded in-session.</div></div>
+      <div class="card"><div class="icon">👁️</div><div style="font-weight:700;">Supervise</div><div style="font-size:13px; color:var(--muted);">You approve before anything moves. We stay on top of it.</div></div>
+    </div>
+  </div>
+
+  <div class="slide" id="p5">
+    <div class="deco"></div>
+    <div class="num">05</div>
+    <div class="kicker">Proof, Not Demos</div>
+    <div class="title">Evidence Over Enthusiasm</div>
+    <p class="sub">We do the work before we sell it. The numbers below are from the operating record — every claim traceable to a timestamped log.</p>
+    <div class="stats">
+      <div class="stat"><div class="v">14</div><div class="l">Real outreach emails sent</div></div>
+      <div class="stat"><div class="v">53</div><div class="l">Qualified prospects verified</div>
+      <div class="stat"><div class="v">10</div><div class="l">Discovery sessions, 4 counties</div></div>
+      <div class="stat"><div class="v">52/1</div><div class="l">Quotes verified / failures caught</div></div>
+    </div>
+    <p class="sub" style="margin-top:14px;">Our own sales outreach runs through the same gates and audit trail the employee will use for you. That is not a demo. That is the product.</p>
+  </div>
+
+  <div class="slide" id="p6">
+    <div class="deco"></div>
+    <div class="num">06</div>
+    <div class="kicker">Deliverables</div>
+    <div class="title">A Defect Report You Can Act On</div>
+    <p class="sub">The QA Employee produces a reproducible report of what it saw, what broke, and what to fix — in plain English, ready for your engineering and operations teams.</p>
+    <div class="features">
+      <div class="feat"><div class="mark">✓</div><div><div style="font-weight:700;">Navigation hierarchy</div><div>Full page map of every module and route tested.</div></div></div>
+      <div class="feat"><div class="mark">✓</div><div><div><div style="font-weight:700;">Inventory summary</div><div>Per-page scan report with success, failure, and skipped counts.</div></div></div>
+      <div class="feat"><div class="mark">✓</div><div><div><div style="font-weight:700;">Per-page knowledge JSON</div><div>Screenshots, console, network, performance, and inspection evidence for each page.</div></div></div>
+      <div class="feat"><div class="mark">✓</div><div><div><div style="font-weight:700;">QA report</div><div>AI-analyzed findings with summary, risk, and remediation — HTML and JSON.</div></div></div>
+    </div>
+  </div>
+
+  <div class="slide" id="p7">
+    <div class="deco"></div>
+    <div class="num">07</div>
+    <div class="kicker">Trust Is the Product</div>
+    <div class="title">The Employee Asks. You Decide. Everything Is Written Down.</div>
+    <div class="grid-3" style="margin-top:18px;">
+      <div class="card"><div class="icon">⛔</div><div style="font-weight:700;">Consent before action</div><div style="font-size:13px; color:var(--muted);">Every submission pauses for one operator click. There is no auto-approve.</div></div>
+      <div class="card"><div class="icon">📝</div><div style="font-weight:700;">Everything is written down</div><div style="font-size:13px; color:var(--muted);">Plain-English audit trail is the spine, not an afterthought.</div></div>
+      <div class="card"><div class="icon">📦</div><div style="font-weight:700;">Your data stays in your box</div><div style="font-size:13px; color:var(--muted);">Sealed per-customer appliance. No multi-tenant cloud, no copies.</div></div>
+    </div>
+    <p class="sub" style="margin-top:14px;">When something goes wrong, the audit trail has the answer in plain English — the step where it happened, the root cause, and the fix.</p>
+  </div>
+
+  <div class="slide" id="p8">
+    <div class="deco"></div>
+    <div class="num">08</div>
+    <div class="kicker">No Risk, No Catch</div>
+    <div class="title">Free 7-Day Pilot on Your Real Work</div>
+    <p class="sub">We set everything up, train the employee on your workflow, and run it on real tasks. You keep every audit trail it produces — whether you convert or not.</p>
+    <div class="steps" style="margin-top:18px;">
+      <div class="step active">30-min kickoff</div>
+      <div class="step"><div class="arrow">→</div>Deploy &amp; train</div>
+      <div class="step"><div class="arrow">→</div>Days 1–2 supervised</div>
+      <div class="step"><div class="arrow">→</div>Day 3 in rhythm</div>
+    </div>
+    <p class="sub" style="margin-top:14px;">The employee is good at data entry, site QA, and follow-up drafting. If your workflow isn't one of those, we'll tell you before the pilot costs you anything.</p>
+  </div>
+
+  <div class="slide" id="p9">
+    <div class="deco"></div>
+    <div class="num">09</div>
+    <div class="kicker">Pricing</div>
+    <div class="title">One-Time Setup + Flat Monthly Retainer</div>
+    <p class="sub">No usage meters. No per-seat fees. No contract terms. The setup fee covers hiring and training; the retainer covers operation and supervision.</p>
+    <table class="pricing-table">
+      <tr><th>Role</th><th>What it does</th><th>Setup</th><th>Monthly</th></tr>
+      <tr>
+        <td class="name">QA Analyst</td>
+        <td class="desc">Site-walking QA staff; defect reports in plain English.</td>
+        <td class="price">$750</td><td>$400</td>
+      </tr>
+      <tr>
+        <td class="name">Data Clerk</td>
+        <td class="desc">Intake and form entry with the consent gate.</td>
+        <td class="price">$500</td><td>$300</td>
+      </tr>
+      <tr>
+        <td class="name">Outreach Assistant</td>
+        <td class="desc">Evidence-based drafts; a human presses send.</td>
+        <td class="price">$500</td><td>$300</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="slide" id="p10">
+    <div class="deco"></div>
+    <div class="num">10</div>
+    <div class="kicker">Let's Talk</div>
+    <div class="title">Hire an AI Employee<br>Before You Need One</div>
+    <p class="sub">Book a 30-minute kickoff. We'll tell you if your workflow is inside what we've proven — before you spend a dollar.</p>
+    <div class="cta">
+      <div class="big">Begin the Pilot</div>
+      <p>One sealed appliance. One data volume. One word: Q&amp;A.</p>
+    </div>
+    <div style="display:flex; gap:24px; margin-top:24px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:180px; text-align:center;"><div style="font-size:13px; color:var(--muted);">Email</div><div style="font-weight:700; font-size:15px;">hello@consentark.io</div></div>
+      <div style="flex:1; min-width:180px; text-align:center;"><div style="font-size:13px; color:var(--muted);">Walk us through</div><div style="font-weight:700; font-size:15px;">consentark.io/talk</div></div>
+    </div>
+    <div class="footer" style="padding:14px 80px;">
+      <div>ConsentArk · QA AI Employee · Community Edition</div>
+      <div>The employee asks. You decide. Everything is written down.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer" style="position:absolute; bottom:0; left:0; right:0; padding:14px 80px;">
+  <div>ConsentArk · QA AI Employee · Community Edition</div>
+  <div>The employee asks. You decide. Everything is written down.</div>
+</div>
+
+<script>
+  (function () {
+    const slides = document.querySelectorAll(".slide");
+    const navLinks = document.querySelectorAll(".topnav a");
+    const total = slides.length;
+
+    function show(i) {
+      slides.forEach((s, idx) => {
+        s.classList.toggle("active", idx === i);
+        s.style.display = idx === i ? "flex" : "none";
+      });
+      navLinks.forEach((a, idx) => a.classList.toggle("active", idx === i));
+      window.scrollTo(0, 0);
+    }
+
+    let current = 0;
+    show(0);
+
+    navLinks.forEach((a, idx) => a.addEventListener("click", (e) => {
+      e.preventDefault();
+      current = idx;
+      show(idx);
+    }));
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") { e.preventDefault(); current = (current + 1) % total; show(current); }
+      else if (e.key === "ArrowLeft" || e.key === "ArrowUp") { e.preventDefault(); current = (current - 1 + total) % total; show(current); }
+      else if (e.key === "Home") { e.preventDefault(); current = 0; show(0); }
+      else if (e.key === "End") { e.preventDefault(); current = total - 1; show(total - 1); }
+    });
+  })();
+</script>
+</body>
+</html>

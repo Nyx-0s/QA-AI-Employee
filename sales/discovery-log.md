@@ -486,3 +486,5 @@ Scope: 4 parked candidates (Cottonwood Shanty, Hotel Millersburg, Miller's Dry G
 2026-09-23 11:49 | EVIDENCE APPLIED | Black Run Farms → SENT (evidence: /Users/ruhilfuturetechnologies/Projects/QA-AI-Employee/sales/evidence-auto/2026-09-23-black-run-farm.txt); nudge due 2026-09-30
 2026-09-23 11:49 | TRANSPORT | BATCH RESULT sent=6 skipped=0 failed=0 limit=10
 2026-09-23 12:09 | TRANSPORT | NUDGE RESULT sent=14 failed=0 (holds=25)
+2026-09-28 06:43 | TRANSPORT | TRANSPORT TEST SENT to onthecontraryan@gmail.com message-id <8815f8e6-ce5a-41ca-991c-b5b5745910ff@gmail.com>
+2026-10-01 06:11 | TRANSPORT | TRANSPORT TEST FAILED to onthecontraryan@gmail.com message-id <5933f56c-0c6a-44c4-8d0d-2ecbb6c8b2ac@gmail.com>

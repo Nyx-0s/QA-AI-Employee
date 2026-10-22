@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Website QA Report — DigitalHipster</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", Arial, sans-serif; margin: 0; background: #f4f6f8; color: #14202b; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 40px 24px; }
+  .brand { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #0e7c66; font-weight: 700; }
+  h1 { margin: 6px 0 2px; font-size: 30px; }
+  .muted { color: #64748b; font-size: 14px; }
+  .scorebox { display: flex; gap: 16px; align-items: baseline; margin: 22px 0; }
+  .score { font-size: 54px; font-weight: 800; }
+  .card { background: #fff; border: 1px solid #dde5ec; border-radius: 12px; padding: 20px 22px; margin: 16px 0; }
+  .finding { padding: 14px 16px; border-left: 4px solid #cbd5e1; background: #f8fafc; border-radius: 0 8px 8px 0; margin: 10px 0; }
+  .sev-critical { border-color: #b91c1c; background: #fef2f2; }
+  .sev-high { border-color: #c2410c; background: #fff7ed; }
+  .sev-medium { border-color: #b45309; background: #fffbeb; }
+  .sev-low { border-color: #475569; background: #f8fafc; }
+  .sev-badge { font-size: 11px; font-weight: 800; letter-spacing: .08em; background: #14202b; color: #fff; padding: 2px 8px; border-radius: 4px; margin-right: 6px; }
+  .finding-line { font-size: 14px; margin-top: 6px; }
+  .evidence { font-size: 12.5px; color: #475569; }
+  .evidence code { background: #eef2f6; padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e2e8f0; }
+  th { background: #14202b; color: #fff; }
+  .good { color: #0e7c66; font-weight: 700; }
+  .warn { color: #b45309; font-weight: 700; }
+  .bad { color: #b91c1c; font-weight: 700; }
+  footer { margin-top: 28px; font-size: 13px; color: #64748b; }
+  footer b { color: #14202b; }
+</style>
+</head>
+<body><div class="wrap">
+  <div class="brand">ConsentArk · AI Employees</div>
+  <h1>Website QA Report — DigitalHipster</h1>
+  <div class="muted">Generated 9/29/2026, 11:22:07 PM · 10 pages reviewed on mobile viewport (390×844)</div>
+
+  <div class="scorebox">
+    <div class="score">0<span style="font-size:20px;color:#64748b;">/100</span></div>
+    <div class="muted">
+      4 findings across 10 pages.<br>
+      Already solid: every page is mobile-ready, every page has a proper title, every form has a working submit button, no mixed-content warnings.
+    </div>
+  </div>
+
+  <div class="card"><h2 style="margin-top:0;font-size:19px;">What we found, in plain English</h2>
+      <div class="finding sev-high">
+        <div class="finding-head"><span class="sev-badge">HIGH</span> JavaScript errors in the browser console <span class="muted">· 10 pages</span></div>
+        <div class="finding-line"><b>Why it matters:</b> Broken interactive features on the exact pages customers use.</div>
+        <div class="finding-line"><b>Smallest fix:</b> Fix the first console error per page; the rest often cascade.</div>
+        <ul class="evidence"><li><code>https://digitalhipsterinc.com/: requestStorageAccess: Permission denied.</code></li><li><code>https://digitalhipsterinc.com/contact-us: requestStorageAccess: Permission denied.</code></li><li><code>https://digitalhipsterinc.com: requestStorageAccess: Permission denied.</code></li><li><code>https://digitalhipsterinc.com/#: requestStorageAccess: Permission denied.</code></li><li><code>https://digitalhipsterinc.com/about-us: requestStorageAccess: Permission denied.</code></li></ul>
+      </div>
+      <div class="finding sev-medium">
+        <div class="finding-head"><span class="sev-badge">MEDIUM</span> Failed or slow requests <span class="muted">· 7 pages</span></div>
+        <div class="finding-line"><b>Why it matters:</b> Missing images, scripts, or data that customers see as a broken page.</div>
+        <div class="finding-line"><b>Smallest fix:</b> Fix or remove the failing resources.</div>
+        <ul class="evidence"><li><code>https://digitalhipsterinc.com/: POST https://www.google-analytics.com/g/collect?v=2&amp;tid=G-P1VKZBGJEY&amp;gtm=45be69s0v9263011675za200zb9178668087zd9178668087xf1&amp;_p=1790704329534&amp;em=tv.1~em.hW2AP0cJSwH-0Pw7KkC0uQ--OLsNyQdlO0eA2Z5-R4s&amp;gcs=G100&amp;gcd=13p3p3p3p5l1&amp;npa=1&amp;dma_cps=-&amp;dma=0&amp;gdid=dMmRkYz&amp;ecid=74411573&amp;_eu=AAAAAGAC&amp;are=1&amp;cid=1551039588.1790704331&amp;ec_mode=a&amp;frm=0&amp;pscdl=denied&amp;rcb=11&amp;sr=390x844&amp;uaa=arm&amp;uab=64&amp;uafvl=HeadlessChrome%3B149.0.7827.55%7CChromium%3B149.0.7827.55%7CNot)A%253BBrand%3B24.0.0.0&amp;uam=&amp;uamb=0&amp;uap=Android&amp;uapv=10&amp;uaw=0&amp;ul=en-us&amp;gaf=2&amp;_s=1&amp;tag_exp=115938466~115938468~118897920~118897930~120213116~120385423~120469145~120469153&amp;sid=1790704330&amp;sct=1&amp;seg=0&amp;dl=https%3A%2F%2Fdigitalhipsterinc.com%2F&amp;dt=Akron%E2%80%99s%20Leading%20Digital%20Marketing%20Agency%20%7C%20DigitalHipster%20Inc.&amp;en=page_view&amp;_fv=1&amp;_ss=1&amp;_ee=1&amp;tfd=2874 — net::ERR_ABORTED</code></li><li><code>https://digitalhipsterinc.com/contact-us: HTTP 401 https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a42cd75ec992ecb1/1790704343221/91533eee3323f7773572954bd32f36849a056e04a9a3d10fdf6947d55f3948d7/.N8VBoWQrV8G8udZgHgxeSXiyo_72Ri4r.cR2qsdQTg-1790704343-1.3.1.1-P9DUtXtEXlKXGkCL4qYW_7krP3yLrkJl9xeUGC0oEk5SZBGG.mvDQpr.MxaHB1alsurtM9GvLJ6qFgmJHyfezgSf63WZEbV1ZpDmFtb_1UhRL6wmYmU3Y6FLYcpy0p7Q4PM_JWBt4T9yffYA0dBJl5NGazoa4etusjA23gGJwI609HwAQcvlLXvddXIIWW3MxFPeAm8z.EIK95RxmWIqSnzVl9clCh5uSJM51R2mpxKF9vyjQigP7Mbbwi4yySLJeaWNFvnobZoxvlyRUVCCJjccxnrHLGrAjejq2Sv3al.FsnEfHAtwKSB48RkMKYOxcogO8_m3wIDvyohuPuxkpjs_OQ6lSaeWkDWStrUv0STrONsL6o6n1VR83EoG.CUD14wOBCQSXrfY04aPfKrNl7V5tFu3vzeMAC5C5ggjROtfr3PQ1kKL3jraPAVX9V5egcHY8grYcSJHTRnm_dzuAs5_E4.9k7fWX7GtI6X7.JCG2Kzkqzy5lFV8jkRwLNpgs5yvEVipZ_kzdQMeO9_2glkxljzGeCR7OY5ArXhGO0SseO2vE3YFGsitqQi6uV4syoRRXVXZVQ_ABXRIszyPUjsCmVJaOeuawwoEO218Shlz5DtYjYiW0DzUVHwrQoShJ_ElL57VfaAO56IO87Sfhs.uxh.Qzqr1eUSmPHSkP80HShGjO0l4.8DZoEuaE7AVyHzsl5Qm9hBaW51yYtMoyMz96aBKn8Ru7nuHfoMuOx05JcQ5_utuK6ItQuNdgjd_FibSiybEj5Cl_FoSvJ7dLjzdGCL8eQ51TQKlGuos.WGhIbji37QgROHKbMtKR15abI7Qj.MuOslwXON2UIQlUQ</code></li><li><code>https://digitalhipsterinc.com: GET https://hagen.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a42cd76e2bd8ecb1/yBYXKQw_HAj_oLeCZgASLDNKTIYM37Xnm4.U.t9CyBk-1790704345-1.2.1.1-NuJ9FAUnwkhJka.pLP4sHt_.BJqI2fFCsCA16te9tHmj7ssXTF9Ao4UszHGOBR9s — net::ERR_ABORTED</code></li><li><code>https://digitalhipsterinc.com/#: GET https://hagen.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a42cd77719d9ecb1/qJ9phZRlx8U4EnisUXlBg9HBsJdnY62aU2TJIAOPp9U-1790704346-1.2.1.1-R7tly4HMz8soiYFo.HPJA4UMC5.SpB8ZcQjG0wWCWnGduid0FDkE2I7gijOhQN3t — net::ERR_ABORTED</code></li><li><code>https://digitalhipsterinc.com/clients: POST https://www.google-analytics.com/g/collect?v=2&amp;tid=G-XQ1SE5G58V&amp;gtm=45be69s0v9263011675za200zb9178668087zd9178668087xf1&amp;_p=1790704344642&amp;gcs=G100&amp;gcd=13p3p3p3p5l1&amp;npa=1&amp;dma_cps=-&amp;dma=0&amp;gdid=dMmRkYz&amp;are=1&amp;cid=1231548401.1790704345&amp;frm=0&amp;ngs=1&amp;pscdl=denied&amp;rcb=9&amp;sr=390x844&amp;uaa=arm&amp;uab=64&amp;uafvl=HeadlessChrome%3B149.0.7827.55%7CChromium%3B149.0.7827.55%7CNot)A%253BBrand%3B24.0.0.0&amp;uam=&amp;uamb=0&amp;uap=Android&amp;uapv=10&amp;uaw=0&amp;ul=en-us&amp;_s=1&amp;tag_exp=115938466~115938469~118897920~118897930~120213116~120385422~120469145~120469153~121280970&amp;sid=1790704344&amp;sct=1&amp;seg=0&amp;dl=https%3A%2F%2Fdigitalhipsterinc.com%2Fclients%2F&amp;dt=Brands%20Helped%3A%20Web%20Design%2C%20Video%20%26%20Digital%20Marketing-%20Cleveland%20%26%20Akron&amp;en=page_view&amp;_fv=1&amp;_nsi=1&amp;_ss=1&amp;_ee=1&amp;tfd=2728 — net::ERR_ABORTED</code></li></ul>
+      </div>
+      <div class="finding sev-medium">
+        <div class="finding-head"><span class="sev-badge">MEDIUM</span> Tap targets smaller than 24×24 px <span class="muted">· 9 pages</span></div>
+        <div class="finding-line"><b>Why it matters:</b> On phones, customers miss taps or hit the wrong link — a common cause of abandoned calls-to-action.</div>
+        <div class="finding-line"><b>Smallest fix:</b> Give buttons and links a minimum 24×24 px touch area (44×44 px is the comfortable standard).</div>
+        <ul class="evidence"><li><code>https://digitalhipsterinc.com/: Read more…</code></li><li><code>https://digitalhipsterinc.com: Read more…</code></li><li><code>https://digitalhipsterinc.com/#: Read more…</code></li><li><code>https://digitalhipsterinc.com/about-us: 330-331-7189</code></li><li><code>https://digitalhipsterinc.com/clients: Social Media</code></li></ul>
+      </div>
+      <div class="finding sev-low">
+        <div class="finding-head"><span class="sev-badge">LOW</span> Pages without a meta description <span class="muted">· 1 page</span></div>
+        <div class="finding-line"><b>Why it matters:</b> Google invents its own snippet, which may undersell the business.</div>
+        <div class="finding-line"><b>Smallest fix:</b> Add one-sentence descriptions that match what each page offers.</div>
+        <ul class="evidence"><li><code>https://digitalhipsterinc.com/digital-digest-newsletter</code></li></ul>
+      </div>
+  </div>
+
+  <div class="card"><h2 style="margin-top:0;font-size:19px;">Page-by-page</h2>
+    <table>
+      <tr><th>Page</th><th>HTTP</th><th>JS errors</th><th>Failed requests</th><th>Broken images</th><th>Mobile viewport</th></tr>
+      <tr>
+        <td><a href="https://digitalhipsterinc.com/">digitalhipsterinc.com/</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="warn">3</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://digitalhipsterinc.com/contact-us">digitalhipsterinc.com/contact-us</a></td>
+        <td>200</td>
+        <td class="bad">3</td>
+        <td class="warn">7</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://digitalhipsterinc.com">digitalhipsterinc.com</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="warn">3</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://digitalhipsterinc.com/#">digitalhipsterinc.com/#</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="warn">4</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://digitalhipsterinc.com/about-us">digitalhipsterinc.com/about-us</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="good">0</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://digitalhipsterinc.com/clients">digitalhipsterinc.com/clients</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="warn">3</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://digitalhipsterinc.com/current-employment">digitalhipsterinc.com/current-employment</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="good">0</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://digitalhipsterinc.com/blog">digitalhipsterinc.com/blog</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="warn">3</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://digitalhipsterinc.com/digital-digest-newsletter">digitalhipsterinc.com/digital-digest-newsletter</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="good">0</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+      <tr>
+        <td><a href="https://digitalhipsterinc.com/logo-design">digitalhipsterinc.com/logo-design</a></td>
+        <td>200</td>
+        <td class="bad">1</td>
+        <td class="warn">4</td>
+        <td class="good">0</td>
+        <td class="good">yes</td>
+      </tr>
+    </table>
+  </div>
+
+  <footer>
+    <b>How this was made:</b> a ConsentArk QA employee crawled 10 public pages of digitalhipsterinc.com on a phone-sized screen and recorded what a real customer's browser would experience — deterministic checks only, nothing on the site was changed, and no forms were submitted. 
+    An AI employee like this can re-audit your site on a schedule and report in plain English. <b>Curious? Reply and ask for the 15-minute demo.</b>
+  </footer>
+</div></body>
+</html>
